@@ -1,6 +1,8 @@
 import React from 'react';
 import './Menu.css';
-import pizza from '../Assets/pizza.jpg'
+import pizza from '../Assets/pizza.jpg';
+import rollups from '../Assets/rollups.png';
+import FoodCard from '../FoodCard/FoodCard';
 
 const Menu = () => {
     return (
@@ -54,8 +56,9 @@ const Menu = () => {
                 <div className='menu_title'>
                     Roll Ups
                 </div>
-            </div>
-            
+                <img className='menu_title_icon' src={rollups} alt="" />
+            </div> 
+            <FoodCard />           
         </div>
     );
 };
