@@ -100,3 +100,56 @@
     border: 1px solid white;
     cursor:pointer;
 }
+
+input {
+    text-align: center;  
+    border: 1px solid #6C757D;
+  } 
+  
+  input[type="number"] {
+    -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+    }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  
+  .wrapper {
+    margin-left: 130px;
+    /* border: 2px white solid; */
+    width: 70px;
+    height: 25px;
+    /* padding: 10px; */
+    display: flex;
+    border-radius: 15px;
+  }
+  
+  .plusminus {
+    height: 100%;
+    width: 30px;
+    background: white;
+    border: none;
+    font-size: 15px;
+    color: #5f5fce;
+    /* border-radius: 15px; */
+  }
+
+  .plusminus.minus {
+    border-top-left-radius: 15px ;
+    border-bottom-left-radius: 15px ;
+  }
+
+  .plusminus.plus {
+    border-top-right-radius: 15px ;
+    border-bottom-right-radius: 15px ;
+  }
+  
+  .num {
+    height: 100%;
+    width: 25px;
+    border: none;
+    font-size: 15px;
+  }
