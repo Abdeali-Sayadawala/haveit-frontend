@@ -25,8 +25,14 @@
     height: 200px;
     border-radius: 20px;
     scroll-snap-align: start;
+    transition: transform .2s;
     scroll-snap-stop: var(--stop);
     font-size: 1.5rem;
+}
+
+.scroll__item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .scroll__item img {
@@ -47,7 +53,6 @@
     position: absolute;
     text-align: center;
     bottom: 15px;
-    left: 5px;
     color: var(--blue);
     font-size: 35px;
 }
@@ -63,7 +68,6 @@
 @media (max-width: 996px) {
     .scroll__item span {
         font-size: 35px;
-        left: 1px;
     }
 
     .categories_label {
