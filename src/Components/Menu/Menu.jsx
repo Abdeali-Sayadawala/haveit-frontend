@@ -50,9 +50,12 @@ const Menu = () => {
                     <span>Sides</span>
                 </div>
             </div>
-            <div className='menu_title'>
-                Roll Ups
+            <div className = 'menu_border'>
+                <div className='menu_title'>
+                    Roll Ups
+                </div>
             </div>
+            
         </div>
     );
 };
