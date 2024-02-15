@@ -58,7 +58,8 @@ const Menu = () => {
                 </div>
                 <img className='menu_title_icon' src={rollups} alt="" />
             </div> 
-            <FoodCard />           
+            <FoodCard itemData={{item_id: '1'}}/>   
+            <FoodCard itemData={{item_id: '2'}}/>          
         </div>
     );
 };

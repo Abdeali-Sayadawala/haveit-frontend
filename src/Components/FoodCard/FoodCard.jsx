@@ -1,7 +1,25 @@
 import React from 'react';
 import './FoodCard.css';
 
-const FoodCard = () => {
+const FoodCard = ({itemData}) => {
+
+    const itemAdd = (event) => {
+        const food_id = event.target.id.split('_')[1];
+        const item_input = document.getElementById('fooditem_' + food_id).value;
+        document.getElementById('fooditem_' + food_id).value = parseInt(item_input)+1;
+        
+    }
+
+    const itemMinus = (event) => {
+        const food_id = event.target.id.split('_')[1];
+        const item_input = document.getElementById('fooditem_' + food_id).value;
+        if (item_input > 0) {
+            document.getElementById('fooditem_' + food_id).value = parseInt(item_input)-1;
+          } else {
+            document.getElementById('fooditem_' + food_id).value = 0;
+          }
+    }
+
     return (
         <div className="food-card">
         <div className="food-card_img">
@@ -25,10 +43,10 @@ const FoodCard = () => {
                     <div className="food-card_price">
                         <span>250 Rs.</span>
                     </div>
-                    <div class="wrapper">
-                        <button class="plusminus minus" >-</button>
-                        <input type="number" class="num" value="0" />
-                        <button class="plusminus plus" >+</button>
+                    <div className="wrapper">
+                        <button id={'foodminus_'+itemData.item_id} className="plusminus minus" onClick={itemMinus} >-</button>
+                        <input id={'fooditem_'+itemData.item_id} type="number" className="num" value="0" />
+                        <button id={'foodadd_'+itemData.item_id} className="plusminus plus" onClick={itemAdd} >+</button>
                     </div>
                 </div>
             </div>
