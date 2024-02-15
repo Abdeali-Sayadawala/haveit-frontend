@@ -15,7 +15,7 @@ const FoodCard = () => {
             <div className="food-card_bottom-section">
                 <div className="space-between_desc">
                     <div className='description'>
-                        220 - 280 Kcal
+                        Classic crust topped with tomato sauce, exclusive pepperoni, Most favourite around the world.
                     </div>
                     <div className="pull-right">
                         <span className="badge badge-success"></span>
