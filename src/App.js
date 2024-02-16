@@ -1,5 +1,6 @@
 import Menu from './Components/Menu/Menu';
 import Navigation from './Components/Navigation/Navigation';
+import React from 'react';
 
 function App() {
   return (
