@@ -28,7 +28,7 @@ const Navigation = () => {
             <header className="header">
                 <a href="/" className="logo">Have<span className="blue">It!</span></a>
                 <nav className="navbar">
-                    <a href="#" onClick={CloseNav}>Menu</a>
+                    <a href="#menu" onClick={CloseNav}>Menu</a>
                     <a href="#address" onClick={CloseNav} >Address</a>
                     <a href="#contact" onClick={CloseNav} >Contact Us</a>
                 </nav>
