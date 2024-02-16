@@ -74,7 +74,7 @@
 }
 
 .categories_label {
-    margin: 10rem auto 0;
+    margin: 3rem auto 0;
     margin-left: 3rem;
     font-size: 45px;
     font-weight: bolder;
@@ -143,3 +143,42 @@
     flex-wrap: wrap;
     margin-top: 80px;
 }
+
+@media (max-width: 996px) {
+    .foodCard_wrapper {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 5%;
+    right: 6%;
+    background-color: var(--blue);
+    padding: 0.8rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    animation: grow 1s linear infinite alternate;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .scroll-top img {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  @keyframes grow {
+    0% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .scroll-top.show {
+    display: block;
+  }
+  
