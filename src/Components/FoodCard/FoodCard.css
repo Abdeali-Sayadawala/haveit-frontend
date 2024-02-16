@@ -4,9 +4,9 @@
     border-radius: 5px;
     display: flex;
     overflow: hidden;
-    margin-top: 80px;
-    margin-left: 10px;
-    margin-bottom: 30px;
+    /* margin-top: 80px;
+    margin-bottom: 30px; */
+    margin-left: 20px;
     width: 600px;
     height: 200px;
     -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
