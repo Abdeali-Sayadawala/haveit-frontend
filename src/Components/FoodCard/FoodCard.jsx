@@ -28,12 +28,12 @@ const FoodCard = ({itemData}) => {
         </div>
         <div className="food-card_content">
             <div className="food-card_title-section">
-                <a href="#!" className="food-card_title">Double Cheese Potato Burger</a>
+                <a href="#!" className="food-card_title">{itemData.item_name}</a>
             </div>
             <div className="food-card_bottom-section">
                 <div className="space-between_desc">
                     <div className='description'>
-                        Classic crust topped with tomato sauce, exclusive pepperoni, Most favourite around the world.
+                    {itemData.item_desc}
                     </div>
                     <div className="pull-right">
                         <span className="badge badge-success"></span>
@@ -41,7 +41,7 @@ const FoodCard = ({itemData}) => {
                 </div>
                 <div className="space-between">
                     <div className="food-card_price">
-                        <span>250 Rs.</span>
+                        <span>{itemData.item_price} Rs.</span>
                     </div>
                     <div className="wrapper">
                         <button id={'foodminus_'+itemData.item_id} className="plusminus minus" onClick={itemMinus} >-</button>
