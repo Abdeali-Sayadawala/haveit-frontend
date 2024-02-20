@@ -38,6 +38,11 @@ display: none;
   margin-right: 1rem;
 }
 
+.navbar a.active {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
 .navbar a:hover {
   color: var(--blue);
   border-color: var(--blue);
