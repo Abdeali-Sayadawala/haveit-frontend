@@ -4,8 +4,8 @@
     border-radius: 5px;
     display: flex;
     overflow: hidden;
-    /* margin-top: 80px;
-    margin-bottom: 30px; */
+    margin-top: 20px;
+    /* margin-bottom: 30px; */
     margin-left: 20px;
     width: 600px;
     height: 200px;
@@ -17,7 +17,6 @@
 
 @media (max-width: 996px) {
     .food-card {
-        margin-top: 30px;
         width: 370px;
         height: 180px;
         margin-left: auto;

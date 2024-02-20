@@ -153,13 +153,12 @@
 
 .scroll-top {
     position: fixed;
-    bottom: 5%;
+    bottom: 12%;
     right: 6%;
     background-color: var(--blue);
     padding: 0.8rem;
     border-radius: 1rem;
     box-shadow: var(--box-shadow);
-    animation: grow 1s linear infinite alternate;
     cursor: pointer;
     display: none;
   }

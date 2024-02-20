@@ -2,9 +2,13 @@ import React from 'react';
 import './Menu.css';
 import pizza from '../Assets/pizza.jpg';
 import rollups from '../Assets/rollups.png';
-import FoodCard from '../FoodCard/FoodCard';
+import FoodCard from '../miniComponents/FoodCard/FoodCard';
+import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
+import upArrow from '../Assets/up-arrow.svg';
 
 const Menu = () => {
+
+    const [cartItem, setCartItem] = React.useState(0);
 
     const scrollToTop = (event) => {
         window.scrollTo({
@@ -102,9 +106,11 @@ const Menu = () => {
                 <FoodCard itemData={{item_id: '8', item_name: 'Italian Pasta', item_desc: 'Mix of tomato, alfredo, resto and italiano, flavour enhancer.', item_price: '130'}}/>
                 <FoodCard itemData={{item_id: '9', item_name: 'Hot and Spicy Pasta', item_desc: 'Fiery and spicy, chilli peppers, hot sauces, BOLD and FLAMING', item_price: '110'}}/>
             </div>
+            <SimpleBottomNavigation />
             <div className="scroll-top" onClick={scrollToTop}>
-                <img src="" alt="" />
-            </div>          
+                <img src={upArrow} alt="" />
+            </div> 
+                     
         </div>
     );
 };
