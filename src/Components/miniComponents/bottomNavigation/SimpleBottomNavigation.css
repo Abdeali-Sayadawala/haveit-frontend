@@ -1,0 +1,27 @@
+.css-qxh7fn {
+    position: fixed;
+    bottom:0px;
+    width: 100% !important;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.css-16lloyr-MuiBottomNavigation-root {
+    background: var(--bg-superdarkgrey) !important;
+    height: 100% !important;
+}
+
+.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
+    color: white !important;
+    max-width: 100% !important;
+}
+
+.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
+    background: var(--blue) !important;
+}
+
+@media (min-width: 996px) {
+    .css-qxh7fn {
+        display: none;
+    }
+}
