@@ -5,6 +5,7 @@ import rollups from '../Assets/rollups.png';
 import FoodCard from '../miniComponents/FoodCard/FoodCard';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
 import upArrow from '../Assets/up-arrow.svg';
+import CartDetails from '../miniComponents/CartDetails/CartDetailing';
 
 const Menu = () => {
 
@@ -35,7 +36,7 @@ const Menu = () => {
     }
 
     return (
-        <div>
+        <div className='main_class'>
             <div className='categories_label'>
                 Categories
             </div>
@@ -110,6 +111,10 @@ const Menu = () => {
             <div className="scroll-top" onClick={scrollToTop}>
                 <img src={upArrow} alt="" />
             </div> 
+            <div className='cart_details'>
+            <CartDetails />
+            </div>
+            
                      
         </div>
     );
