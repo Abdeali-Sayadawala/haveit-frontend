@@ -1,6 +1,7 @@
 import React from 'react';
 import hamburger from '../Assets/icons8-hamburger-192.png'
 import './Navigation.css';
+import { NavLink } from 'react-router-dom';
 // import NavigationScript from './NavigationScript.js';
 
 const Navigation = () => {
@@ -12,7 +13,6 @@ const Navigation = () => {
 
     const CloseNav = (event) => {
         const navbar = document.querySelector(".navbar");
-        event.preventDefault();
 
         let position = event.offsetTop - 90;
         window.scrollTo({
@@ -21,6 +21,8 @@ const Navigation = () => {
             behavior: 'smooth',
           });
         navbar.classList.remove('show');
+
+        return true;
     }
 
     return (
@@ -28,9 +30,9 @@ const Navigation = () => {
             <header className="header">
                 <a href="/" className="logo">Have<span className="blue">It!</span></a>
                 <nav className="navbar">
-                    <a href="#menu" onClick={CloseNav}>Menu</a>
-                    <a href="#address" onClick={CloseNav} >Address</a>
-                    <a href="#contact" onClick={CloseNav} >Contact Us</a>
+                    <NavLink to="/menu" onClick={CloseNav}>Menu</NavLink>
+                    <NavLink to="/address" onClick={CloseNav} >Address</NavLink>
+                    <NavLink to="/contact" onClick={CloseNav} >Contact Us</NavLink>
                 </nav>
                 <div className="hamburger" onClick={toggleNav}>
                     <img src={hamburger} alt="" />
