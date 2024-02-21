@@ -80,6 +80,6 @@
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color: var(--blue);
+    color: var(--blue) !important;
     font-size: 10px;
 }

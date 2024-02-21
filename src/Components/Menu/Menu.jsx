@@ -178,9 +178,6 @@ const Menu = () => {
             <div className="scroll-top" onClick={scrollToTop}>
                 <img src={upArrow} alt="" />
             </div> 
-            <div className='cart_details'>
-            <CartDetails />
-            </div>
             
                      
         </div>
