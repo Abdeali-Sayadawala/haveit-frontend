@@ -1,6 +1,5 @@
 .main_class{
-    position: absolute;
-    width: 900px;
+    width: 70%;
 }
 
 .scroll {
@@ -187,20 +186,16 @@
   }
  
 .cart_details{
-    /* width: 70%; */
-    /* left: 20%; */
-    /* height: 80%; */
-    /* margin-right: 20%; */
-    border-left: 1px solid black;
-    height: 100px;
+    width: 30%;
+    /* border-left: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: -300px;
-    top: 10px;
-    height: 800px;
+    align-items: center; */
+    /* position: fixed; */
+    /* right: -100px;
+    top: 10px;  */
+    height: 100%;
     color: var(--blue);
     border: solid;
 }
