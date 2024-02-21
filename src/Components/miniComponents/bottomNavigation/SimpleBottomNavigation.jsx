@@ -10,6 +10,18 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
 
+  const [totalCount, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (localStorage.getItem('cartItems') === null) {
+      setCount(0);
+    }else{
+      setCount(JSON.parse(localStorage.getItem('cartItems')).totalCount);
+    }
+  }, []);
+
+  console.log("totalCount", totalCount);
+
   return (
     <Box sx={{ width: 500 }}>
       <BottomNavigation
@@ -19,8 +31,8 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Menu" icon={<MenuBookRoundedIcon fontSize="large" style={{ color: 'white' }} />} />
-        <BottomNavigationAction label="Cart" icon={<Badge badgeContent={4} color="success"><ShoppingCartRoundedIcon fontSize="large" style={{ color: 'white' }} /></Badge>} />
+        <BottomNavigationAction label="Menu" icon={<MenuBookRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} />} />
+        <BottomNavigationAction label="Cart" icon={<Badge badgeContent={totalCount} color="success"><ShoppingCartRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} /></Badge>} />
       </BottomNavigation>
     </Box>
   );
