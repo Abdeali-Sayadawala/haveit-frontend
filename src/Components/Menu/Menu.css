@@ -1,3 +1,8 @@
+.main_class{
+    position: absolute;
+    width: 900px;
+}
+
 .scroll {
     display: flex;
     /* background: var(--bg-superdarkgrey); */
@@ -180,4 +185,25 @@
   .scroll-top.show {
     display: block;
   }
-  
+ 
+.cart_details{
+    /* width: 70%; */
+    /* left: 20%; */
+    /* height: 80%; */
+    /* margin-right: 20%; */
+    border-left: 1px solid black;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -300px;
+    top: 10px;
+    height: 800px;
+    color: var(--blue);
+    border: solid;
+}
+    .column {
+        flex: 1;
+    }
