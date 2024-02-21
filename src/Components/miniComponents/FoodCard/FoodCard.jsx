@@ -3,11 +3,52 @@ import './FoodCard.css';
 
 const FoodCard = ({itemData}) => {
 
+    const cartItemUpdate = (action, itemIdPrp) => {
+        const badgeList = document.getElementsByClassName("MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorSuccess");
+        var cartItems;
+        var totalCount;
+        if (localStorage.getItem('cartItems') === null) {
+            cartItems = {item: {}, totalCount: 0};
+            totalCount = 0;
+        }else {
+            cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            totalCount = cartItems.totalCount;
+        }
+
+        if (action === 'add') {
+            if (cartItems.item[itemIdPrp] === undefined){
+                cartItems.item[itemIdPrp] = 1;
+            }else {
+                cartItems.item[itemIdPrp] = cartItems.item[itemIdPrp] + 1;
+            }
+            totalCount = totalCount + 1;
+            cartItems.totalCount = totalCount;
+        }
+
+        if (action === 'min') {
+            if (cartItems.item[itemIdPrp] === undefined || cartItems.item[itemIdPrp] === 0){
+                cartItems.item[itemIdPrp] = 0;
+            }else{
+                cartItems.item[itemIdPrp] = cartItems.item[itemIdPrp] - 1;
+                totalCount = totalCount - 1;
+                cartItems.totalCount = totalCount;
+            }
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        badgeList[0].innerHTML = totalCount;
+        if (totalCount === 0){
+            badgeList[0].classList.add('MuiBadge-invisible');
+        }else {
+            badgeList[0].classList.remove('MuiBadge-invisible');
+        }
+        
+    }
+
     const itemAdd = (event) => {
         const food_id = event.target.id.split('_')[1];
         const item_input = document.getElementById('fooditem_' + food_id).value;
         document.getElementById('fooditem_' + food_id).value = parseInt(item_input)+1;
-        
+        cartItemUpdate('add', food_id.toString());
     }
 
     const itemMinus = (event) => {
@@ -15,6 +56,7 @@ const FoodCard = ({itemData}) => {
         const item_input = document.getElementById('fooditem_' + food_id).value;
         if (item_input > 0) {
             document.getElementById('fooditem_' + food_id).value = parseInt(item_input)-1;
+            cartItemUpdate('min', food_id.toString());
           } else {
             document.getElementById('fooditem_' + food_id).value = 0;
           }
