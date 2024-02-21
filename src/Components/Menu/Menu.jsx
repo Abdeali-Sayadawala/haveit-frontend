@@ -8,8 +8,6 @@ import upArrow from '../Assets/up-arrow.svg';
 
 const Menu = () => {
 
-    const [cartItem, setCartItem] = React.useState(0);
-
     const scrollToTop = (event) => {
         window.scrollTo({
                 left: 0,
@@ -17,6 +15,75 @@ const Menu = () => {
                 behavior: "smooth",
             });
     }
+
+    const [menu, setMenu] = React.useState("");
+
+    const foodData = {
+        473: {
+            catName: "Roll Ups",
+            item: [{
+                id: '1',
+                name: 'Regular Roll Paneer Roll',
+                desc: 'Popular Indian street food, filled with spices.',
+                price: '135'
+            },
+            {
+                id: '2',
+                name: 'Regular Roll Chicken Roll',
+                desc: 'Popular Indian street food, filled with spices.',
+                price: '120'
+            },
+            {
+                id: '3',
+                name: 'Malai tikka Paneer Roll',
+                desc: 'Typically made with cream/malai, serves a mouth melting delicacy',
+                price: '140'
+            },
+            {
+                id: '4',
+                name: 'Malai tikka Chicken Roll',
+                desc: 'Typically made with cream/malai, serves a mouth melting delicacy',
+                price: '130'
+            }]
+        },
+        474: {
+            catName: "Roll Ups",
+            item: [{
+                id: '5',
+                name: 'Creamy Pasta',
+                desc: 'Rich and creamy texture, roasted veggies, buttery, loaded with cheese.',
+                price: '120'
+            },
+            {
+                id: '6',
+                name: 'Peri Peri Pasta',
+                desc: 'Tossed in Peri Peri chilli sauce, Zesty and spicy, taste you will remember.',
+                price: '110'
+            },
+            {
+                id: '7',
+                name: 'Pink Sauce Pasta',
+                desc: "Pink Pasta also known as 'ROSA sauce', creamy tomato based pasta.",
+                price: '120'
+            },
+            {
+                id: '8',
+                name: 'Italian Pasta',
+                desc: 'Mix of tomato, alfredo, resto and italiano, flavour enhancer.',
+                price: '130'
+            },
+            {
+                id: '9',
+                name: 'Hot and Spicy Pasta',
+                desc: 'Fiery and spicy, chilli peppers, hot sauces, BOLD and FLAMING',
+                price: '110'
+            }]
+        }
+    }
+
+    React.useEffect(() => {
+        
+      }, []);
 
     window.addEventListener("scroll", (e) => {
         const scrollTop = document.querySelector(".scroll-top");
