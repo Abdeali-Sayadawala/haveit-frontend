@@ -1,5 +1,5 @@
 .main_class{
-    width: 70%;
+    width: 80%;
 }
 
 .scroll {
@@ -190,17 +190,6 @@
     margin-top: 8rem;
 }
 
-
- 
-.cart_details{
-    width: 30%;
-    position: fixed;
-    left: 70%;
-    background: var(--bg-superdarkgrey);
-    height: 100%;
-}
-
-
 @media (max-width: 996px) {
     .main_class{
         width: 100%;
@@ -208,9 +197,5 @@
     .main_wrapper {
         margin-top: 0px;
         display: block;
-    }
-
-    .cart_details{
-        display: none;
     }
 }

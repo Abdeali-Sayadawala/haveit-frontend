@@ -15,9 +15,7 @@ function App() {
             <Route path="/address" element={<Address />} />
             <Route path="*" element={<Menu />} />
         </Routes>
-        <div className='cart_details'>
-              <CartDetails />
-        </div>
+        <CartDetails />
       </div>
     </div>
   );
