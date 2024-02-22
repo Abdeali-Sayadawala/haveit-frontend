@@ -20,8 +20,6 @@ export default function SimpleBottomNavigation() {
     }
   }, []);
 
-  console.log("totalCount", totalCount);
-
   return (
     <Box sx={{ width: 500 }}>
       <BottomNavigation

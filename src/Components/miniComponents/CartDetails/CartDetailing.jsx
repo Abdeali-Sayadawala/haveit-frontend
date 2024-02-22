@@ -1,24 +1,31 @@
 import * as React from 'react';
 import './CartDetailing.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
 
 export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  function tabSelect(event) {
+    const button = event.currentTarget;
+
+    var slides = document.getElementsByClassName("tab_btn");
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active")
+    }
+
+    button.classList.add("active");
+  }
 
   return (
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab icon={<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />} label="Item One"/>
-          <Tab label="Item Two"/>
-        </Tabs>
-      </Box>
+      <div className='cart_details'>
+        <div className="cart_label">Your Cart</div>
+        <div className='order_ty_tab'>
+          <button id="delivery_tab" className='tab_btn active' onClick={tabSelect}>
+            <span className="tab_btn_label">Delivery</span>
+          </button>
+          <button id="pickup_tab" className='tab_btn 'onClick={tabSelect}>
+            <span className="tab_btn_label">Pickup</span>
+          </button>
+        </div>
+      </div>
   );
 }
 
