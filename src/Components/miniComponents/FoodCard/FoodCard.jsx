@@ -87,7 +87,7 @@ const FoodCard = ({itemData}) => {
                     </div>
                     <div className="wrapper">
                         <button id={'foodminus_'+itemData.item_id} className="plusminus minus" onClick={itemMinus} >-</button>
-                        <input id={'fooditem_'+itemData.item_id} type="number" className="num" value="0" />
+                        <input id={'fooditem_'+itemData.item_id} type="number" className="num" value={itemData.item_cart_value} readOnly />
                         <button id={'foodadd_'+itemData.item_id} className="plusminus plus" onClick={itemAdd} >+</button>
                     </div>
                 </div>

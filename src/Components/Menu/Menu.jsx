@@ -5,7 +5,6 @@ import rollups from '../Assets/rollups.png';
 import FoodCard from '../miniComponents/FoodCard/FoodCard';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
 import upArrow from '../Assets/up-arrow.svg';
-import CartDetails from '../miniComponents/CartDetails/CartDetailing';
 
 const Menu = () => {
 
@@ -17,10 +16,9 @@ const Menu = () => {
             });
     }
 
-    const [menu, setMenu] = React.useState("");
-
-    const foodData = {
-        473: {
+    const foodData = [
+        {
+            catId: 473,
             catName: "Roll Ups",
             item: [{
                 id: '1',
@@ -47,8 +45,9 @@ const Menu = () => {
                 price: '130'
             }]
         },
-        474: {
-            catName: "Roll Ups",
+        {
+            catId: 474,
+            catName: "Pasta paradise",
             item: [{
                 id: '5',
                 name: 'Creamy Pasta',
@@ -80,11 +79,8 @@ const Menu = () => {
                 price: '110'
             }]
         }
-    }
+    ]
 
-    React.useEffect(() => {
-        
-      }, []);
 
     window.addEventListener("scroll", (e) => {
         const scrollTop = document.querySelector(".scroll-top");
@@ -149,31 +145,30 @@ const Menu = () => {
                     <span>Sides</span>
                 </div>
             </div>
-            <div className = 'menu_border' id='menu_title_473'>
-                <div className='menu_title'>
-                    Roll Ups
-                </div>
-                <img className='menu_title_icon' src={rollups} alt="" />
-            </div>
-            <div className='foodCard_wrapper'>
-                <FoodCard itemData={{item_id: '1', item_name: 'Regular Roll Paneer Roll', item_desc: 'Popular Indian street food, filled with spices.', item_price: '135'}}/>   
-                <FoodCard itemData={{item_id: '2', item_name: 'Regular Roll Chicken Roll', item_desc: 'Popular Indian street food, filled with spices.', item_price: '120'}}/>
-                <FoodCard itemData={{item_id: '3', item_name: 'Malai tikka Paneer Roll', item_desc: 'Typically made with cream/malai, serves a mouth melting delicacy', item_price: '140'}}/>   
-                <FoodCard itemData={{item_id: '4', item_name: 'Malai tikka Chicken Roll', item_desc: 'Typically made with cream/malai, serves a mouth melting delicacy', item_price: '130'}}/>
-            </div>
-            <div className = 'menu_border' id='menu_title_474'>
-                <div className='menu_title'>
-                    Pasta Paradise
-                </div>
-                <img className='menu_title_icon' src={rollups} alt="" />
-            </div>
-            <div className='foodCard_wrapper'>
-                <FoodCard itemData={{item_id: '5', item_name: 'Creamy Pasta', item_desc: 'Rich and creamy texture, roasted veggies, buttery, loaded with cheese.', item_price: '120'}}/>   
-                <FoodCard itemData={{item_id: '6', item_name: 'Peri Peri Pasta', item_desc: 'Tossed in Peri Peri chilli sauce, Zesty and spicy, taste you will remember.', item_price: '110'}}/>
-                <FoodCard itemData={{item_id: '7', item_name: 'Pink Sauce Pasta', item_desc: "Pink Pasta also known as 'ROSA sauce', creamy tomato based pasta", item_price: '120'}}/>   
-                <FoodCard itemData={{item_id: '8', item_name: 'Italian Pasta', item_desc: 'Mix of tomato, alfredo, resto and italiano, flavour enhancer.', item_price: '130'}}/>
-                <FoodCard itemData={{item_id: '9', item_name: 'Hot and Spicy Pasta', item_desc: 'Fiery and spicy, chilli peppers, hot sauces, BOLD and FLAMING', item_price: '110'}}/>
-            </div>
+            {foodData.map((foodObj) => (
+                    <div key={'menu_title_key_'+foodObj.catId}><div className = 'menu_border' id={'menu_title_'+foodObj.catId}>
+                    <div className='menu_title'>
+                        {foodObj.catName}
+                    </div>
+                        <img className='menu_title_icon' src={rollups} alt="" />
+                    </div>
+                    <div className='foodCard_wrapper'>
+                        {foodObj.item.map((itemObj, itemIndex) => { 
+                            const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+                            var itemCartValue;
+                            if (cartItems.item[itemObj.id]){
+                                itemCartValue = cartItems.item[itemObj.id];
+                            }else{
+                                itemCartValue = 0;
+                            }
+                            
+                            return (
+                                <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.desc, item_price: itemObj.price, item_cart_value: itemCartValue}}/>
+                            )
+                        })}
+                    </div></div>
+                )
+            )}            
             <SimpleBottomNavigation />
             <div className="scroll-top" onClick={scrollToTop}>
                 <img src={upArrow} alt="" />
