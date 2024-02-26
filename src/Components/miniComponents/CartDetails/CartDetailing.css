@@ -56,3 +56,66 @@
     position: relative;
     top: -1px;
   }
+
+.cart_empty {
+    display: block;
+    color: white;
+    width: 100%;
+    font-size: 40px;
+    margin-top: 6rem;
+    margin-left: 7rem;
+}
+
+.itemSumWrapper {
+    width: 100%;
+    height: 10%;
+    padding: 1rem;
+}
+
+.itemCartCounter {
+    float: right;
+}
+
+.itemCartInfo {
+    border-bottom: 1px solid white;
+    height: 60px;
+    padding: 8px 10px;
+}
+
+.totalCheckout {
+    margin-top: 10px;
+}
+
+.subtotalViewSection {
+    border: 1px dashed white;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    padding: 8px 10px;
+}
+
+.subTotalView {
+    float: left;
+}
+
+.subTotalAmt {
+    float: right;
+}
+
+.checkoutViewButton {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    appearance: none;
+    background: var(--blue);
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    padding: 8px 10px;
+}
