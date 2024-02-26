@@ -63,23 +63,46 @@
     width: 100%;
     font-size: 40px;
     margin-top: 6rem;
-    margin-left: 7rem;
+    margin-left: 10%;
 }
 
-.itemSumWrapper {
+.itemSummary {
     width: 100%;
-    height: 10%;
+    height: 40%;
     padding: 1rem;
 }
 
-.itemCartCounter {
-    float: right;
+.itemWrapper{
+    max-height: 80%;
+    overflow: scroll;
 }
 
 .itemCartInfo {
     border-bottom: 1px solid white;
     height: 60px;
     padding: 8px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.itemCartName{
+    margin-left: 5px;
+}
+
+.wrapper-cart {
+    width: 70px;
+    height: 25px;
+    display: flex;
+    border-radius: 15px;
+  }
+
+.itemCartDesc{
+    color: white;
+    flex-grow: 9;
+}
+
+.itemCartCounter {
+    flex-grow: 1;
 }
 
 .totalCheckout {
