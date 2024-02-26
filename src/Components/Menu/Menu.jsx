@@ -154,13 +154,17 @@ const Menu = () => {
                     </div>
                     <div className='foodCard_wrapper'>
                         {foodObj.item.map((itemObj, itemIndex) => { 
-                            const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-                            var itemCartValue;
-                            if (cartItems.item[itemObj.id]){
-                                itemCartValue = cartItems.item[itemObj.id];
+                            if (localStorage.getItem("cartItems")){
+                                const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+                                var itemCartValue;
+                                if (cartItems.item[itemObj.id]){
+                                    itemCartValue = cartItems.item[itemObj.id];
+                                }else{
+                                    itemCartValue = 0;
+                                }
                             }else{
                                 itemCartValue = 0;
-                            }
+                            }                           
                             
                             return (
                                 <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.desc, item_price: itemObj.price, item_cart_value: itemCartValue}}/>

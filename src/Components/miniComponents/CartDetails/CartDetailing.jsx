@@ -30,16 +30,110 @@ export default function BasicTabs() {
 
         <div className='cart_empty'> Your Cart is Empty</div>
 
-        <div className='itemSumWrapper'>
-          <div className='itemCartInfo'>
-            <div className='itemCartDesc'>
-              <span className='itemCartD'></span>
+        <div className='itemSummary'>
+          <div className='itemWrapper'>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
             </div>
-            <div className='itemCartCounter'>
-              <div className="wrapper">
-                  <button className="plusminus minus" >-</button>
-                  <input type="number" className="num" value="0" readOnly />
-                  <button className="plusminus plus" >+</button>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
+              </div>
+            </div>
+            <div className='itemCartInfo'>
+              <div className='itemCartDesc'>
+                <span className='itemCartCount'>1 X</span>
+                <span className='itemCartName'>Regular Paneer Roll.</span>
+              </div>
+              <div className='itemCartCounter'>
+                <div className="wrapper-cart">
+                    <button className="plusminus minus" >-</button>
+                    <input type="number" className="num" value="0" readOnly />
+                    <button className="plusminus plus" >+</button>
+                </div>
               </div>
             </div>
           </div>
