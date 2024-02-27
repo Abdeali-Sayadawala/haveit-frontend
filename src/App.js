@@ -4,19 +4,25 @@ import Address from './Components/Address/Address';
 import Navigation from './Components/Navigation/Navigation';
 import React from 'react';
 import CartDetails from './Components/miniComponents/CartDetails/CartDetailing';
+import HomePage from './Components/HomePage/Homepage';
+
+function Mainwrapper(){
+  return(
+    <div className='main_wrapper'>
+        <Menu />
+        <CartDetails />
+    </div>
+  )
+}
 
 function App() {
   return (
     <div>
       <Navigation />
-      <div className='main_wrapper'>
-        <Routes>
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/address" element={<Address />} />
-            <Route path="*" element={<Menu />} />
-        </Routes>
-        <CartDetails />
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path='/menu' element={<Mainwrapper />} />
+      </Routes>
     </div>
   );
 }
