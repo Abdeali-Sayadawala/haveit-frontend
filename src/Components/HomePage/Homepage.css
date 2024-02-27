@@ -1,0 +1,38 @@
+.menu_class {
+    margin-top: 8rem;
+}
+
+@media (max-width: 996px) {
+    .menu_class{
+        margin-top: 0rem;
+    }
+}
+
+.categories_main {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    font-size: 45px;
+    font-weight: bolder;
+    color: var(--blue);
+}
+
+@media (max-width: 996px) {
+    .categories_main {
+        font-size: 34px;
+        margin-left: 1.5rem;
+    }
+}
+
+.categories_div {
+    width: 230px;
+    border: 1px solid var(--blue);
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+}
+
+@media (max-width: 996px) {
+    .categories_div {
+        margin-left: 1.5rem;
+        width: 180px;
+    }
+}
