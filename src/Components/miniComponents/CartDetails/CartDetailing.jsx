@@ -1,7 +1,19 @@
 import * as React from 'react';
 import './CartDetailing.css';
+import { useState, useEffect } from "react";
 
 export default function BasicTabs() {
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const itemData = localStorage.getItem('cartItems');
+    if (itemData) {
+      
+    }else{
+      setItems([]);
+    }
+  }, []);
 
   function tabSelect(event) {
     const button = event.currentTarget;
