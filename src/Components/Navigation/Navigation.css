@@ -8,8 +8,8 @@ position: fixed;
 top: 0;
 left: 0;
 right: 0;
-padding: 1rem 7%;
-height: 8rem;
+padding: 1rem 2%;
+height: 12rem;
 color: var(--white);
 background: var(--bg-superdarkgrey);
 display: flex;
@@ -17,6 +17,11 @@ align-items: center;
 justify-content: space-between;
 box-shadow: var(--box-shadow);
 z-index: 1000;
+}
+
+.logo img {
+  width: 300px;
+  height: 300px;
 }
 
 @media (max-width: 996px) {
