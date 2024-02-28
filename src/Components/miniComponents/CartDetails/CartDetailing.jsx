@@ -52,7 +52,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function BasicTabs() {
               <div className='itemCartCounter'>
                 <div className="wrapper-cart">
                     <button className="plusminus minus" >-</button>
-                    <input type="number" className="num" value="0" readOnly />
+                    <input type="number" className="num_cart" value="0" readOnly />
                     <button className="plusminus plus" >+</button>
                 </div>
               </div>

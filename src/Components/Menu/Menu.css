@@ -103,7 +103,7 @@
 
  .menu_border {
     position: relative;
-    margin: 6rem auto 0;
+    margin: 9rem auto 0;
     color: var(--blue);
     border-width: 5px;
     padding-bottom: 5px;
@@ -123,6 +123,18 @@
     border: solid;
     border-width: 5px;
     border-radius: 50%;
+}
+
+@media (max-width: 2000px) {
+    .menu_title_icon {
+        top: -140%;
+        width: 170px;
+        height: 170px;
+    }
+
+    .menu_title {
+        font-size: 30px;
+    }
 }
 
 @media (max-width: 996px) {
