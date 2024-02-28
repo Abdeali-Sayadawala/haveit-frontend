@@ -1,5 +1,6 @@
 import React from 'react';
-import hamburger from '../Assets/icons8-hamburger-192.png'
+import hamburger from '../Assets/icons8-hamburger-192.png';
+import logopng from '../Assets/logo-png.png';
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 // import NavigationScript from './NavigationScript.js';
@@ -28,7 +29,9 @@ const Navigation = () => {
     return (
         <div>
             <header className="header">
-                <a href="/" className="logo">Have<span className="blue">It!</span></a>
+                <a href="/" className="logo">
+                    <img src={logopng} alt=""/>
+                </a>
                 <nav className="navbar">
                     <NavLink to="/menu" onClick={CloseNav}>Menu</NavLink>
                     <NavLink to="/address" onClick={CloseNav} >Address</NavLink>
