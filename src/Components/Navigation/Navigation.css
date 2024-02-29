@@ -1,6 +1,7 @@
 .logo {
     font-size: 3.6rem;
     font-weight: 700;
+    margin-left: 2%;
   }
 
 .header {
@@ -14,23 +15,144 @@ color: var(--white);
 background: var(--bg-superdarkgrey);
 display: flex;
 align-items: center;
-justify-content: space-between;
 box-shadow: var(--box-shadow);
 z-index: 1000;
 }
 
 .logo img {
-  width: 300px;
-  height: 300px;
+  width: 110px;
+  height: 110px;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 600px) {
   .header {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 35rem;
+  }
+
+  .logo {
+    display: block;
+    width: 220px;
+    height: 220px;
+    margin: 0;
+  }
+
+  .logo img {
+    width: 220px;
+    height: 220px;
   }
 }
 
-.header .hamburger img {
+.current_info {
+  width: 45%;
+  margin-left: 5%;
+}
+
+.address_bar {
+  height: 7rem;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.current_info .open_indication {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 60px;
+  background: green;
+  border-radius: 25px;
+}
+
+.current_info .close_indication {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 60px;
+  background: yellow;
+  color: black;
+  border-radius: 25px;
+}
+
+.current_info .close_indication.active {
+  display: flex;
+}
+
+.current_info .open_indication.active {
+  display: flex;
+}
+
+.navbar {
+  margin-left: 25%;
+}
+
+.navbar .nav_icon {
+  margin-left: 7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: inline-block;
+  position: relative;
+}
+
+.navbar .nav_icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+@media (max-width: 1000px) {
+  .current_info {
+    width: 65%;
+    margin-left: 3%;
+  }
+
+  .address_bar {
+    font-size: 20px;
+  }
+
+  .navbar {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .current_info {
+    margin: 0;
+    width: 90%;
+    align-items: center;
+  }
+
+  .address_bar {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .current_info .close_indication{
+    margin-left: 12%;
+  }
+
+  .current_info .open_indication {
+    margin-left: 12%;
+  }
+
+  .navbar {
+    margin: 0;
+    position: absolute;
+    top: 297px;
+    right: 22%;
+  }
+}
+
+/* .header .hamburger img {
 width: 3rem;
 }
 
@@ -76,7 +198,6 @@ display: none;
 @media (max-width: 768px) {
   .header .navbar {
     position: fixed;
-    /* top: 9rem; */
     left: 0;
     right: 0;
     width: 90%;
@@ -106,4 +227,4 @@ display: none;
     border-bottom: 2px solid;
     border-color: var(--white);
   }
-}
+} */
