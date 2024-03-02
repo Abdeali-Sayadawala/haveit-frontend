@@ -3,6 +3,7 @@ import './Menu.css';
 import pizza from '../Assets/pizza.jpg';
 import rollups from '../Assets/rollups.png';
 import FoodCard from '../miniComponents/FoodCard/FoodCard';
+import PopupModal from '../miniComponents/popupModal/PopupModal';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
 import upArrow from '../Assets/up-arrow.svg';
 
@@ -176,7 +177,8 @@ const Menu = () => {
             <SimpleBottomNavigation />
             <div className="scroll-top" onClick={scrollToTop}>
                 <img src={upArrow} alt="" />
-            </div>              
+            </div>  
+            <PopupModal />
         </div>
     );
 };
