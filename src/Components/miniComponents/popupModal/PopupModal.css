@@ -11,7 +11,33 @@
     overflow: hidden;
 
     animation-name: fadeIn_Container;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
+}
+
+.modal_notify {
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    margin-top: 17%;
+    margin-left: 110px;
+    width: 250px;
+    height: 150px;
+    border-radius: 25px;
+    background: var(--bg-superdarkgrey);
+    
+}
+
+.modal_notify .body_icon{
+    height: 85px;
+    width: 85px;
+}
+
+.modal_notify .body_text{
+    margin-top: 10px;
+    color: var(--blue);
 }
 
 .modal{
@@ -31,7 +57,7 @@
     padding: 15px 20px;
   
     animation-name: fadeIn_Modal;
-    animation-duration: 0.8s; 
+    animation-duration: 0.5s; 
   }
 
 .modal .modal_header {
@@ -107,6 +133,11 @@
         bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+    }
+
+    .modal_notify {
+        margin-top: 125%;
+        margin-left: 50px;        
     }
 
     .modal .modal_header .header_text {
