@@ -39,8 +39,8 @@ const Navigation = () => {
                     <div className='close_indication'>Closed</div>
                 </div>
                 <nav className="navbar">
-                    <a href="#" className='nav_icon location'><img src={phone} alt=''/></a>
-                    <a href="tel:9867164753" className='nav_icon call'><img src={location_pointer} alt=''/></a>
+                    <a href="tel:9867164753" className='nav_icon call'><img src={phone} alt=''/></a>
+                    <a href="https://www.google.com/maps/place/18%C2%B058'18.1%22N+72%C2%B050'25.8%22E/@18.9716972,72.8379132,17z/data=!3m1!4b1!4m4!3m3!8m2!3d18.9716921!4d72.8404881?entry=ttu" className='nav_icon location'><img src={location_pointer} alt=''/></a>
                     {/* <NavLink to="/menu" onClick={CloseNav}>Menu</NavLink>
                     <NavLink to="/address" onClick={CloseNav} >Address</NavLink>
                     <NavLink to="/contact" onClick={CloseNav} >Contact Us</NavLink> */}

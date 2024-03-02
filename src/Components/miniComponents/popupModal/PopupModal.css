@@ -1,0 +1,152 @@
+.modal_screen_blur {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    opacity: 0.6;
+    background: #666;
+    z-index: 40000;
+    top:0;
+    left: 0;
+    overflow: hidden;
+
+    animation-name: fadeIn_Container;
+    animation-duration: 0.7s;
+}
+
+.modal{
+    display:none;
+    top: 0;
+    min-width: 250px;
+    width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 40001;
+    background: var(--bg-superdarkgrey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    margin-top: 15%;
+    margin-left: 34%;
+    padding: 15px 20px;
+  
+    animation-name: fadeIn_Modal;
+    animation-duration: 0.8s; 
+  }
+
+.modal .modal_header {
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid var(--blue);
+}
+
+.modal .modal_header .header_text {
+    color: var(--blue);
+    font-size: 32px;
+}
+
+.modal .modal_header .close_modal{
+    float: right;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-superdarkgrey);
+    color: var(--blue);
+    font-size: 25px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+}
+
+.modal .modal_body {
+    width: 100%;
+    height: 80%;
+    padding: 2% 2%;
+}
+
+.modal .modal_body .body_text {
+    color: white;
+    font-size: 17px;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.modal .modal_body input {
+    appearance: none;
+    margin-top: 22px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-darkgrey);
+    color: var(--blue);
+    border-radius: 20px;
+    font-size: 17px;
+    text-align:initial;
+    padding-left: 15px;
+}
+
+.modal .modal_body button {
+    appearance: none;
+    border: none;
+    margin-top: 15px;
+    font-size: 17px;
+    width: 100%;
+    height: 40px;
+    background: var(--blue);
+    color: white;
+    border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+    .modal{
+        margin: 0;
+        width: 100%;
+        height: 40%;
+        top: 60%;
+        bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .modal .modal_header .header_text {
+        font-size: 28px;
+    }
+
+    .modal .modal_body .body_text {
+        font-size: 20px;
+    }
+
+    .modal .modal_body input {
+        height: 60px;
+        font-size: 22px;
+    }
+
+    .modal .modal_body button {
+        height: 60px;
+        font-size: 22px;
+    }
+}
+
+
+
+
+/****ANIMATIONS****/
+
+@keyframes fadeIn_Modal {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn_Container {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 0.6;
+    }
+  }

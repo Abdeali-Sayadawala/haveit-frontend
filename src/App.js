@@ -17,6 +17,7 @@ function Mainwrapper(){
 function App() {
   return (
     <div>
+      <div id='modal_screen_blur' className="modal_screen_blur"></div>
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
