@@ -3,28 +3,20 @@ import './PopupModal.css';
 import PopupModalNotification from './PopupModalNotification';
 import { useState } from "react";
 
-const PopupModal = () => {
+const OtpPopModal = ({modal_ty}) => {
 
     const [notify_type, set_notify_type] = useState("otp_sent");
 
     function closeModal() {
         var backdrop = document.getElementById("modal_screen_blur");
-        var number_modal = document.getElementById("number_modal");
+        var number_modal = document.getElementById("otp_modal");
         var mnu_but = document.getElementById("nav_menu_but");
         var crt_but = document.getElementById("nav_cart_but");
         mnu_but.classList.add("Mui-selected");
         crt_but.classList.remove("Mui-selected");
         backdrop.style.display = "none";
-        number_modal.classList.remove("show");
+        number_modal.style.display = "none";
         document.getElementsByTagName("body")[0].style.overflowY = "scroll";
-    }
-
-    function otpCartOpen() {
-        var backdrop = document.getElementById("modal_screen_blur");
-        var otp_modal = document.getElementById("otp_modal");
-        backdrop.style.display = "block";
-        otp_modal.style.display = "block";
-        document.getElementsByTagName("body")[0].style.overflowY = "hidden";
     }
 
     function submitButton() {
@@ -42,7 +34,6 @@ const PopupModal = () => {
         var num_verify = false;
         if (checkNumber(input)){
             set_notify_type("otp_sent");
-            document.getElementById("mob_num").innerHTML = input;
             num_verify = true;
         }else {
             set_notify_type("enter_number");
@@ -58,26 +49,29 @@ const PopupModal = () => {
             submit_but.disabled = false;
             if (num_verify){
                 closeModal();
-                otpCartOpen();
             }
         }, 2000);
     }
 
     return (
-        <div id='number_modal' className='modal'>
+        <div id='otp_modal' className='otp_modal'>
             <div className='modal_header'>
-                <span className='header_text'>Login to Continue</span>
+                <span className='header_text'>Verify OTP</span>
                 <button onClick={closeModal} className='close_modal'>x</button>
             </div>
             <div className='modal_body'>
-                <div className='body_text'>Enter Mobile No</div>
-                <input type="tel" className="form_control" id="mobileNo" placeholder="10 Digit Mobile No" maxLength="10" autoComplete="off"/>
-                <button id='mobile_no_submit' onClick={submitButton}>Send OTP</button>
+                <div className='otp_desc'>
+                    <span>OTP has been sent to +91<span id='mob_num'></span> </span>
+                    <div className='change_no'>Change Number ?</div>
+                </div>
+                <div className='body_text'>Enter OTP to verify</div>
+                <input type="tel" className="form_control" id="otp_field"autoComplete="off"/>
+                <button id='mobile_no_submit' onClick={submitButton}>Verify</button>
+                <div className='resend_otp'>Resend OTP ?</div>
             </div>
             <PopupModalNotification notification_type = {notify_type} />
         </div>
-    );
-    
-};
+    )
+}
 
-export default PopupModal;
+export default OtpPopModal;
