@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const OtpPopModal = ({modal_ty}) => {
 
-    const [notify_type, set_notify_type] = useState("otp_sent");
+    const [notify_type, set_otp_notify_type] = useState("otp_sent");
 
     function closeModal() {
         var backdrop = document.getElementById("modal_screen_blur");
@@ -19,10 +19,21 @@ const OtpPopModal = ({modal_ty}) => {
         document.getElementsByTagName("body")[0].style.overflowY = "scroll";
     }
 
+    function otpModalOpen() {
+        var backdrop = document.getElementById("modal_screen_blur");
+        var number_modal = document.getElementById("number_modal");
+        var num_input = document.getElementById("mobileNo");
+        backdrop.style.display = "block";
+        number_modal.classList.add("show");
+        document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+        num_input.select();
+      }
+
     function submitButton() {
-        var input = document.getElementById("mobileNo").value;
+        var input = document.getElementById("otp_field").value;
+        console.log("input, ", input);
         function checkNumber(num) {
-            if (num.split("").length !== 10){
+            if (num.split("").length !== 6){
                 return false;
             }
             if (!Number(num)) {
@@ -33,23 +44,47 @@ const OtpPopModal = ({modal_ty}) => {
 
         var num_verify = false;
         if (checkNumber(input)){
-            set_notify_type("otp_sent");
+            set_otp_notify_type("otp_verified");
             num_verify = true;
         }else {
-            set_notify_type("enter_number");
+            set_otp_notify_type("otp_wrong");
         }
         
-        var notify_modal = document.getElementById("notify_modal");
-        notify_modal.style.display = "flex";
-        var submit_but = document.getElementById("mobile_no_submit");
+        var notify_otp_modal = document.getElementById("notify_otp_modal");
+        notify_otp_modal.style.display = "flex";
+        var submit_but = document.getElementById("otp_submit");
         submit_but.disabled = true;
 
         setTimeout(() => {
-            notify_modal.style.display = "none";
+            notify_otp_modal.style.display = "none";
             submit_but.disabled = false;
             if (num_verify){
                 closeModal();
             }
+        }, 2000);
+    }
+
+    function enter_pressed(event) {
+        if (event.key === 'Enter') {
+            submitButton();
+        }
+    }
+
+    function changeNumber() {
+        closeModal();
+        otpModalOpen();
+    }
+
+    function resendOtp() {
+        set_otp_notify_type("otp_resent");
+        var notify_otp_modal = document.getElementById("notify_otp_modal");
+        var submit_but = document.getElementById("otp_submit");
+        notify_otp_modal.style.display = "flex";
+        submit_but.disabled = true;
+
+        setTimeout(() => {
+            notify_otp_modal.style.display = "none";
+            submit_but.disabled = false;
         }, 2000);
     }
 
@@ -62,14 +97,14 @@ const OtpPopModal = ({modal_ty}) => {
             <div className='modal_body'>
                 <div className='otp_desc'>
                     <span>OTP has been sent to +91<span id='mob_num'></span> </span>
-                    <div className='change_no'>Change Number ?</div>
+                    <div className='change_no' onClick={changeNumber}>Change Number ?</div>
                 </div>
                 <div className='body_text'>Enter OTP to verify</div>
-                <input type="tel" className="form_control" id="otp_field"autoComplete="off"/>
-                <button id='mobile_no_submit' onClick={submitButton}>Verify</button>
-                <div className='resend_otp'>Resend OTP ?</div>
+                <input type="tel" className="form_control" onKeyDown={enter_pressed} id="otp_field"autoComplete="off"/>
+                <button id='otp_submit' onClick={submitButton}>Verify</button>
+                <div className='resend_otp' onClick={resendOtp}>Resend OTP ?</div>
             </div>
-            <PopupModalNotification notification_type = {notify_type} />
+            <PopupModalNotification notification_type = {notify_type} parent = 'otp_modal' />
         </div>
     )
 }

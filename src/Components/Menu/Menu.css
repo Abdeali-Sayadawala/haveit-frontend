@@ -211,3 +211,13 @@
         display: block;
     }
 }
+
+.bottom_space {
+    height: 20px;
+}
+
+@media (max-width: 1000px) {
+    .bottom_space {
+        height: 100px;
+    }
+}

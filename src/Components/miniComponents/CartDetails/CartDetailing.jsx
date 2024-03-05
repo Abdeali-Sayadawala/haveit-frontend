@@ -3,7 +3,7 @@ import './CartDetailing.css';
 
 export default function BasicTabs() {
 
-  function cartOpen(event) {
+  function otpModalOpen(event) {
     event.preventDefault();
     var backdrop = document.getElementById("modal_screen_blur");
     var number_modal = document.getElementById("number_modal");
@@ -153,7 +153,7 @@ export default function BasicTabs() {
               <span className='subTotalView'>Subtotal</span>
               <span className='subTotalAmt'>100 Rs.</span>
             </div>
-            <button onClick={cartOpen} className='checkoutViewButton'>
+            <button onClick={otpModalOpen} className='checkoutViewButton'>
               <span className='checkoutView'>Checkout</span>
             </button>
           </div>

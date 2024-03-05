@@ -63,6 +63,12 @@ const PopupModal = () => {
         }, 2000);
     }
 
+    function enter_pressed(event) {
+        if (event.key === 'Enter') {
+            submitButton();
+        }
+    }
+
     return (
         <div id='number_modal' className='modal'>
             <div className='modal_header'>
@@ -71,10 +77,10 @@ const PopupModal = () => {
             </div>
             <div className='modal_body'>
                 <div className='body_text'>Enter Mobile No</div>
-                <input type="tel" className="form_control" id="mobileNo" placeholder="10 Digit Mobile No" maxLength="10" autoComplete="off"/>
+                <input type="tel" className="form_control" id="mobileNo" onKeyDown={enter_pressed} placeholder="10 Digit Mobile No" maxLength="10" autoComplete="off"/>
                 <button id='mobile_no_submit' onClick={submitButton}>Send OTP</button>
             </div>
-            <PopupModalNotification notification_type = {notify_type} />
+            <PopupModalNotification notification_type = {notify_type} parent = 'number_modal' />
         </div>
     );
     

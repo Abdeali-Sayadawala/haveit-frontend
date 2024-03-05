@@ -174,7 +174,9 @@ const Menu = () => {
                         })}
                     </div></div>
                 )
-            )}            
+            )} 
+            
+            <div className='bottom_space'> </div>           
             <SimpleBottomNavigation />
             <div className="scroll-top" onClick={scrollToTop}>
                 <img src={upArrow} alt="" />
