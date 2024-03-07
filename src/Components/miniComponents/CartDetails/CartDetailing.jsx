@@ -1,8 +1,18 @@
 import * as React from 'react';
 import './CartDetailing.css';
-import { useState, useEffect } from "react";
 
 export default function BasicTabs() {
+
+  function otpModalOpen(event) {
+    event.preventDefault();
+    var backdrop = document.getElementById("modal_screen_blur");
+    var number_modal = document.getElementById("number_modal");
+    var num_input = document.getElementById("mobileNo");
+    num_input.value = "";
+    backdrop.style.display = "block";
+    number_modal.classList.add("show");
+    document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+  }
 
   function tabSelect(event) {
     const button = event.currentTarget;
@@ -143,7 +153,7 @@ export default function BasicTabs() {
               <span className='subTotalView'>Subtotal</span>
               <span className='subTotalAmt'>100 Rs.</span>
             </div>
-            <button className='checkoutViewButton'>
+            <button onClick={otpModalOpen} className='checkoutViewButton'>
               <span className='checkoutView'>Checkout</span>
             </button>
           </div>

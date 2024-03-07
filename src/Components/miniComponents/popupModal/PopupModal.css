@@ -11,7 +11,36 @@
     overflow: hidden;
 
     animation-name: fadeIn_Container;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
+}
+
+.modal_notify {
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    margin-top: 17%;
+    margin-left: 110px;
+    width: 250px;
+    height: 150px;
+    border-radius: 25px;
+    background: var(--bg-superdarkgrey);
+
+    animation-name: fadeIn_Container;
+    animation-duration: 0.5s;
+    
+}
+
+.modal_notify .body_icon{
+    height: 85px;
+    width: 85px;
+}
+
+.modal_notify .body_text{
+    margin-top: 10px;
+    color: var(--blue);
 }
 
 .modal{
@@ -29,10 +58,34 @@
     margin-top: 15%;
     margin-left: 34%;
     padding: 15px 20px;
+
+    animation-name: fadeIn_Modal;
+    animation-duration: 0.5s; 
+  }
+
+.otp_modal {
+    display:none;
+    top: 0;
+    min-width: 250px;
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 40001;
+    background: var(--bg-superdarkgrey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    margin-top: 15%;
+    margin-left: 34%;
+    padding: 15px 20px;
   
     animation-name: fadeIn_Modal;
-    animation-duration: 0.8s; 
-  }
+    animation-duration: 0.5s; 
+}
+
+.modal.show {
+    display: block;
+}
 
 .modal .modal_header {
     width: 100%;
@@ -96,6 +149,94 @@
     background: var(--blue);
     color: white;
     border-radius: 20px;
+    cursor: pointer;
+}
+
+.otp_modal .modal_header {
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid var(--blue);
+}
+
+.otp_modal .modal_header .header_text {
+    color: var(--blue);
+    font-size: 32px;
+}
+
+.otp_modal .modal_header .close_modal{
+    float: right;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-superdarkgrey);
+    color: var(--blue);
+    font-size: 25px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+}
+
+.otp_modal .modal_body {
+    width: 100%;
+    height: 80%;
+    padding: 2% 2%;
+}
+
+.otp_modal .modal_body .otp_desc {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.otp_modal .modal_body .otp_desc .change_no {
+    font-size: 13px;
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.otp_modal .modal_body .body_text {
+    color: white;
+    font-size: 17px;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.otp_modal .modal_body input {
+    appearance: none;
+    margin-top: 22px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-darkgrey);
+    color: var(--blue);
+    border-radius: 20px;
+    font-size: 17px;
+    text-align:initial;
+    padding-left: 15px;
+}
+
+.otp_modal .modal_body .resend_otp {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 9px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.otp_modal .modal_body button {
+    appearance: none;
+    border: none;
+    margin-top: 10px;
+    font-size: 17px;
+    width: 100%;
+    height: 40px;
+    background: var(--blue);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -103,10 +244,38 @@
         margin: 0;
         width: 100%;
         height: 40%;
-        top: 60%;
+        top: 100%;
         bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+
+        animation-name: fadeIn_Modal_small;
+        animation-duration: 0.5s; 
+
+        transition: all 1s;
+    }
+
+    .modal.show {
+        display: block;
+        top: 60%;
+    }
+
+    .otp_modal{
+        margin: 0;
+        width: 100%;
+        height: 50%;
+        top: 50%;
+        bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        animation-name: fadeIn_otpModal_small;
+        animation-duration: 0.5s; 
+    }
+
+    .modal_notify {
+        margin-top: 125%;
+        margin-left: 50px;        
     }
 
     .modal .modal_header .header_text {
@@ -126,6 +295,25 @@
         height: 60px;
         font-size: 22px;
     }
+
+    .otp_modal .modal_header .header_text {
+        font-size: 28px;
+    }
+
+    .otp_modal .modal_body .body_text {
+        font-size: 20px;
+    }
+
+    .otp_modal .modal_body input {
+        height: 60px;
+        font-size: 22px;
+    }
+
+    .otp_modal .modal_body button {
+        height: 60px;
+        font-size: 22px;
+    }
+
 }
 
 
@@ -135,12 +323,35 @@
 
 @keyframes fadeIn_Modal {
     from{
-      opacity: 0;
-    }
-    to{
-      opacity: 1;
-    }
-  }
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+}
+
+@keyframes fadeIn_Modal_small {
+    from{
+        opacity: 0;
+        top: 100%
+      }
+      to{
+        opacity: 1;
+        top: 60%;
+      }
+}
+
+@keyframes fadeIn_otpModal_small {
+    from{
+        opacity: 0;
+        top: 100%
+      }
+      to{
+        opacity: 1;
+        top: 50%;
+      }
+}
+
   
   @keyframes fadeIn_Container {
     from{

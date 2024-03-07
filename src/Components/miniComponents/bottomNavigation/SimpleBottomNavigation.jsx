@@ -22,11 +22,13 @@ export default function SimpleBottomNavigation() {
 
   function cartOpen(event) {
     event.preventDefault();
-    console.log("cart touch");
     var backdrop = document.getElementById("modal_screen_blur");
     var number_modal = document.getElementById("number_modal");
+    var num_input = document.getElementById("mobileNo");
+    num_input.value = "";
+    num_input.select();
     backdrop.style.display = "block";
-    number_modal.style.display = "block";
+    number_modal.classList.add("show");
     document.getElementsByTagName("body")[0].style.overflowY = "hidden";
   }
 
