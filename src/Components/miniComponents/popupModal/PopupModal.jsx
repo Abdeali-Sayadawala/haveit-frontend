@@ -22,6 +22,8 @@ const PopupModal = () => {
     function otpCartOpen() {
         var backdrop = document.getElementById("modal_screen_blur");
         var otp_modal = document.getElementById("otp_modal");
+        var otp_input = document.getElementById("otp_field");
+        otp_input.focus();
         backdrop.style.display = "block";
         otp_modal.style.display = "block";
         document.getElementsByTagName("body")[0].style.overflowY = "hidden";

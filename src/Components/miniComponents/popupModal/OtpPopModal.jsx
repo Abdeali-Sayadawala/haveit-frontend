@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './PopupModal.css';
 import PopupModalNotification from './PopupModalNotification';
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { useState } from "react";
 const OtpPopModal = ({modal_ty}) => {
 
     const [notify_type, set_otp_notify_type] = useState("otp_sent");
+    const navigate = useNavigate();
 
     function closeModal() {
         var backdrop = document.getElementById("modal_screen_blur");
@@ -31,7 +33,6 @@ const OtpPopModal = ({modal_ty}) => {
 
     function submitButton() {
         var input = document.getElementById("otp_field").value;
-        console.log("input, ", input);
         function checkNumber(num) {
             if (num.split("").length !== 6){
                 return false;
@@ -60,8 +61,12 @@ const OtpPopModal = ({modal_ty}) => {
             submit_but.disabled = false;
             if (num_verify){
                 closeModal();
+
+                // redirect to checkout page
+                navigate('/checkout');
             }
         }, 2000);
+
     }
 
     function enter_pressed(event) {

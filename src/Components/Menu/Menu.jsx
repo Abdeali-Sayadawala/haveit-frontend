@@ -24,13 +24,13 @@ const Menu = () => {
             catName: "Roll Ups",
             item: [{
                 id: '1',
-                name: 'Regular Roll Paneer Roll',
+                name: 'Regular Paneer Roll',
                 desc: 'Popular Indian street food, filled with spices.',
                 price: '135'
             },
             {
                 id: '2',
-                name: 'Regular Roll Chicken Roll',
+                name: 'Regular Chicken Roll',
                 desc: 'Popular Indian street food, filled with spices.',
                 price: '120'
             },
