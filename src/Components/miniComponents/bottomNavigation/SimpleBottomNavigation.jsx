@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './SimpleBottomNavigation.css';
 import Box from '@mui/material/Box';
+import { useNavigate } from "react-router-dom";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
@@ -8,6 +9,8 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 export default function SimpleBottomNavigation() {
+  const navigate = useNavigate();
+
   const [value, setValue] = React.useState(0);
 
   const [totalCount, setCount] = React.useState(0);
@@ -21,15 +24,19 @@ export default function SimpleBottomNavigation() {
   }, []);
 
   function cartOpen(event) {
-    event.preventDefault();
-    var backdrop = document.getElementById("modal_screen_blur");
-    var number_modal = document.getElementById("number_modal");
-    var num_input = document.getElementById("mobileNo");
-    num_input.value = "";
-    num_input.select();
-    backdrop.style.display = "block";
-    number_modal.classList.add("show");
-    document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+    if (localStorage.getItem("authentication") === 'true'){
+      navigate('/checkout');
+    }else{
+      sessionStorage.setItem('checkout', true);
+      var backdrop = document.getElementById("modal_screen_blur");
+      var number_modal = document.getElementById("number_modal");
+      var num_input = document.getElementById("mobileNo");
+      num_input.value = "";
+      num_input.select();
+      backdrop.style.display = "block";
+      number_modal.classList.add("show");
+      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+    }
   }
 
   return (

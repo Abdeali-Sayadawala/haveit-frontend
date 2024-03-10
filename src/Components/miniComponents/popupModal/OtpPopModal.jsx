@@ -61,9 +61,13 @@ const OtpPopModal = ({modal_ty}) => {
             submit_but.disabled = false;
             if (num_verify){
                 closeModal();
-
+                
+                localStorage.setItem('authentication', 'true');
                 // redirect to checkout page
-                navigate('/checkout');
+                if (sessionStorage.getItem('checkout')){
+                    sessionStorage.removeItem('checkout');
+                    navigate('/checkout');
+                }
             }
         }, 2000);
 

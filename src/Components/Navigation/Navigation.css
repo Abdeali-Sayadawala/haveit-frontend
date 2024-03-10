@@ -87,7 +87,9 @@ z-index: 1000;
 }
 
 .navbar {
+  position: relative;
   margin-left: 25%;
+  height: 30px;
 }
 
 .navbar .nav_icon {
@@ -98,6 +100,9 @@ z-index: 1000;
   background: var(--blue);
   display: inline-block;
   position: relative;
+  border: none;
+  appearance: none;
+  cursor: pointer;
 }
 
 .navbar .nav_icon img {
@@ -107,6 +112,13 @@ z-index: 1000;
   position: absolute;
   top: 4px;
   left: 4px;
+}
+
+.navbar .nav_icon.user img {
+  width: 25px;
+  height: 25px;
+  top: 2.5px;
+  left: 2.5px;
 }
 
 @media (max-width: 1000px) {
@@ -151,6 +163,48 @@ z-index: 1000;
     right: 22%;
   }
 }
+
+/* user manu tooltip - START  */
+
+.navbar .user_menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: -40px;
+  min-width: 200px;
+
+  border-radius: 25px;
+  color: var(--blue);
+  background: var(--bg-darkgrey);
+
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.navbar .user_menu.show_menu{
+  display: block;
+}
+
+.navbar .user_menu .user_name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+  font-size: 25px;
+}
+
+.navbar .user_menu .btn {
+  width: 100%;
+  padding:5px 0px;
+
+  text-align: center;
+  font-size: 20px;
+  border-top: 1px solid var(--blue);
+
+  cursor: pointer;
+}
+
+
+/* user manu tooltip - END  */
 
 /* .header .hamburger img {
 width: 3rem;

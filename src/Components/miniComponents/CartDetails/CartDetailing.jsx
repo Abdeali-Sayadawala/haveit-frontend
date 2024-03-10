@@ -1,17 +1,22 @@
 import * as React from 'react';
 import './CartDetailing.css';
+import { useNavigate } from "react-router-dom";
 
 export default function BasicTabs() {
-
+  const navigate = useNavigate();
   function otpModalOpen(event) {
-    event.preventDefault();
-    var backdrop = document.getElementById("modal_screen_blur");
-    var number_modal = document.getElementById("number_modal");
-    var num_input = document.getElementById("mobileNo");
-    num_input.value = "";
-    backdrop.style.display = "block";
-    number_modal.classList.add("show");
-    document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+    if (localStorage.getItem("authentication") === 'true'){
+      navigate('/checkout');
+    }else{
+      event.preventDefault();
+      var backdrop = document.getElementById("modal_screen_blur");
+      var number_modal = document.getElementById("number_modal");
+      var num_input = document.getElementById("mobileNo");
+      num_input.value = "";
+      backdrop.style.display = "block";
+      number_modal.classList.add("show");
+      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+    }
   }
 
   function tabSelect(event) {
