@@ -5,6 +5,8 @@ import React from 'react';
 import CartDetails from './Components/miniComponents/CartDetails/CartDetailing';
 import HomePage from './Components/HomePage/Homepage';
 import Checkout from './Components/Checkout/Checkout';
+import Address from './Components/UserPages/Address';
+import Orders from './Components/UserPages/Orders';
 
 function Mainwrapper(){
   return(
@@ -32,6 +34,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path='/menu' element={<Mainwrapper />} />
         <Route path='/checkout' element={<CheckoutWrapper/>} />
+        <Route path='/manage-address' element={<Address/>} />
+        <Route path='/orders' element={<Orders/>} />
       </Routes>
     </div>
   );
