@@ -172,7 +172,7 @@
     bottom: 12%;
     right: 6%;
     background-color: var(--blue);
-    padding: 0.8rem;
+    padding: 1rem;
     border-radius: 1rem;
     box-shadow: var(--box-shadow);
     cursor: pointer;
@@ -180,17 +180,8 @@
   }
   
   .scroll-top img {
-    width: 4rem;
-    height: 4rem;
-  }
-  
-  @keyframes grow {
-    0% {
-      transform: scale(0.8);
-    }
-    100% {
-      transform: scale(1);
-    }
+    width: 3rem;
+    height: 3rem;
   }
   
   .scroll-top.show {
@@ -221,3 +212,92 @@
         height: 100px;
     }
 }
+
+/* menu actions css - START */
+
+.menu_actions{
+    margin-top: 20px;
+    background: var(--bg-superdarkgrey);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.menu_actions .type_action .type_btn {
+    padding: 5px 10px;
+    font-size: 17px;
+    margin-left: 10px;
+
+    cursor: pointer;
+    
+    background: var(--bg-darkgrey);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 15px;
+}
+
+.menu_actions .type_action .type_btn.active {
+    background: var(--blue);
+    color: white;
+    border: none;
+}
+
+.menu_actions .search_action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    margin-left: 60%;
+
+    background: var(--bg-darkgrey);
+    border: 1px solid var(--blue);
+    border-radius: 15px;
+}
+
+.menu_actions .search_action img {
+    height: 15px;
+    width: 15px;
+}
+
+.menu_actions .search_action input {
+    padding: 5px 10px;
+    font-size: 17px;
+    margin-left: 3px;
+
+    border-radius: 15px;
+    background: var(--bg-darkgrey);
+    color: var(--blue);
+    border: none;
+
+    text-align: start;
+}
+
+.menu_actions .search_action input:focus {
+    outline: none;
+}
+
+@media (max-width: 1400px) {
+    .menu_actions .search_action {
+        margin-left: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .menu_actions .type_action {
+        width: 50%;
+    }
+    .menu_actions .search_action {
+        margin: 0px;
+        width: 50%;
+    }
+
+    .menu_actions .search_action input {
+        width: 85%;
+    }
+}
+/* menu actions css - END */

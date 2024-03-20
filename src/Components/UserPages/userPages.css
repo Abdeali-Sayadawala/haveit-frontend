@@ -1,0 +1,520 @@
+/* Title with menu button - START */
+.user_wrapper {
+    margin-top: 13rem;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user_title {
+    margin-top: 15px;
+    margin-left: 0;
+    padding: 7px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.user_title .summary_label{
+    margin-left: 200px;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bolder;
+    color: var(--blue);
+}
+
+@media (max-width: 800px) {
+
+    .user_title .summary_label{
+        margin-left: 70px;
+        font-size: 30px;
+    }
+
+    .user_wrapper {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+/* Title with menu button - END */
+
+.data_section {
+    background: var(--bg-superdarkgrey);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.sec_row {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    background: var(--bg-darkgrey);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Orders page css - START */
+
+.order_items{
+    margin-left: 20px;
+}
+
+.order_items .item_data {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.order_items .item_data .orders_qnt{
+    color: var(--blue);
+}
+
+.order_items .item_data .orders_item_name {
+    color: white;
+}
+
+.order_summary_section {
+    width: 93%;
+    display: flex;
+
+    font-size: 17px;
+
+    margin: auto;
+    margin-top: 10px;
+    padding: 7px;
+    border-top: 1px dashed var(--blue);
+}
+
+.order_summary_section .order_time{
+    width: 50%;
+    color: #ababab;
+}
+
+.order_summary_section .order_total{
+    width: 50%;
+    text-align: right;
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reorder_but {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reorder_but button {
+    color: white;
+    font-size: 20px;
+    background: var(--blue);
+    border: none;
+    border-radius: 25px;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.reorder_but button img {
+    height: 13px;
+    width: 13px;
+}
+
+@media (max-width: 800px) {
+    .order_items .item_data {
+        font-size: 15px;
+    }
+
+    .order_summary_section {
+        font-size: 12px;
+    }
+
+    .order_summary_section .order_total{
+        font-size: 15px;
+    }
+
+    .reorder_but button {
+        font-size: 15px;
+    }
+
+    .reorder_but button img {
+        height: 10px;
+        width: 10px;
+    }
+
+}
+
+/* Orders page css - END */
+
+
+/* Address page css - START */
+
+/* Add new button css - START */
+
+.add_btn_sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_btn_sec button {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+
+    font-size: 15px;
+    background: var(--blue);
+    color: white;
+
+    cursor: pointer;
+}
+
+.add_btn_sec button img {
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+}
+
+/* Add new button css - END */
+
+.addr_section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.addr_row {
+    width: 370px;
+    margin: 10px;
+}
+
+.addr_data_section {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.addr_data_section .addr_title {
+    width: 100%;
+
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.addr_data_section .addr_data{
+    width: 100%;
+    height: 38px;
+    color: white;
+}
+
+.addr_data_section .addr_phone{
+    color: white;
+    font-size: 14px;
+}
+
+.add_action_section {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add_action_section button {
+    padding: 7px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 25px;
+    background: var(--blue);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Address page css - END */
+
+/* Confirmation modal css - START */
+
+.base_modal{
+    display:none;
+    top: 0;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 40001;
+    background: var(--bg-superdarkgrey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    margin-top: 20%;
+    margin-left: 10%;
+    padding: 15px 20px;
+
+    animation-name: fadeIn_Modal;
+    animation-duration: 0.5s; 
+}
+
+.base_modal.show {
+    display: block;
+}
+
+.base_modal .modal_header {
+    width: 100%;
+    display: flex;
+}
+
+.base_modal .modal_header .header_text {
+    font-size: 32px;
+    color: white;
+}
+
+.base_modal .modal_header button {
+    margin-top: 3px;
+    margin-left: 22px;
+    width: 30px;
+    height: 30px;
+
+    background: var(--bg-superdarkgrey);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.base_modal .break_line {
+    margin-top: 5px;
+    border: 1px solid white;
+}
+
+.base_modal .modal_body {
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.base_modal .modal_body button {
+    padding: 7px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 25px;
+    background: var(--blue);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .base_modal {
+        margin: 0px;
+        width: 100%;
+        top: 100%;
+        height: 25%;
+
+        animation-name: fadeIn_Modal_small;
+        animation-duration: 0.5s; 
+
+        transition: all 1s;
+    }
+
+    .base_modal.show {
+        display: block;
+        top: 75%;
+    }
+
+    .base_modal .modal_header .header_text {
+        font-size: 28px;
+    }
+
+    .base_modal .modal_body {
+        margin-top: 35px;
+    }
+
+    .base_modal .modal_body button {
+        padding: 14px 17px;
+        font-size: 25px;
+    }
+
+    @keyframes fadeIn_Modal_small {
+        from{
+            opacity: 0;
+            top: 100%
+          }
+          to{
+            opacity: 1;
+            top: 75%;
+          }
+    }
+}
+
+/* Confirmation modal css - END */
+
+
+/* Address Modal css - START */
+
+.addr_modal {
+    display: block;
+    visibility: hidden;
+    top: 30%;
+    opacity: 0;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 40001;
+    background: var(--bg-superdarkgrey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    width: 700px;
+    margin-top: 20%;
+    margin-left: 50px;
+    padding: 22px;
+
+    transition: all .2s ease-in;
+}
+
+.addr_modal.fade_in {
+    top: 0%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.addr_modal .addr_modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addr_modal .addr_modal_header span {
+    font-size: 19px;
+    color: white;
+}
+
+.addr_modal .addr_modal_header .close_btn {
+    border: none;
+    background: var(--bg-superdarkgrey);
+    cursor: pointer;
+}
+
+.addr_modal .addr_modal_header .close_btn img {
+    width: 15px;
+    height: 15px;
+}
+
+.addr_modal .addr_modal_body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.addr_modal .addr_modal_body .body_element {
+    padding: 0px 10px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.addr_modal .addr_modal_body .body_element.half {
+    width: 50%;
+}
+
+.addr_modal .addr_modal_body .body_element span {
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+
+.addr_modal .addr_modal_body .body_element input.addr_modal_input {
+    width: 100%;
+    height: 40px;
+    font-size: 19px;
+    margin-top: 5px;
+    padding-left: 10px;
+
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    background: var(--bg-darkgrey);
+    color: var(--blue);
+
+    text-align: left;
+}
+
+.addr_modal .addr_modal_body .body_element input.addr_modal_input.phone {
+    margin-left: 10px;
+    width: 88%;
+}
+
+.addr_modal .addr_modal_body .body_element .phone_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addr_modal .addr_modal_body .body_element .phone_section span {
+    width: fit-content;
+    font-size: 19px;
+}
+
+.addr_modal .addr_modal_body .body_element input:focus {
+    outline: none;
+}
+
+.addr_modal .add_modal_submit {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addr_modal .add_modal_submit button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    .addr_modal {
+        width: 100%;
+        margin: 0;
+    }
+
+    .addr_modal.fade_in {
+        top: 7%;
+        bottom: 0%;
+    }
+
+    .addr_modal .addr_modal_body {
+        height: 85%;
+        overflow-y: scroll;
+    }
+
+    .addr_modal .addr_modal_body .body_element.half {
+        width: 100%;
+    }
+
+    .addr_modal .add_modal_submit button{
+        width: 100%;
+    }
+}
+
+/* Address Modal css - END */
+
+/* Animations */
+
+@keyframes fadeIn_Modal {
+    from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+}
+
+@keyframes fadeOut_Modal {
+    from{
+        opacity: 1;
+      }
+      to{
+        opacity: 0;
+      }
+}

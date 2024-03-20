@@ -79,8 +79,8 @@ const Navigation = () => {
                     <button onClick={open_user_menu} className='nav_icon user'><img src={user_icon} alt=''/></button>
                     <div id='user_menu' className='user_menu'>
                         <div className='user_name'> <span>Welcome, </span> <br /> <span id='user_name'>Abdeali <div></div></span></div>
-                        <NavLink to="/address" ><div className='btn'>Address</div></NavLink>
-                        <NavLink to="/contact" ><div className='btn'>Contact Us</div></NavLink>
+                        <NavLink to="/manage-address" ><div className='btn'>Address</div></NavLink>
+                        <NavLink to="/orders" ><div className='btn'>Orders</div></NavLink>
                         <div onClick={logoutUser} className='btn'>Logout</div>
                     </div>
                     {/* <NavLink to="/menu" onClick={CloseNav}>Menu</NavLink>

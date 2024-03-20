@@ -6,7 +6,8 @@ import FoodCard from '../miniComponents/FoodCard/FoodCard';
 import PopupModal from '../miniComponents/popupModal/PopupModal';
 import OtpPopModal from '../miniComponents/popupModal/OtpPopModal';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
-import upArrow from '../Assets/up-arrow.svg';
+import upArrow from '../Assets/arrow-up-2822.svg';
+import searchIcon from '../Assets/search-2907.svg';
 
 const Menu = () => {
 
@@ -100,6 +101,10 @@ const Menu = () => {
         document.getElementById('menu_title_' + cat_id).scrollIntoView({top: "100", behaviour: 'smooth'});
     }
 
+    function selectFTy(event) {
+        event.target.classList.toggle("active");
+    }
+
     return (
         <div className='main_class'>
             <div className='categories_label'>
@@ -147,32 +152,49 @@ const Menu = () => {
                     <span>Sides</span>
                 </div>
             </div>
+            <div className='menu_actions'>
+                <div className='type_action'>
+                    <button onClick={selectFTy} id='veg_fil' className='type_btn'>Veg</button>
+                    <button onClick={selectFTy} id='nveg_fil' className='type_btn'>Non-Veg</button>
+                </div>
+                <div className='search_action'>
+                    <img src={searchIcon} alt="" />
+                    <input type="text" name="search" id="src_bar" />
+                </div>
+            </div>
             {foodData.map((foodObj) => (
-                    <div key={'menu_title_key_'+foodObj.catId}><div className = 'menu_border' id={'menu_title_'+foodObj.catId}>
-                    <div className='menu_title'>
-                        {foodObj.catName}
-                    </div>
-                        <img className='menu_title_icon' src={rollups} alt="" />
-                    </div>
-                    <div className='foodCard_wrapper'>
-                        {foodObj.item.map((itemObj, itemIndex) => { 
-                            if (localStorage.getItem("cartItems")){
-                                const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-                                var itemCartValue;
-                                if (cartItems.item[itemObj.id]){
-                                    itemCartValue = cartItems.item[itemObj.id];
+                    <div key={'menu_title_key_'+foodObj.catId}>
+                        <div className = 'menu_border' id={'menu_title_'+foodObj.catId}>
+
+                            <div className='menu_title'>
+                                {foodObj.catName}
+                            </div>
+
+                            <img className='menu_title_icon' src={rollups} alt="" />
+
+                        </div>
+                        <div className='foodCard_wrapper'>
+
+                            {foodObj.item.map((itemObj, itemIndex) => { 
+                                if (localStorage.getItem("cartItems")){
+                                    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+                                    var itemCartValue;
+                                    if (cartItems.item[itemObj.id]){
+                                        itemCartValue = cartItems.item[itemObj.id];
+                                    }else{
+                                        itemCartValue = 0;
+                                    }
                                 }else{
                                     itemCartValue = 0;
-                                }
-                            }else{
-                                itemCartValue = 0;
-                            }                           
-                            
-                            return (
-                                <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.desc, item_price: itemObj.price, item_cart_value: itemCartValue}}/>
-                            )
-                        })}
-                    </div></div>
+                                }                           
+                                
+                                return (
+                                    <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.desc, item_price: itemObj.price, item_cart_value: itemCartValue}}/>
+                                )
+                            })}
+
+                        </div>
+                    </div>
                 )
             )} 
             

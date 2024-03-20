@@ -2,7 +2,7 @@ import React from 'react';
 import './Checkout.css';
 import back_arrow from '../Assets/left-arrow.svg';
 import { useNavigate } from 'react-router-dom';
-import upArrow from '../Assets/up-arrow.svg';
+import upArrow from '../Assets/arrow-up-2822.svg';
 import ddArrow from '../Assets/arrow-232.svg';
 import infinity from '../Assets/Infinity-1s-200px.svg';
 import addIcon from '../Assets/plus-11969.svg';
@@ -12,8 +12,8 @@ const Checkout = () => {
 
     const navigate = useNavigate();
 
-    const [address_txt, set_address_txt] = useState("Select Address");
-    const [pay_ty_txt, set_pay_ty_txt] = useState("Select Payment Method");
+    const [address_txt, set_address_txt] = useState("Select Address"); // button text for address drop down menu
+    const [pay_ty_txt, set_pay_ty_txt] = useState("Select Payment Method"); // button text for payment dropdown menu
 
     const scrollToTop = (event) => {
         window.scrollTo({
@@ -23,11 +23,12 @@ const Checkout = () => {
             });
     }
 
-    function goToMenu() {
+    function goToMenu() { //navigate to menu
         navigate('/menu', { replace: true })
     }
 
     function tabSelect(event) {
+        // select delivery type tab
         const button = event.currentTarget;
     
         var slides = document.getElementsByClassName("tab_btn");
@@ -51,6 +52,7 @@ const Checkout = () => {
       }
 
     function dropDown(drpdn){
+        // dropdown menu open function for address dropdown and paymnet dropdown
         if (drpdn === 'address'){
             document.getElementById('drpdn_loader').classList.toggle("show");
             document.getElementById('drpdn_arrow').style.display = 'none';
@@ -73,6 +75,7 @@ const Checkout = () => {
     }
 
     function selDrpdn(event){
+        // on selecting value from drop down lists, respiective text areas would be changed on the selected value.
         var drp_type = event.target.id.split("_")[0];
         var drp_txt = event.target.innerHTML;
 
@@ -97,9 +100,10 @@ const Checkout = () => {
             </div>
             <div className='items_wrapper'>
                 <div className='cart_summary'>
-                    <div className='checkout_section delivery_type_wrapper'>
+                    <div className='checkout_section delivery_type_wrapper'> {/* checkout order type select section */}
                         <div className='section_label inner_label'>Order Type</div>
 
+                        {/* delivery type tab change - START */}
                         <div className='order_ty_tab checkout_ty_tab'>
                             <button id="delivery_tab" className='tab_btn active' onClick={tabSelect}>
                                 <span className="tab_btn_label">Delivery</span>
@@ -108,6 +112,7 @@ const Checkout = () => {
                                 <span className="tab_btn_label">Pickup</span>
                             </button>
                         </div>
+                        {/* delivery type tab change - END */}
 
                         <div id='delivery_section' className='delivery_section'>
                             {/* Dropdown button section - START */}
@@ -135,7 +140,7 @@ const Checkout = () => {
 
                     </div>
                     <div className='section_label'>Cart Items</div>
-                    <div className='checkout_section order_items_wrapper'>
+                    <div className='checkout_section order_items_wrapper'> {/* cart items summary section */}
                         <div className='cart_items'>
                             <span className='item_name'>Regular Paneer Roll.</span>
                             <div className="wrapper_cart_sum">
@@ -196,7 +201,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className='cart_bill'>
-                    <div className='section_label bill_label'>Billing Details</div>
+                    <div className='section_label bill_label'>Billing Details</div> {/* billing section */}
                     <div className='checkout_section billing_section'>
                         <table id='billing_table'>
                             <tbody>
