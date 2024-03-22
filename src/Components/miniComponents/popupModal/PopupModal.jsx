@@ -12,8 +12,10 @@ const PopupModal = () => {
         var number_modal = document.getElementById("number_modal");
         var mnu_but = document.getElementById("nav_menu_but");
         var crt_but = document.getElementById("nav_cart_but");
-        mnu_but.classList.add("Mui-selected");
-        crt_but.classList.remove("Mui-selected");
+        if (mnu_but){
+            mnu_but.classList.add("Mui-selected");
+            crt_but.classList.remove("Mui-selected");
+        }
         backdrop.style.display = "none";
         number_modal.classList.remove("show");
         document.getElementsByTagName("body")[0].style.overflowY = "scroll";

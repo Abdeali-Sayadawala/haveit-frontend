@@ -25,13 +25,21 @@ function CheckoutWrapper(){
   )
 }
 
+function HomeWrapper(){
+  return(
+    <div className='main_wrapper'>
+        <HomePage/>
+    </div>
+  )
+}
+
 function App() {
   return (
     <div>
       <div id='modal_screen_blur' className="modal_screen_blur"></div>
       <Navigation />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomeWrapper />} />
         <Route path='/menu' element={<Mainwrapper />} />
         <Route path='/checkout' element={<CheckoutWrapper/>} />
         <Route path='/manage-address' element={<Address/>} />
