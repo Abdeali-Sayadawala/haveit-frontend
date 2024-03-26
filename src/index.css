@@ -68,13 +68,88 @@ section {
 
 /* =========== Services =========== */
 
+/* floating arrow for scroll bars - START */
+
+.floating_arrow {
+  opacity: 0;
+  position: absolute;
+  background: var(--blue);
+  width: 48px;
+  height: 48px;
+  top: 190px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 40010;
+
+  transition: all .2s;
+}
+
+.floating_arrow img {
+  margin: 12px 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.floating_arrow.right {
+  right: 30px;
+}
+
+.floating_arrow.left {
+  left: 30px;
+}
+
+.floating_arrow.left img {
+  transform: rotate(180deg);
+  margin: 12px 10px;
+}
+
+.floating_arrow.right img {
+  margin-left: 14px;
+}
+
+/* floating arrow for scroll bars - END */
+
 /* =========== About =========== */
 
 /* =========== App =========== */
 
 /* =========== Footer =========== */
 
+.footer_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12rem;
+}
+
+@media (max-width: 600px) {
+  .footer_wrapper {
+      margin-top: 0px;
+      display: block;
+  }
+}
+
 /* =========== Preloader =========== */
 
 /* =========== Scroll To Top =========== */
 
+.scroll-top {
+  position: fixed;
+  bottom: 12%;
+  right: 6%;
+  background-color: var(--blue);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-top img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.scroll-top.show {
+  display: block;
+}

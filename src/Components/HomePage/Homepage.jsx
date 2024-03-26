@@ -1,8 +1,17 @@
 import * as React from 'react';
 import './Homepage.css';
+import {Link, useNavigate} from "react-router-dom";
+import pizza from '../Assets/pizza.jpg';
+import wArrow from '../Assets/arrow-white.svg';
 import location_pointer from '../Assets/location-pointer-2961.svg';
 
 export default function Homepage() {
+    const rec_nav = React.useRef();
+    const navigate = useNavigate();
+
+    function addToCart() {
+        navigate("/menu");
+    }
 
     const RecFoodCard = () => {
         return (
@@ -21,11 +30,32 @@ export default function Homepage() {
                         <span>Rs.120</span>
                     </div>
                     <div className='add_to_crt'>
-                        <button>Add to cart</button>
+                        <button onClick={addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    const CategoryCard = () => {
+        return(
+            <div className='home_cat_card'>
+                <div className='cat_card_image'>
+                    <Link to='/menu?id=menu_title_474'><img src={pizza} alt="" /></Link>
+                </div>
+                <div className='cat_carf_label'>
+                <Link to='/menu?id=menu_title_474'><span>Roll ups</span></Link>
+                </div>
+            </div>
+        )
+    }
+
+    function scrollRec(direction){
+        if (direction === 'left'){
+            rec_nav.current.scrollLeft -= 200;
+        }else{
+            rec_nav.current.scrollLeft += 200;
+        }
     }
 
     function getLocation() {
@@ -78,15 +108,33 @@ export default function Homepage() {
             </div>
             <div className='home_section_header'>Recomended</div>
             <div className='recom_section'>
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
-                <RecFoodCard />
+                <button onClick={() => scrollRec('left')} className='floating_arrow left'><img src={wArrow} alt="" /></button>
+                <div className='recom_scroll' ref={rec_nav}>
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                    <RecFoodCard />
+                </div>
+                <button onClick={() => scrollRec('right')} className='floating_arrow right'><img src={wArrow} alt="" /></button>
+            </div>
+            <div className='home_section_header'>Categories</div>
+            <div className='cat_section'>
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
+                <CategoryCard />
             </div>
         </div>
     );
