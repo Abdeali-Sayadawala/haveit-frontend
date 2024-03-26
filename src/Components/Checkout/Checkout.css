@@ -152,7 +152,7 @@
     height: 60px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .checkout_ty_tab{
         width: 100%;
         margin: 0;

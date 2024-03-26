@@ -2,6 +2,8 @@ import React from 'react';
 import logopng from '../Assets/logo-png.png';
 import './Navigation.css';
 import phone from '../Assets/phone-504.svg';
+import PopupModal from '../miniComponents/popupModal/PopupModal';
+import OtpPopModal from '../miniComponents/popupModal/OtpPopModal';
 import location_pointer from '../Assets/location-pointer-2961.svg';
 import user_icon from '../Assets/user-3297.svg';
 import { NavLink } from 'react-router-dom';
@@ -91,6 +93,8 @@ const Navigation = () => {
                     <img src={hamburger} alt="" />
                 </div> */}
             </header>
+            <PopupModal/>
+            <OtpPopModal/>
         </div>
     );
 };

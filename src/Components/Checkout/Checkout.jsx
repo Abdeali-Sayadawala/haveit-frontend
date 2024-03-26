@@ -199,6 +199,63 @@ const Checkout = () => {
                             <input type="text" id='instr_inp' maxLength={'100'} placeholder='Please mention any instructions here...'/>
                         </div>
                     </div>
+                    <div className='section_label'>Sides</div>
+                    <div className='checkout_section order_items_wrapper'> {/* Sides summary section */}
+                        <div className='cart_items'>
+                            <span className='item_name'>Regular Paneer Roll.</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                        <div className='cart_items'>
+                            <span className='item_name'>Regular Paneer Roll.</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                        <div className='cart_items'>
+                            <span className='item_name'>Regular Paneer Roll.</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                        <div className='cart_items'>
+                            <span className='item_name'>Regular Paneer Roll.</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                        <div className='cart_items'>
+                            <span className='item_name'>Regular Paneer Roll.</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                        <div className='cart_items'>
+                            <span className='item_name'>Malai tikka Chicken Roll</span>
+                            <div className="wrapper_cart_sum">
+                                <button className="plusminus minus" >-</button>
+                                <input type="number" className="num_cart_sum" value="0" readOnly />
+                                <button className="plusminus plus" >+</button>
+                            </div>
+                            <span className='item_price'>Rs. 135</span>
+                        </div>
+                    </div>
                 </div>
                 <div className='cart_bill'>
                     <div className='section_label bill_label'>Billing Details</div> {/* billing section */}

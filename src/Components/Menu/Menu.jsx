@@ -2,21 +2,35 @@ import React from 'react';
 import './Menu.css';
 import pizza from '../Assets/pizza.jpg';
 import rollups from '../Assets/rollups.png';
+import wArrow from '../Assets/arrow-white.svg';
 import FoodCard from '../miniComponents/FoodCard/FoodCard';
 import PopupModal from '../miniComponents/popupModal/PopupModal';
 import OtpPopModal from '../miniComponents/popupModal/OtpPopModal';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
-import upArrow from '../Assets/arrow-up-2822.svg';
 import searchIcon from '../Assets/search-2907.svg';
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 const Menu = () => {
+    const location = useLocation();
+    const rec_nav = React.useRef();
 
-    const scrollToTop = (event) => {
-        window.scrollTo({
-                left: 0,
-                top: 0,
-                behavior: "smooth",
-            });
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const element_id = searchParams.get('id');
+        var scroll_element = document.getElementById(element_id);
+        if (scroll_element){
+            scroll_element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    function scrollRec(direction){
+        if (direction === 'left'){
+            rec_nav.current.scrollLeft -= 200;
+        }else{
+            rec_nav.current.scrollLeft += 200;
+        }
     }
 
     const foodData = [
@@ -84,18 +98,6 @@ const Menu = () => {
         }
     ]
 
-
-    window.addEventListener("scroll", (e) => {
-        const scrollTop = document.querySelector(".scroll-top");
-        const scrollHeight = window.pageYOffset;
-
-        if (scrollHeight > 300) {
-            scrollTop.classList.add("show");
-        } else {
-            scrollTop.classList.remove("show");
-        }
-    });
-
     const scrollTo = (event) => {
         const cat_id = event.target.parentElement.id.split('_')[1];
         document.getElementById('menu_title_' + cat_id).scrollIntoView({top: "100", behaviour: 'smooth'});
@@ -110,47 +112,51 @@ const Menu = () => {
             <div className='categories_label'>
                 Categories
             </div>
-            <div className="scroll">
-                <div className="scroll__item" id='catItem_473' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Roll Ups</span>
+            <div className='scroll_wrapper'>
+                <button onClick={() => scrollRec('left')} className='floating_arrow menu_page left'><img src={wArrow} alt="" /></button>
+                <div className="scroll" ref={rec_nav}>
+                    <div className="scroll__item" id='catItem_473' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Roll Ups</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_474' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Pasta paradise</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_475' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Slice of Heaven</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_476' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Shakes</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_477' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>The Sub Commander</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_478' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Clubhouse Cruncher</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_479' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Noodles Nirvana</span>
+                    </div>
+                    <div className="scroll__item" id='catItem_480' onClick={scrollTo}>
+                        <div className='cat_gradient'></div>
+                        <img src={pizza} alt="" />
+                        <span>Sides</span>
+                    </div>
                 </div>
-                <div className="scroll__item" id='catItem_474' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Pasta paradise</span>
-                </div>
-                <div className="scroll__item" id='catItem_475' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Slice of Heaven</span>
-                </div>
-                <div className="scroll__item" id='catItem_476' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Shakes</span>
-                </div>
-                <div className="scroll__item" id='catItem_477' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>The Sub Commander</span>
-                </div>
-                <div className="scroll__item" id='catItem_478' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Clubhouse Cruncher</span>
-                </div>
-                <div className="scroll__item" id='catItem_479' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Noodles Nirvana</span>
-                </div>
-                <div className="scroll__item" id='catItem_480' onClick={scrollTo}>
-                    <div className='cat_gradient'></div>
-                    <img src={pizza} alt="" />
-                    <span>Sides</span>
-                </div>
+                <button onClick={() => scrollRec('right')} className='floating_arrow menu_page right'><img src={wArrow} alt="" /></button>
             </div>
             <div className='menu_actions'>
                 <div className='type_action'>
@@ -200,9 +206,6 @@ const Menu = () => {
             
             <div className='bottom_space'> </div>           
             <SimpleBottomNavigation />
-            <div className="scroll-top" onClick={scrollToTop}>
-                <img src={upArrow} alt="" />
-            </div>  
             <PopupModal/>
             <OtpPopModal/>
         </div>
