@@ -6,7 +6,7 @@ import upArrow from '../Assets/arrow-up-2822.svg';
 import ddArrow from '../Assets/arrow-232.svg';
 import infinity from '../Assets/Infinity-1s-200px.svg';
 import addIcon from '../Assets/plus-11969.svg';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Checkout = () => {
 
@@ -22,6 +22,12 @@ const Checkout = () => {
                 behavior: "smooth",
             });
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const scrollTop = document.querySelector(".scroll-top");
+        scrollTop.classList.remove("show");
+      }, []);
 
     function goToMenu() { //navigate to menu
         navigate('/menu', { replace: true })

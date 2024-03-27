@@ -14,6 +14,9 @@ const Orders = () => {
         const loggedInUser = localStorage.getItem("authentication");
         if (loggedInUser === 'true') {
             setauthenticated(loggedInUser);
+            window.scrollTo(0, 0);
+            const scrollTop = document.querySelector(".scroll-top");
+            scrollTop.classList.remove("show");
         }else{
             navigate('/menu', { replace: true });
         }
