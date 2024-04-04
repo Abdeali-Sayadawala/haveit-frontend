@@ -1,4 +1,4 @@
-.css-qxh7fn {
+.sbn_main {
     position: fixed;
     bottom:0px;
     width: 100% !important;
@@ -6,22 +6,22 @@
     margin-top: 10px;
 }
 
-.css-16lloyr-MuiBottomNavigation-root {
+.sbn_root {
     background: var(--bg-superdarkgrey) !important;
     height: 100% !important;
 }
 
-.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
+.sbn_button {
     color: white !important;
     max-width: 100% !important;
 }
 
-.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
+.sbn_button.Mui-selected {
     background: var(--blue) !important;
 }
 
 @media (min-width: 996px) {
-    .css-qxh7fn {
+    .sbn_main {
         display: none;
     }
 }

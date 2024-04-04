@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './PopupModal.css';
 import PopupModalNotification from './PopupModalNotification';
 import { useState } from "react";
+import xBlue from '../../Assets/x-10332-blue.svg';
 
 const OtpPopModal = ({modal_ty}) => {
 
@@ -19,7 +20,7 @@ const OtpPopModal = ({modal_ty}) => {
             crt_but.classList.remove("Mui-selected");
         }
         backdrop.style.display = "none";
-        number_modal.style.display = "none";
+        number_modal.classList.remove("show");
         document.getElementsByTagName("body")[0].style.overflowY = "scroll";
     }
 
@@ -103,7 +104,7 @@ const OtpPopModal = ({modal_ty}) => {
         <div id='otp_modal' className='otp_modal'>
             <div className='modal_header'>
                 <span className='header_text'>Verify OTP</span>
-                <button onClick={closeModal} className='close_modal'>x</button>
+                <button onClick={closeModal} className='close_btn'><img src={xBlue} alt="close" /></button>
             </div>
             <div className='modal_body'>
                 <div className='otp_desc'>

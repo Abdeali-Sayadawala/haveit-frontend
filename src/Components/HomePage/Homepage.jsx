@@ -13,6 +13,10 @@ export default function Homepage() {
         navigate("/menu");
     }
 
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     const RecFoodCard = () => {
         return (
             <div className='home_food_card'>

@@ -1,0 +1,58 @@
+#admin_navigation {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 999px) {
+      
+  #admin_navigation{
+    position: absolute;
+    background: white;
+    z-index: 40001;
+    height: 100%;
+    left: -300px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  #admin_navigation.show {
+    left: 0px;
+    opacity: 1;
+  }
+
+}
+
+.nav_logo {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_logo img {
+    width: 150px;
+    height: 150px;
+}
+
+.nav_body {
+    padding-top: 15px;
+}
+
+.navigation_btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 0px;
+}
+
+.navigation_btn.active {
+    background: var(--blue);
+    color: white;
+}

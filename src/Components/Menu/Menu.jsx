@@ -16,6 +16,9 @@ const Menu = () => {
     const rec_nav = React.useRef();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        const scrollTop = document.querySelector(".scroll-top");
+        scrollTop.classList.remove("show");
         const searchParams = new URLSearchParams(location.search);
         const element_id = searchParams.get('id');
         var scroll_element = document.getElementById(element_id);

@@ -2,6 +2,7 @@ import React from 'react';
 import './PopupModal.css';
 import PopupModalNotification from './PopupModalNotification';
 import { useState } from "react";
+import xBlue from '../../Assets/x-10332-blue.svg';
 
 const PopupModal = () => {
 
@@ -27,7 +28,7 @@ const PopupModal = () => {
         var otp_input = document.getElementById("otp_field");
         otp_input.focus();
         backdrop.style.display = "block";
-        otp_modal.style.display = "block";
+        otp_modal.classList.add("show");
         document.getElementsByTagName("body")[0].style.overflowY = "hidden";
     }
 
@@ -77,7 +78,7 @@ const PopupModal = () => {
         <div id='number_modal' className='modal'>
             <div className='modal_header'>
                 <span className='header_text'>Login to Continue</span>
-                <button onClick={closeModal} className='close_modal'>x</button>
+                <button onClick={closeModal} className='close_btn'><img src={xBlue} alt="close" /></button>
             </div>
             <div className='modal_body'>
                 <div className='body_text'>Enter Mobile No</div>

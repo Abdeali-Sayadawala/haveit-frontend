@@ -40,16 +40,18 @@ export default function SimpleBottomNavigation() {
   }
 
   return (
-    <Box sx={{ width: 500 }}>
+    <Box sx={{ width: 500 }} className='sbn_main'>
       <BottomNavigation
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
+
+        className='sbn_root'
       >
-        <BottomNavigationAction id='nav_menu_but' label="Menu" icon={<MenuBookRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} />} />
-        <BottomNavigationAction id='nav_cart_but' label="Cart" onClick={cartOpen} icon={<Badge badgeContent={totalCount} color="success"><ShoppingCartRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} /></Badge>} />
+        <BottomNavigationAction className='sbn_button' id='nav_menu_but' label="Menu" icon={<MenuBookRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} />} />
+        <BottomNavigationAction className='sbn_button' id='nav_cart_but' label="Cart" onClick={cartOpen} icon={<Badge badgeContent={totalCount} color="success"><ShoppingCartRoundedIcon sx={{ fontSize: 30 }} style={{ color: 'white' }} /></Badge>} />
       </BottomNavigation>
     </Box>
   );
