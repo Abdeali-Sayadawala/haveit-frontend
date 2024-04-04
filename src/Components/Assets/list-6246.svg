@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+<defs>
+</defs>
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+	<path d="M 75.949 90 H 14.051 C 6.303 90 0 83.697 0 75.949 V 14.051 C 0 6.303 6.303 0 14.051 0 h 61.898 C 83.697 0 90 6.303 90 14.051 v 61.898 C 90 83.697 83.697 90 75.949 90 z M 14.051 8 C 10.714 8 8 10.714 8 14.051 v 61.898 C 8 79.285 10.714 82 14.051 82 h 61.898 C 79.285 82 82 79.285 82 75.949 V 14.051 C 82 10.714 79.285 8 75.949 8 H 14.051 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(57,181,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 69.488 29.432 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 29.432 69.488 29.432 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(57,181,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 69.488 49 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 49 69.488 49 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(57,181,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 69.488 68.568 H 20.511 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 48.977 c 2.209 0 4 1.791 4 4 S 71.697 68.568 69.488 68.568 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(57,181,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+</g>
+</svg>

@@ -9,6 +9,10 @@ import Checkout from './Components/Checkout/Checkout';
 import Address from './Components/UserPages/Address';
 import upArrow from './Components/Assets/arrow-up-2822.svg';
 import Orders from './Components/UserPages/Orders';
+import AdminHeader from './Components/Admin/Header/Header';
+import AdminNavigation from './Components/Admin/Navigation/Navigation';
+import Dashboard from './Components/Admin/Dashboard/Dashboard';
+import AdminOrders from './Components/Admin/Orders/Orders';
 
 function Mainwrapper(){
   return(
@@ -36,9 +40,7 @@ function HomeWrapper(){
   )
 }
 
-
-function App() {
-
+function UserPages() {
   const scrollToTop = (event) => {
       window.scrollTo({
               left: 0,
@@ -58,12 +60,13 @@ function App() {
       }
   });
 
+
   return (
-    <div>
+    <div id='user_pages'>
       <div id='modal_screen_blur' className="modal_screen_blur"></div>
       <Navigation />
       <Routes>
-        <Route path="/" element={<HomeWrapper />} />
+        <Route path="" element={<HomeWrapper />} />
         <Route path='/menu' element={<Mainwrapper />} />
         <Route path='/checkout' element={<CheckoutWrapper/>} />
         <Route path='/manage-address' element={<Address/>} />
@@ -73,6 +76,45 @@ function App() {
           <img src={upArrow} alt="" />
       </div>
     </div>
+  )
+}
+
+function AdminMain() {
+  return (
+    <div id='admin_main'>
+      <AdminHeader />
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/orders" element={<AdminOrders />}/>
+      </Routes>
+    </div>
+  )
+}
+
+function AdminPages() {
+
+  const close_menu = () => {
+    var backdrop = document.getElementById("modal_screen_blur");
+    backdrop.style.display = "none";
+    document.getElementById('admin_navigation').classList.toggle('show');
+  }
+  
+  return (
+    <div id='admin_page'>
+      <div id='modal_screen_blur' onClick={close_menu} className="modal_screen_blur"></div>
+      <AdminNavigation />
+      <AdminMain />
+    </div>
+  )
+}
+
+
+function App() {
+  return (
+    <Routes>
+        <Route path='/*' element={<UserPages />} />
+        <Route path='/admin/*' element={<AdminPages />} />
+    </Routes>
   );
 }
 

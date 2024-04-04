@@ -1,0 +1,80 @@
+.admin_header {
+    min-height: 60px;
+    width: 100%;
+    position: sticky;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--blue);
+}
+
+.main_mess {
+    font-size: 30px;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.main_mess button {
+    background: none;
+    border: none;
+    display: none;
+}
+
+.main_mess button img {
+    height: 25px;
+    width: 25px;
+}
+
+@media (max-width: 999px) {
+    .admin_header{
+        padding-top: 20px;
+        align-items: baseline;
+    }
+
+    .main_mess {
+        padding-left: 20px;
+        width: 60%;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    .main_mess button {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin_header{
+        flex-direction: column;
+    }
+    .main_mess {
+        padding-left: 10px;
+        width: 70%;
+    }
+}
+
+.action_bar {
+    padding: 5px 10px;
+}
+
+.action_bar button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .action_bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

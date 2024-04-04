@@ -38,6 +38,9 @@ body {
   font-weight: 400;
   color: var(--black);
   width: 100%;
+}
+
+body #user_pages {
   background-color: var(--bg-darkgrey);
 }
 
@@ -129,7 +132,55 @@ section {
   }
 }
 
+/* =========== Admin main =========== */
+
+#admin_page {
+  display: flex;
+  position: relative;
+}
+
+#admin_main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: 300px;
+  width: 100%;
+}
+
+.admin_body_section {
+  min-height: 100vh;
+  background: rgb(245, 245, 245);
+  padding: 25px;
+}
+
+@media (max-width: 999px) {
+
+  #admin_main{
+    height: 100%;
+    margin: 0;
+  }
+}
+
+.crud_parent_section {
+  
+}
 /* =========== Preloader =========== */
+
+.modal_screen_blur {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  opacity: 0.6;
+  background: #666;
+  z-index: 40000;
+  top:0;
+  left: 0;
+  overflow: hidden;
+
+  animation-name: fadeIn_Container;
+  animation-duration: 0.5s;
+}
 
 /* =========== Scroll To Top =========== */
 
