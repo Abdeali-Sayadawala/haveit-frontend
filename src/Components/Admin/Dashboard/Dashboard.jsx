@@ -481,7 +481,7 @@ const Dashboard = () => {
                             </ResponsiveContainer>
                         </div>
                         </div>
-                    <div className='chart_small_wrapper auto-height-on-small'>
+                    <div className='chart_small_wrapper trending-height auto-height-on-small'>
                         <div className='chart_header'>
                             <div className='revenue_txt'>Trending</div>
                         </div>
