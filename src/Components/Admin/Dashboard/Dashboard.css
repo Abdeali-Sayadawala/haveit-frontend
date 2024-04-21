@@ -1,0 +1,208 @@
+.dashboard_header {
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+@media (max-width: 999px) { 
+    .dashboard_header {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+/* dashboard overview card css - START */
+
+.dashboard_overview {
+    margin-top: 25px;
+    width: 100%;
+    height: 170px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard_overview .overview_card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard_overview .overview_card .data_wrapper {
+    text-align: center;
+    height: 70px;
+}
+
+.dashboard_overview .overview_card .card_icon {
+    margin-right: 15px;
+}
+
+.dashboard_overview .overview_card .data_wrapper .card_value {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.dashboard_overview .overview_card .data_wrapper .card_label {
+    margin-top: 7px;
+    font-size: 20px;
+}
+
+.dashboard_overview .data_divider {
+    height: 90px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+@media (max-width: 999px) { 
+    .dashboard_overview {
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%;
+        height: auto;
+        padding: 20px 0px;
+    }
+    
+    .dashboard_overview .overview_card {
+        margin: 25px;
+    }
+
+    .dashboard_overview .data_divider {
+        width: 60%;
+        height: 0px;
+    }
+}
+
+/* dashboard overview card css - END */
+
+/* dashboard charts overview css - START */
+
+.dashboard_charts {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.dashboard_charts .chart_wrapper {
+    width: 56%;
+    height: 500px;
+    margin: 2%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.chart_header {
+    position: relative;
+    font-size: 30px;
+    border-bottom: 2px rgba(0, 0, 0, 0.2) solid ;
+}
+
+.chart_body {
+    margin-top: 30px;
+    height: 350px;
+}
+
+.chart_header .revenue_txt {
+    position: relative;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.chart_body.resp-pie {
+    margin-top: 5px;
+}
+
+.dashboard_charts .chart_small_wrapper {
+    width: 36%;
+    height: 500px;
+    margin: 2%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.revenue_chart1 {
+    height: 350px;
+    width: 100%;
+}
+
+@media (max-width: 999px) {
+    .dashboard_charts {
+        flex-direction: column;
+    }
+
+    .dashboard_charts .chart_wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%;
+    }
+
+    .dashboard_charts .chart_wrapper.revenue_wrapper{
+        height: 350px;
+    }
+
+    .dashboard_charts .chart_small_wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        width: 90%;
+    }
+
+    .chart_body {
+        margin-top: 5px;
+        height: 250px;
+    }
+
+    .dashboard_charts .chart_small_wrapper.auto-height-on-small {
+        height: auto;
+    }
+}
+
+/* dashboard charts overview css - END */
+
+/* trending section css - START */
+
+.trending_item {
+    display: flex;
+    margin: 9px 0px;
+}
+
+.trending_item .item_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
+}
+
+.trending_item  .item_body {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.trending_item  .item_body .item_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* trending section css - END */
+
+
+/* recent orders section css - START */
+
+.dashboard_charts .chart_wrapper.orders_section {
+    height: 700px;
+}
+
+.recent_orders-datagrid{
+    margin-top: 10px;
+    width: 100%;
+    height: 600px;
+}
+
+/* recent orders section css - END */

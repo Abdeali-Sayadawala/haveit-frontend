@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Before installing you should set legacy-peer-deps adn then install packages
+
+### `npm config set legacy-peer-deps true`
+
+### `npm i`
+
 In the project directory, you can run:
 
 ### `npm start`
