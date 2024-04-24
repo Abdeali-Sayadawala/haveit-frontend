@@ -21,7 +21,7 @@
     }    
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1400px) {
     .food-card {
         width: 370px;
         height: 180px;
@@ -55,7 +55,7 @@
     }   
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1400px) {
     .food-card .food-card_img img{
         width: 150px;
         height: 100%;
@@ -80,7 +80,7 @@
     }   
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1400px) {
 
     .food-card_title-section{
         margin-top: 15px;
@@ -119,7 +119,7 @@
     } 
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1400px) {
 
     .food-card_bottom-section{
         margin-top: 8px;
@@ -145,7 +145,7 @@
     width: 100px;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1400px) {
 
     .food-card_price{
         font-size: 20px;
@@ -242,7 +242,7 @@ input {
     font-size: 15px;
   }
 
-  @media (max-width: 996px) {
+  @media (max-width: 1400px) {
 
     .wrapper{
         margin-left: 18px;

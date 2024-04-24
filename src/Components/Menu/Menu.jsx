@@ -8,7 +8,7 @@ import PopupModal from '../miniComponents/popupModal/PopupModal';
 import OtpPopModal from '../miniComponents/popupModal/OtpPopModal';
 import SimpleBottomNavigation from '../miniComponents/bottomNavigation/SimpleBottomNavigation';
 import searchIcon from '../Assets/search-2907.svg';
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
 const Menu = () => {
@@ -36,33 +36,53 @@ const Menu = () => {
         }
     }
 
-    const foodData = [
+    const initalfoodData = [
         {
             catId: 473,
             catName: "Roll Ups",
             item: [{
                 id: '1',
                 name: 'Regular Paneer Roll',
-                desc: 'Popular Indian street food, filled with spices.',
-                price: '135'
+                description: 'Popular Indian street food, filled with spices.',
+                price: '135',
+                category: 'Roll Ups',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '2',
                 name: 'Regular Chicken Roll',
-                desc: 'Popular Indian street food, filled with spices.',
-                price: '120'
+                description: 'Popular Indian street food, filled with spices.',
+                price: '120',
+                category: 'Roll Ups',
+                item_type: 'non-veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '3',
                 name: 'Malai tikka Paneer Roll',
-                desc: 'Typically made with cream/malai, serves a mouth melting delicacy',
-                price: '140'
+                description: 'Typically made with cream/malai, serves a mouth melting delicacy',
+                price: '140',
+                category: 'Roll Ups',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '4',
                 name: 'Malai tikka Chicken Roll',
-                desc: 'Typically made with cream/malai, serves a mouth melting delicacy',
-                price: '130'
+                description: 'Typically made with cream/malai, serves a mouth melting delicacy',
+                price: '130',
+                category: 'Roll Ups',
+                item_type: 'non-veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             }]
         },
         {
@@ -71,43 +91,124 @@ const Menu = () => {
             item: [{
                 id: '5',
                 name: 'Creamy Pasta',
-                desc: 'Rich and creamy texture, roasted veggies, buttery, loaded with cheese.',
-                price: '120'
+                description: 'Rich and creamy texture, roasted veggies, buttery, loaded with cheese.',
+                price: '120',
+                category: 'Pasta paradise',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '6',
                 name: 'Peri Peri Pasta',
-                desc: 'Tossed in Peri Peri chilli sauce, Zesty and spicy, taste you will remember.',
-                price: '110'
+                description: 'Tossed in Peri Peri chilli sauce, Zesty and spicy, taste you will remember.',
+                price: '110',
+                category: 'Pasta paradise',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '7',
                 name: 'Pink Sauce Pasta',
-                desc: "Pink Pasta also known as 'ROSA sauce', creamy tomato based pasta.",
-                price: '120'
+                description: "Pink Pasta also known as 'ROSA sauce', creamy tomato based pasta.",
+                price: '120',
+                category: 'Pasta paradise',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '8',
                 name: 'Italian Pasta',
-                desc: 'Mix of tomato, alfredo, resto and italiano, flavour enhancer.',
-                price: '130'
+                description: 'Mix of tomato, alfredo, resto and italiano, flavour enhancer.',
+                price: '130',
+                category: 'Pasta paradise',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             },
             {
                 id: '9',
                 name: 'Hot and Spicy Pasta',
-                desc: 'Fiery and spicy, chilli peppers, hot sauces, BOLD and FLAMING',
-                price: '110'
+                description: 'Fiery and spicy, chilli peppers, hot sauces, BOLD and FLAMING',
+                price: '110',
+                category: 'Pasta paradise',
+                item_type: 'veg',
+                is_active: true,
+                is_sold_out: false,
+                is_recommended: true
             }]
         }
     ]
+
+    const [foodData, setFoodData] = useState(initalfoodData);
 
     const scrollTo = (event) => {
         const cat_id = event.target.parentElement.id.split('_')[1];
         document.getElementById('menu_title_' + cat_id).scrollIntoView({top: "100", behaviour: 'smooth'});
     }
 
-    function selectFTy(event) {
+    function apply_filter(){
+        const veg_btn = document.getElementById("veg_fil").classList.contains('active');
+        const nveg_btn = document.getElementById("nveg_fil").classList.contains('active');
+        const search_keyword = document.getElementById("src_bar").value.toLowerCase().trim();
+        var apply_search = true;
+        var apply_type = true;
+
+        if (search_keyword === ''){
+            apply_search = false;
+        }
+
+        if (!veg_btn && !nveg_btn){
+            apply_type = false;
+        }
+
+        const _search = (item) => {
+            if (item.name.toLowerCase().includes(search_keyword) || item.description.toLowerCase().includes(search_keyword) || item.price.toLowerCase().includes(search_keyword)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        var newFoodData = []
+        for (var category_item of initalfoodData){
+            var new_item_list = []
+            for (var single_item of category_item.item){
+                if (single_item.item_type === 'veg' && veg_btn){
+                    if (_search(single_item) || !apply_search){
+                        new_item_list.push(single_item);
+                    }
+                }
+                else if (single_item.item_type === 'non-veg' && nveg_btn){
+                    if (_search(single_item) || !apply_search){
+                        new_item_list.push(single_item);
+                    }
+                }else if (!apply_type){
+                    if (_search(single_item) || !apply_search){
+                        new_item_list.push(single_item);
+                    }
+                }
+            }
+                
+            var cat_obj = {
+                'catId': category_item.catId,
+                'catName': category_item.catName,
+                'item': new_item_list
+            }
+            newFoodData.push(cat_obj);
+        }
+        setFoodData(newFoodData);
+    }
+
+    function selectItemType(event) {
         event.target.classList.toggle("active");
+        apply_filter();
     }
 
     return (
@@ -163,12 +264,12 @@ const Menu = () => {
             </div>
             <div className='menu_actions'>
                 <div className='type_action'>
-                    <button onClick={selectFTy} id='veg_fil' className='type_btn'>Veg</button>
-                    <button onClick={selectFTy} id='nveg_fil' className='type_btn'>Non-Veg</button>
+                    <button onClick={selectItemType} id='veg_fil' className='type_btn'>Veg</button>
+                    <button onClick={selectItemType} id='nveg_fil' className='type_btn'>Non-Veg</button>
                 </div>
                 <div className='search_action'>
                     <img src={searchIcon} alt="" />
-                    <input type="text" name="search" id="src_bar" />
+                    <input type="text" name="search" id="src_bar" onKeyUp={apply_filter} />
                 </div>
             </div>
             {foodData.map((foodObj) => (
@@ -198,7 +299,7 @@ const Menu = () => {
                                 }                           
                                 
                                 return (
-                                    <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.desc, item_price: itemObj.price, item_cart_value: itemCartValue}}/>
+                                    <FoodCard key={'food_item_key_'+itemObj.id} itemData={{item_id: itemObj.id, item_name: itemObj.name, item_desc: itemObj.description, item_price: itemObj.price, item_cart_value: itemCartValue}}/>
                                 )
                             })}
 
