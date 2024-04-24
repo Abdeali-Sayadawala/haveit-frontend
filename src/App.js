@@ -13,6 +13,7 @@ import AdminHeader from './Components/Admin/Header/Header';
 import AdminNavigation from './Components/Admin/Navigation/Navigation';
 import Dashboard from './Components/Admin/Dashboard/Dashboard';
 import AdminOrders from './Components/Admin/Orders/Orders';
+import AdminProducts from './Components/Admin/Products/Products';
 
 function Mainwrapper(){
   return(
@@ -86,6 +87,7 @@ function AdminMain() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/orders" element={<AdminOrders />}/>
+        <Route path="/products" element={<AdminProducts />}/>
       </Routes>
     </div>
   )

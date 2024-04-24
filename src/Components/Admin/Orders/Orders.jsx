@@ -11,11 +11,11 @@ import MopedIcon from '@mui/icons-material/Moped';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { 
   ProductsRender, 
-  OrderIdRender, 
+  IdRender, 
   StatusRender,
   AmountRender,
   CustomerRender,
-  CreatedRender } from './ColumnRender';
+  CreatedRender } from '../helpers/ColumnRender';
 
 
 const Orders = () => {
@@ -224,7 +224,7 @@ const Orders = () => {
           headerClassName: 'dg-class-header',
           cellClassName: 'dg-class-row',
           renderCell: (params) => {
-            return <OrderIdRender params={params} />
+            return <IdRender params={params} />
           }
         },
         {

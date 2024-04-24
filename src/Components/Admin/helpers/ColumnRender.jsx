@@ -5,7 +5,11 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MopedIcon from '@mui/icons-material/Moped';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { orange, red, teal, blue, green } from '@mui/material/colors';
+import LensIcon from '@mui/icons-material/Lens';
+import { orange, red, teal, blue, green, deepOrange } from '@mui/material/colors';
+import { useState } from 'react';
+
+// Orders Column Render function 
 
 function getChipProps(params) {
   if (params.value === "Pending") {
@@ -57,13 +61,33 @@ function getChipProps(params) {
       }
     };
   }
+  else if (params.value === "veg") {
+    return {
+      icon: <LensIcon style={{ fill: green[800] }} />,
+      label: params.value,
+      style: {
+        borderColor: green[800],
+        color: green[800]
+      }
+    };
+  }
+  else if (params.value === "non-veg") {
+    return {
+      icon: <LensIcon style={{ fill: deepOrange['A700'] }} />,
+      label: params.value,
+      style: {
+        borderColor: deepOrange['A700'],
+        color: deepOrange['A700']
+      }
+    };
+  }
 }
 
-function OrderIdRender({params}) {
+function IdRender({params}) {
   return (
     <div className='column_render_class center'>
       <span className='column_text'>
-        {params.value}
+        #{params.value}
       </span>
     </div>
   )
@@ -115,4 +139,60 @@ function CreatedRender({params}){
   )
 }
 
-export { ProductsRender, OrderIdRender, StatusRender, AmountRender, CustomerRender, CreatedRender };
+// Products Column Render function 
+
+const CellRender = ({params}) => {
+  return (
+    <div className='column_render_class center'>
+      <span className='column_text'>
+        {params.value}
+      </span>
+    </div>
+  )
+}
+
+const CurrencyRender = ({params}) => {
+  return (
+    <div className='column_render_class center'>
+      <span className='column_text'>
+        ₹{params.value}
+      </span>
+    </div>
+  )
+}
+
+const CheckboxRender = ({params, id}) => {
+  const [isChecked, setIsChecked] = useState(params.value);
+
+  const checkHandler = () => {
+    setIsChecked(!isChecked);
+    console.log("checked ", isChecked);
+  }
+
+  return (
+    <div className='column_render_class center'>
+      <span className='column_text'>
+      <div class="toggle-switch">
+        <input 
+          className="toggle-input" 
+          id={"toggle_"+id+"_"+params.id}
+          type="checkbox" 
+          checked={ isChecked } 
+          onChange={ checkHandler } />
+        <label class="toggle-label" for={"toggle_"+id+"_"+params.id}></label>
+      </div>
+      </span>
+    </div>
+  )
+}
+
+export { 
+  ProductsRender,
+  IdRender, 
+  StatusRender, 
+  AmountRender, 
+  CustomerRender, 
+  CreatedRender,
+  CellRender,
+  CurrencyRender,
+  CheckboxRender };
