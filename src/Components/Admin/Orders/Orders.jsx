@@ -2,6 +2,7 @@ import React from 'react';
 import './Orders.css';
 import DoneIcon from '@mui/icons-material/Done';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useNavigate } from 'react-router-dom';
 import {
     DataGrid,
     GridActionsCellItem,
@@ -182,6 +183,7 @@ const Orders = () => {
     ];
 
     const [rows, setRows] = useState(initalRows);
+    const navigate = useNavigate();
 
     const accept_order = (id) => {
         setRows((prevRows) => {
@@ -213,6 +215,10 @@ const Orders = () => {
           row.id === id ? { ...row, status: 'Completed' } : row,
         );
       });
+    }
+
+    const handleRowClick = (params) => {
+      navigate('/admin/orders/'+params.row.id.split("#")[1], { replace: true })
     }
 
     const columns = [
@@ -347,6 +353,7 @@ const Orders = () => {
                           columns={columns}
                           rows={rows}
                           getRowHeight={() => 'auto'}
+                          onRowClick={handleRowClick}
                           initialState={{
                             pagination: { paginationModel: { pageSize: 10 } },
                           }}
