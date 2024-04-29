@@ -15,10 +15,10 @@ import {
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MopedIcon from '@mui/icons-material/Moped';
 import { 
-  OrderIdRender, 
+  IdRender, 
   StatusRender,
   AmountRender,
-  CustomerRender } from '../Orders/ColumnRender';
+  CustomerRender } from '../helpers/ColumnRender';
 import {AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, Legend} from 'recharts';
 
 const Dashboard = () => {
@@ -310,7 +310,7 @@ const Dashboard = () => {
           headerClassName: 'dg-class-header',
           cellClassName: 'dg-class-row',
           renderCell: (params) => {
-            return <OrderIdRender params={params} />
+            return <IdRender params={params} />
           }
         },
         {
@@ -481,7 +481,7 @@ const Dashboard = () => {
                             </ResponsiveContainer>
                         </div>
                         </div>
-                    <div className='chart_small_wrapper auto-height-on-small'>
+                    <div className='chart_small_wrapper trending-height auto-height-on-small'>
                         <div className='chart_header'>
                             <div className='revenue_txt'>Trending</div>
                         </div>

@@ -136,15 +136,15 @@ section {
 
 #admin_page {
   display: flex;
-  position: relative;
+  width: 100%;
 }
 
 #admin_main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-left: 300px;
-  width: 100%;
+  margin-left: 25%;
+  width: 75%;
 }
 
 .admin_body_section {
@@ -157,6 +157,7 @@ section {
 
   #admin_main{
     height: 100%;
+    width: 100%;
     margin: 0;
   }
 
@@ -169,6 +170,22 @@ section {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.datagrid_parent {
+  width: 100%;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+}
+
+.dg-class-header {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.dg-class-row {
+  font-size: 15px;
 }
 /* =========== Preloader =========== */
 
