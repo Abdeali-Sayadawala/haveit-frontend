@@ -146,6 +146,7 @@ const Orders = () => {
                         </div>
                     </div>
                 </div>
+                <div  className='exrta_space'></div>
                 {/* Orders section - END */}
 
                 <div className="scroll-top" onClick={scrollToTop}>
