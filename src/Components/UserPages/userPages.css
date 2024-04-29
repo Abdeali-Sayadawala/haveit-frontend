@@ -1,7 +1,9 @@
 /* Title with menu button - START */
 .user_wrapper {
-    margin-top: 13rem;
+    margin-top: 12rem;
+    padding-top: 20px;
     width: 800px;
+    min-height: calc(100vh - 12rem);
     margin-left: auto;
     margin-right: auto;
 }
@@ -42,7 +44,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .sec_row {
@@ -397,11 +399,16 @@
 }
 
 .addr_modal .addr_modal_body {
+    overflow-y: auto;
+    max-height: calc(100vh - 330px);
+}
+
+.addr_modal .addr_modal_body .body_element_wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow-y: auto;
-    max-height: calc(100vh - 130px);
+    height: 100%;
+    width: 100%;
 }
 
 .addr_modal .addr_modal_body .body_element {
@@ -502,6 +509,10 @@
 }
 
 /* Address Modal css - END */
+
+.exrta_space {
+    height: 80px;
+}
 
 /* Animations */
 

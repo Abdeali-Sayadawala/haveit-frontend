@@ -82,7 +82,7 @@ const Address = () => {
 
                 {/* Add Address section - END */}
 
-                {/* Orders section - START */}
+                {/* Address data section - START */}
                 <div className='data_section addr_section'>
                     <div className='sec_row addr_row'>
                         <div className='addr_data_section'>
@@ -129,7 +129,8 @@ const Address = () => {
                         </div>
                     </div>                    
                 </div>
-                {/* Orders section - END */}
+                <div  className='exrta_space'></div>
+                {/* Address data section - END */}
 
                 <div className="scroll-top" onClick={scrollToTop}>
                     <img src={upArrow} alt="" />
