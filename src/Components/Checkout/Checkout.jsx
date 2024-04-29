@@ -2,7 +2,6 @@ import React from 'react';
 import './Checkout.css';
 import back_arrow from '../Assets/left-arrow.svg';
 import { useNavigate } from 'react-router-dom';
-import upArrow from '../Assets/arrow-up-2822.svg';
 import ddArrow from '../Assets/arrow-232.svg';
 import infinity from '../Assets/Infinity-1s-200px.svg';
 import addIcon from '../Assets/plus-11969.svg';
@@ -14,14 +13,6 @@ const Checkout = () => {
 
     const [address_txt, set_address_txt] = useState("Select Address"); // button text for address drop down menu
     const [pay_ty_txt, set_pay_ty_txt] = useState("Select Payment Method"); // button text for payment dropdown menu
-
-    const scrollToTop = (event) => {
-        window.scrollTo({
-                left: 0,
-                top: 0,
-                behavior: "smooth",
-            });
-    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -300,9 +291,6 @@ const Checkout = () => {
                         <button className='pay_button' id='pay_button'> Pay </button>
                     </div>
                 </div>
-            </div>
-            <div className="scroll-top" onClick={scrollToTop}>
-                <img src={upArrow} alt="" />
             </div>
         </div>
     );

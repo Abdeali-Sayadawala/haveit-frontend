@@ -6,7 +6,7 @@
     margin-right: auto;
 }
 .user_title {
-    margin-top: 15px;
+    margin-top: 5px;
     margin-left: 0;
     padding: 7px 15px;
     text-align: center;
@@ -350,16 +350,17 @@
 .addr_modal {
     display: block;
     visibility: hidden;
+    max-height: calc(100vh - 170px);
     top: 30%;
     opacity: 0;
     margin: 0 auto;
     position: fixed;
-    z-index: 40001;
+    z-index: 40011;
     background: var(--bg-superdarkgrey);
     border-radius: 10px;
     box-shadow: 0px 0px 10px #000;
     width: 700px;
-    margin-top: 20%;
+    margin-top: 10%;
     margin-left: 50px;
     padding: 22px;
 
@@ -399,6 +400,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: calc(100vh - 130px);
 }
 
 .addr_modal .addr_modal_body .body_element {
@@ -476,6 +479,7 @@
     .addr_modal {
         width: 100%;
         margin: 0;
+        max-height: none;
     }
 
     .addr_modal.fade_in {

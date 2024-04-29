@@ -16,7 +16,7 @@ background: var(--bg-superdarkgrey);
 display: flex;
 align-items: center;
 box-shadow: var(--box-shadow);
-z-index: 1000;
+z-index: 40011;
 }
 
 .logo img {
