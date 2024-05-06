@@ -1,9 +1,9 @@
 /* Title with menu button - START */
 .user_wrapper {
-    margin-top: 12rem;
+    margin-top:8rem;
     padding-top: 20px;
     width: 800px;
-    min-height: calc(100vh - 12rem);
+    min-height: calc(100vh - 8rem);
     margin-left: auto;
     margin-right: auto;
 }

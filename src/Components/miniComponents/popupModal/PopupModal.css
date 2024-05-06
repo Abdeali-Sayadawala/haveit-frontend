@@ -27,27 +27,6 @@
     color: var(--blue);
 }
 
-.modal{
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    top: 30%;
-    min-width: 250px;
-    width: 500px;
-    height: 250px;
-    margin: 0 auto;
-    position: fixed;
-    z-index: 40001;
-    background: var(--bg-superdarkgrey);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #000;
-    margin-top: 15%;
-    margin-left: 34%;
-    padding: 15px 20px;
-
-    transition: all .2s ease-in;
-  }
-
 .otp_modal {
     display: block;
     visibility: hidden;
@@ -69,59 +48,13 @@
     transition: all .2s ease-in; 
 }
 
-.modal.show {
-    top: 0%;
-    opacity: 1;
-    visibility: visible;
-}
-
 .otp_modal.show {
     top: 0%;
     opacity: 1;
     visibility: visible;
 }
 
-.modal .modal_header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 20%;
-    border-bottom: 2px solid var(--blue);
-}
-
-.modal .modal_header .button {
-    width: 15px;
-    height: 15px;
-}
-
-.modal .modal_header .header_text {
-    color: var(--blue);
-    font-size: 32px;
-}
-
-.modal .modal_header .close_btn{
-    float: right;
-    display: flex;
-    width: 15px;
-    height: 15px;
-    margin-top: 5px;
-    justify-content: center;
-    align-items: center;
-    background: var(--bg-superdarkgrey);
-    border: none;
-    color: var(--blue);
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.modal .modal_body {
-    width: 100%;
-    height: 80%;
-    padding: 2% 2%;
-}
-
-.modal .modal_body .body_text {
+/* .modal .modal_body .body_text {
     color: white;
     font-size: 17px;
     margin-left: 12px;
@@ -152,7 +85,7 @@
     color: white;
     border-radius: 20px;
     cursor: pointer;
-}
+} */
 
 .otp_modal .modal_header {
     display: flex;
@@ -245,23 +178,6 @@
 }
 
 @media (max-width: 600px) {
-    .modal{
-        margin: 0;
-        width: 100%;
-        height: 40%;
-        top: 100%;
-        bottom: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-
-        transition: all .3s;
-    }
-
-    .modal.show {
-        top: 60%;
-        opacity: 1;
-        visibility: visible;
-    }
 
     .otp_modal{
         margin: 0;

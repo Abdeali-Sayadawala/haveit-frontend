@@ -45,3 +45,118 @@
     padding: 20px;
     border-radius: 15px;
 }
+
+/* ================= Add/Edit Products Modal css START ============================ */
+
+.add_edit_prod_modal {
+    width: 700px;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 4%;
+    transform: translate(0, 25%);
+}
+
+.add_edit_prod_modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+}
+
+@media (max-width: 600px) {
+    .add_edit_prod_modal {
+        position: absolute;
+        margin: 0% 0.5%;
+        width: 99%;
+        height: 90%;
+        top: 10%;
+    }
+}
+
+.upload_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 200px;
+}
+
+.upload_section .input_label {
+    font-size: 20px;
+    padding: 10px;
+
+}
+
+.upload_section .upload_preview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    width: 40%;
+    height: 78%;
+    margin: auto;
+}
+
+.upload_section .upload_preview .upload_btn {
+    position: absolute;
+    bottom: 10%;
+}
+
+.input_sections {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+}
+
+.input_sections .main_input {
+    width: 100%;
+    padding: 15px 5px;
+}
+
+.input_sections .main_input .full_text_input {
+    width: 100%;
+}
+
+.input_sections .half_input {
+    width: 50%;
+    padding: 15px 5px;
+}
+
+.input_sections .half_input .full_text_input {
+    width: 100%;
+}
+
+.half_input .active_label {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    padding: 0;
+    position: relative;
+}
+
+.accept_button {
+    width: 20%;
+}
+
+@media (max-width: 600px) {
+    .upload_section .upload_preview .upload_btn{
+        width: 100%;
+    }
+    .accept_button {
+        width: 100%;
+    }
+    
+    .input_sections {
+        flex-direction: column;
+        padding: 20px 0px;
+    }
+    
+    .input_sections .half_input {
+        width: 100%;
+    }
+}
+
+/* ================= Add/Edit Products Modal css END ============================ */
