@@ -10,7 +10,7 @@ top: 0;
 left: 0;
 right: 0;
 padding: 1rem 2%;
-height: 12rem;
+height: 8rem;
 color: var(--white);
 background: var(--bg-superdarkgrey);
 display: flex;
@@ -29,7 +29,7 @@ z-index: 40011;
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 35rem;
+    height: 25rem;
   }
 
   .logo {
@@ -51,7 +51,7 @@ z-index: 40011;
 }
 
 .address_bar {
-  height: 7rem;
+  height: 4rem;
   font-size: 24px;
   display: flex;
   align-items: center;
@@ -144,6 +144,7 @@ z-index: 40011;
   }
 
   .address_bar {
+    height: 6rem;
     text-align: center;
     font-size: 18px;
   }
@@ -159,7 +160,7 @@ z-index: 40011;
   .navbar {
     margin: 0;
     position: absolute;
-    top: 297px;
+    top: 330px;
     right: 22%;
   }
 }

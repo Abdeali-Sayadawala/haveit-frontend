@@ -28,16 +28,18 @@
 }
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 1.6rem;
   font-weight: 400;
   color: var(--black);
   width: 100%;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 body #user_pages {
@@ -70,6 +72,110 @@ section {
 /* =========== Home =========== */
 
 /* =========== Services =========== */
+
+/* ============= Modal =============== */
+
+.modal{
+  opacity: 0;
+  position: fixed;
+  overflow-y:auto;
+  overflow-x:hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  z-index: 10000;
+
+  transition: all 0.2s;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
+  margin: auto;
+
+  background: white;
+  border-radius: 15px;
+
+  transition: all 0.3s;
+
+  z-index: 10010;
+}
+
+.modal .modal_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+  width: 100%;
+  border-bottom: 2px solid var(--blue);
+}
+
+.modal .modal_header button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal .modal_header .header_text {
+  color: var(--blue);
+  font-size: 32px;
+}
+
+.modal .modal_body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px
+}
+
+.modal .modal_footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  width: 100%;
+}
+
+.bottom_space_modal {
+  height: 60px;
+}
+
+@media (max-width: 600px) {
+  .modal_content {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 0px;
+  }
+  .bottom_space_modal {
+    height: 0px;
+  }
+
+  .modal .modal_header {
+    height: 12%;
+  }
+
+  .modal .modal_body {
+    height: 76%;
+    padding: 0px;
+    overflow-y: auto;
+  }
+
+  .modal .modal_footer {
+    height: 12%;
+  }
+}
 
 /* floating arrow for scroll bars - START */
 
@@ -122,7 +228,7 @@ section {
 .footer_wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 12rem;
+  margin-top: 8rem;
 }
 
 @media (max-width: 600px) {
@@ -220,8 +326,8 @@ section {
 }
 
 .scroll-top img {
-  width: 3rem;
-  height: 3rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .scroll-top.show {

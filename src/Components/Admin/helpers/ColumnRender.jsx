@@ -166,7 +166,6 @@ const CheckboxRender = ({params, id}) => {
 
   const checkHandler = () => {
     setIsChecked(!isChecked);
-    console.log("checked ", isChecked);
   }
 
   return (

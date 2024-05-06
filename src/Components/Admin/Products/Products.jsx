@@ -5,7 +5,7 @@ import {
     GridActionsCellItem,
     GridToolbar
   } from '@mui/x-data-grid';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import { IdRender,
@@ -13,6 +13,7 @@ import { IdRender,
     CurrencyRender,
     CheckboxRender,
     StatusRender } from '../helpers/ColumnRender';
+import AddEditProductModal from './AddEditProductsModal';
 
 const Products = () => {
 
@@ -22,6 +23,21 @@ const Products = () => {
         backdrop.style.display = "none";
         document.getElementById('admin_navigation').classList.remove('show');
     }, []);
+
+    const addEditModalRef = useRef();
+
+    const openProductModal = () => {
+        document.getElementsByTagName('body')[0].classList.toggle('modal-open');
+        document.getElementById('add_edit_product').classList.add('show');
+        document.getElementById('add_edit_product_content').classList.add('show');
+    }
+
+    const openEditProductModal = (id) =>  {
+        addEditModalRef.current.getModalData('isdisdi');
+        document.getElementsByTagName('body')[0].classList.toggle('modal-open');
+        document.getElementById('add_edit_product').classList.add('show');
+        document.getElementById('add_edit_product_content').classList.add('show');
+    }
 
     const initalRows = [
         {
@@ -248,7 +264,7 @@ const Products = () => {
                     <GridActionsCellItem
                         icon={<EditIcon sx={{ fontSize:"20px" }} />}
                         label="Accept"
-                        // onClick={() => accept_order(id)}
+                        onClick={() => openEditProductModal(id)}
                         color="inherit"
                     />
                 ];
@@ -259,10 +275,11 @@ const Products = () => {
 
     return(
         <div className='admin_body_section' id='admin_product'>
+            <AddEditProductModal ref={addEditModalRef} />
             <div className='crud_parent_section'>
                 <div className='product_header'>
                     <span className='header_txt'>Products</span>
-                    <button className='new_product_btn'>
+                    <button className='new_product_btn' onClick={openProductModal}>
                         <span className='new_prod_icon'><AddIcon sx={{ fontSize:"20px" }} /></span>
                         <span className='new_prod_lbl'>Add new Product</span>
                     </button>

@@ -1,5 +1,6 @@
 .main_class{
     width: 80%;
+    min-height: calc(100vh - 8rem);
 }
 
 .scroll {
@@ -190,7 +191,7 @@
 
 .main_wrapper {
     display: flex;
-    margin-top: 12rem;
+    margin-top: 8rem;
     scroll-behavior: smooth;
 }
 
