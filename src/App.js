@@ -15,6 +15,7 @@ import Dashboard from './Components/Admin/Dashboard/Dashboard';
 import AdminOrders from './Components/Admin/Orders/Orders';
 import OrderPage from './Components/Admin/Orders/OrderPage';
 import AdminProducts from './Components/Admin/Products/Products';
+import AdminLogin from './Components/Admin/AdminLogin/AdminLogin';
 
 function Mainwrapper(){
   return(
@@ -117,6 +118,7 @@ function App() {
   return (
     <Routes>
         <Route path='/*' element={<UserPages />} />
+        <Route path='/admin/' element={<AdminLogin />} />
         <Route path='/admin/*' element={<AdminPages />} />
     </Routes>
   );
