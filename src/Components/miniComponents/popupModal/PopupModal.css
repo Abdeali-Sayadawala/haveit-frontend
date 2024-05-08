@@ -54,38 +54,6 @@
     visibility: visible;
 }
 
-/* .modal .modal_body .body_text {
-    color: white;
-    font-size: 17px;
-    margin-left: 12px;
-    margin-top: 12px;
-}
-
-.modal .modal_body input {
-    appearance: none;
-    margin-top: 22px;
-    width: 100%;
-    height: 40px;
-    background-color: var(--bg-darkgrey);
-    color: var(--blue);
-    border-radius: 20px;
-    font-size: 17px;
-    text-align:initial;
-    padding-left: 15px;
-}
-
-.modal .modal_body button {
-    appearance: none;
-    border: none;
-    margin-top: 15px;
-    font-size: 17px;
-    width: 100%;
-    height: 40px;
-    background: var(--blue);
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-} */
 
 .otp_modal .modal_header {
     display: flex;
@@ -204,20 +172,6 @@
 
     .modal .modal_header .header_text {
         font-size: 28px;
-    }
-
-    .modal .modal_body .body_text {
-        font-size: 20px;
-    }
-
-    .modal .modal_body input {
-        height: 60px;
-        font-size: 22px;
-    }
-
-    .modal .modal_body button {
-        height: 60px;
-        font-size: 22px;
     }
 
     .otp_modal .modal_header .header_text {

@@ -168,7 +168,7 @@ section {
 
   .modal .modal_body {
     height: 76%;
-    padding: 0px;
+    padding: 0px 10px;
     overflow-y: auto;
   }
 

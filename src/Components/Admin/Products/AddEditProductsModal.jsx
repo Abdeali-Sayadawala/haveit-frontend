@@ -1,9 +1,8 @@
 import React from 'react';
 import './Products.css';
-import { styled } from '@mui/material/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
+import { ThemeProvider } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { useState, forwardRef, useImperativeHandle  } from "react";
 import foodIcon from '../../Assets/prod_img_back.png';
@@ -19,21 +18,6 @@ import FormLabel from '@mui/material/FormLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 
 const AddEditProductModal = forwardRef((props, ref) => {
-
-    const ColorButton = styled(Button)(({ theme }) => ({
-        backgroundColor: "#39B5FF",
-        '&:hover': {
-          backgroundColor: "#339ad8",
-        },
-      }));
-
-    const theme = createTheme({
-        palette: {
-            blue: {
-                main: '#39B5FF'
-            },
-        },
-    });
 
     const initialErrorState = {
         'name': {
@@ -172,7 +156,7 @@ const AddEditProductModal = forwardRef((props, ref) => {
                     </div>
                     <div className='input_sections'>
                         <div className='main_input'>
-                            <ThemeProvider theme={theme}>
+                            <ThemeProvider theme={textFieldTheme}>
                                 <TextField 
                                     color='blue' 
                                     id="prod_name" 
@@ -190,7 +174,7 @@ const AddEditProductModal = forwardRef((props, ref) => {
                             </ThemeProvider>
                         </div>
                         <div className='main_input'>
-                            <ThemeProvider theme={theme}>
+                            <ThemeProvider theme={textFieldTheme}>
                                 <TextField 
                                     color='blue' 
                                     id="prod_description" 
@@ -208,7 +192,7 @@ const AddEditProductModal = forwardRef((props, ref) => {
                             </ThemeProvider>
                         </div>
                         <div className='half_input'>
-                            <ThemeProvider theme={theme}>
+                            <ThemeProvider theme={textFieldTheme}>
                                 <TextField 
                                     color='blue' 
                                     id="prod_price" 
