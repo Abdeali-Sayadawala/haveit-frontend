@@ -60,9 +60,14 @@ const AdminLogin = () => {
         return validate;
     };
 
+    const setAuthentication = () => {
+        localStorage.setItem("authentication", true);
+    };
+
     const loginUser = () => {
         setErrorState(initialErrorState);
         if (loginValidate()) {
+            setAuthentication();
             navigate('/admin/dashboard');
         }
     };

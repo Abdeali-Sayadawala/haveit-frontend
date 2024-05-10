@@ -74,7 +74,7 @@ const ForgotPasswordModal = () => {
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='login_input' variant="outlined" >
                                 <TextField 
-                                    id="email" 
+                                    id="fp_email" 
                                     label="Email"  
                                     placeholder='Email' 
                                     color='blue'
