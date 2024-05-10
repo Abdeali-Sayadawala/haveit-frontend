@@ -64,11 +64,44 @@ const AdminLogin = () => {
         localStorage.setItem("authentication", true);
     };
 
-    const loginUser = () => {
+    const loginUser = async () => {
         setErrorState(initialErrorState);
         if (loginValidate()) {
-            setAuthentication();
-            navigate('/admin/dashboard');
+            const raw = JSON.stringify({
+                "email": email,
+                "password": password
+            });
+            
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: raw,
+                redirect: "follow"
+            };
+            
+            await fetch("http://localhost:8000/v1/auth/login", requestOptions)
+            .then((response) => {
+                // 1. check response.ok
+                if (response.ok) {
+                  return response.json();
+                }
+                return Promise.reject(response); // 2. reject instead of throw
+              })
+            .then((result) => {
+                localStorage.setItem("access-token", JSON.stringify(result.tokens));
+                console.log("success", result);
+                setAuthentication();
+                navigate('/admin/dashboard');
+            })
+            .catch((response) => {
+                console.log(response.status, response.statusText);
+                // 3. get error messages, if any
+                response.json().then((json) => {
+                  console.log(json);
+                })
+              });
         }
     };
 
