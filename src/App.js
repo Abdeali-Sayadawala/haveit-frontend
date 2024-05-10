@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 import Menu from './Components/Menu/Menu';
 import Navigation from './Components/Navigation/Navigation';
 import React from 'react';
@@ -96,7 +97,15 @@ function AdminMain() {
   )
 }
 
-function AdminPages() {
+function AdminPages() { 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // authenticating before each admin page login
+    if (localStorage.getItem("authentication") === 'false') {
+      navigate('/admin');
+    }
+  }, []);
 
   const close_menu = () => {
     var backdrop = document.getElementById("modal_screen_blur");

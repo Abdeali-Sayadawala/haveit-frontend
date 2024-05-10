@@ -3,7 +3,7 @@ import './Navigation.css';
 import hvit_logo from '../../Assets/logo-png.png'
 import { NavLink } from "react-router-dom";
 
-const Navigation = ({notification_type, parent}) => {
+const Navigation = () => {
 
     return (
         <div id='admin_navigation'>

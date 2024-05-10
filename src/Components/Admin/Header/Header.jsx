@@ -14,6 +14,7 @@ const Header = () => {
     }
 
     const logout = () => {
+        localStorage.setItem('authentication', false);
         navigate('/admin');
     }
 
