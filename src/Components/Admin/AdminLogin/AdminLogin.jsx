@@ -14,6 +14,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import { ForgotPasswordModal, LinkSentModal } from './ForgotPasswordModal';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
+import loaderInfinity from '../../Assets/infinity_white.svg';
 import './AdminLogin.css';
 
 
@@ -31,7 +32,9 @@ const AdminLogin = () => {
     };
 
     const navigate = useNavigate();
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [loader, setLoader] = useState(false);
+    const [serverError, setServerError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorState, setErrorState] = useState(initialErrorState);
@@ -66,7 +69,8 @@ const AdminLogin = () => {
 
     const loginUser = async () => {
         setErrorState(initialErrorState);
-        if (loginValidate()) {
+        if (loginValidate() && !loader) {
+            setLoader(true);
             const raw = JSON.stringify({
                 "email": email,
                 "password": password
@@ -80,6 +84,7 @@ const AdminLogin = () => {
                 body: raw,
                 redirect: "follow"
             };
+            console.log("log")
             
             await fetch("http://localhost:8000/v1/auth/login", requestOptions)
             .then((response) => {
@@ -97,9 +102,11 @@ const AdminLogin = () => {
             })
             .catch((response) => {
                 console.log(response.status, response.statusText);
+                setLoader(false);
                 // 3. get error messages, if any
-                response.json().then((json) => {
-                  console.log(json);
+                response.json().then((result) => {
+                  setServerError(result.message);
+                  setPassword('');
                 })
               });
         }
@@ -116,6 +123,7 @@ const AdminLogin = () => {
             <div className='login_wrapper'>
                 <div className='login_header'>Login</div>
                 <div className='login_body'>
+                    <span style={{ color:"red", textAlign:'center' }} >{serverError}</span>
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='login_input' variant="outlined" >
@@ -172,7 +180,7 @@ const AdminLogin = () => {
                         </span>
                     </div>
                     <div className='full_section flex'>
-                        <ColorButton onClick={loginUser} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained">Login</ColorButton>
+                        <ColorButton onClick={loginUser} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained"><img style={{ display: loader?'block':'none', width: '35px', height: '35px' }} src={loaderInfinity} alt='Loader' /><span >Login</span></ColorButton>
                     </div>
                 </div>
             </div>
