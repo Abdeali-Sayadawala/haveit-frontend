@@ -47,18 +47,48 @@ const ForgotPasswordModal = () => {
 
         return validate;
     };
-    const submitEmail = () => {
+    const submitEmail = async () => {
         if (FPValidate()) {
-            setErrorState(initialErrorState);
-            closeFPModal();
-            openCompleteModal();
-            setTimeout(() => {
-                document.getElementsByTagName('body')[0].classList.remove('modal-open');
-                document.getElementById('fp_completed').classList.remove('show');
-                document.getElementById('fp_completed_content').classList.remove('show');
-            }, 2000)
-        }
-    };
+            setErrorState(initialErrorState); 
+            const raw = JSON.stringify({
+                "email": email,
+            });
+
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: raw,
+                redirect: "follow"
+            };
+            
+            await fetch("http://localhost:8000/v1/auth/forgot-password", requestOptions)
+            .then((response) => {
+                // 1. check response.ok
+                if (response.ok) {
+                    return response.json();
+                }
+                return Promise.reject(response); // 2. reject instead of throw
+                })
+            .then((result) => {
+                closeFPModal();
+                openCompleteModal();
+                setTimeout(() => {
+                    document.getElementsByTagName('body')[0].classList.remove('modal-open');
+                    document.getElementById('fp_completed').classList.remove('show');
+                    document.getElementById('fp_completed_content').classList.remove('show');
+                }, 2000)
+            })
+            .catch((response) => {
+                console.log(response.status, response.statusText);
+                // 3. get error messages, if any
+                response.json().then((json) => {
+                    console.log(json);
+                })
+                });
+            }
+        };
 
     return (
         <div className='modal' id='forgot_pass_email'>
