@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import loaderInfinity from '../../Assets/infinity_white.svg';
 
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 
@@ -16,6 +17,7 @@ const ForgotPasswordModal = () => {
             message: '',
         }
     };
+    const [loader, setLoader] = useState(false);
     const [errorState, setErrorState] = useState(initialErrorState);
     const [email, setEmail] = useState('');
 
@@ -48,6 +50,7 @@ const ForgotPasswordModal = () => {
         return validate;
     };
     const submitEmail = async () => {
+        setLoader(true);
         if (FPValidate()) {
             setErrorState(initialErrorState); 
             const raw = JSON.stringify({
@@ -65,19 +68,13 @@ const ForgotPasswordModal = () => {
             
             await fetch("http://localhost:8000/v1/auth/forgot-password", requestOptions)
             .then((response) => {
-                // 1. check response.ok
-                if (response.ok) {
-                    return response.json();
-                }
-                return Promise.reject(response); // 2. reject instead of throw
-                })
-            .then((result) => {
                 closeFPModal();
                 openCompleteModal();
                 setTimeout(() => {
                     document.getElementsByTagName('body')[0].classList.remove('modal-open');
                     document.getElementById('fp_completed').classList.remove('show');
                     document.getElementById('fp_completed_content').classList.remove('show');
+                    setLoader(false);
                 }, 2000)
             })
             .catch((response) => {
@@ -120,7 +117,7 @@ const ForgotPasswordModal = () => {
                     </div>
                 </div>
                 <div className='modal_footer'>
-                    <ColorButton onClick={submitEmail} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained">Send Link</ColorButton>
+                    <ColorButton onClick={submitEmail} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained"><img style={{ display: loader?'block':'none', width: '35px', height: '35px' }} src={loaderInfinity} alt='Loader' />Send Link</ColorButton>
                 </div>
             </div>
         </div>
