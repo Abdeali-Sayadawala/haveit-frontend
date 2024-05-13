@@ -96,7 +96,6 @@ const AdminLogin = () => {
               })
             .then((result) => {
                 localStorage.setItem("access-token", JSON.stringify(result.tokens));
-                console.log("success", result);
                 setAuthentication();
                 navigate('/admin/dashboard');
             })
