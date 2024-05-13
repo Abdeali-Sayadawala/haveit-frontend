@@ -68,6 +68,16 @@ const ForgotPasswordModal = () => {
             
             await fetch("http://localhost:8000/v1/auth/forgot-password", requestOptions)
             .then((response) => {
+                // 1. check response.ok
+                if (response.ok) {
+                    if (response.status === 204) {
+                        return {}
+                    }
+                    return response.json();
+                }
+                return Promise.reject(response); // 2. reject instead of throw
+              })
+            .then((response) => {
                 closeFPModal();
                 openCompleteModal();
                 setTimeout(() => {
@@ -78,7 +88,7 @@ const ForgotPasswordModal = () => {
                 }, 2000)
             })
             .catch((response) => {
-                console.log(response.status, response.statusText);
+                console.log(response, response.statusText);
                 // 3. get error messages, if any
                 response.json().then((json) => {
                     console.log(json);

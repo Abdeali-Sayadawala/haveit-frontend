@@ -17,6 +17,7 @@ import AdminOrders from './Components/Admin/Orders/Orders';
 import OrderPage from './Components/Admin/Orders/OrderPage';
 import AdminProducts from './Components/Admin/Products/Products';
 import AdminLogin from './Components/Admin/AdminLogin/AdminLogin';
+import ResetPassword from './Components/Admin/ResetPassword/ResetPassword';
 
 function Mainwrapper(){
   return(
@@ -128,6 +129,7 @@ function App() {
     <Routes>
         <Route path='/*' element={<UserPages />} />
         <Route path='/admin/' element={<AdminLogin />} />
+        <Route path='/admin/reset-password' element={<ResetPassword />} />
         <Route path='/admin/*' element={<AdminPages />} />
     </Routes>
   );
