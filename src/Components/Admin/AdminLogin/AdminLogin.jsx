@@ -84,7 +84,6 @@ const AdminLogin = () => {
                 body: raw,
                 redirect: "follow"
             };
-            console.log("log")
             
             await fetch("http://localhost:8000/v1/auth/login", requestOptions)
             .then((response) => {
@@ -100,13 +99,18 @@ const AdminLogin = () => {
                 navigate('/admin/dashboard');
             })
             .catch((response) => {
-                console.log(response.status, response.statusText);
-                setLoader(false);
-                // 3. get error messages, if any
-                response.json().then((result) => {
-                  setServerError(result.message);
-                  setPassword('');
-                })
+                if (response.status){
+                    console.log(response, response.statusText);
+                    setLoader(false);
+                    // 3. get error messages, if any
+                    response.json().then((result) => {
+                        setServerError(result.message);
+                        setPassword('');
+                    })
+                }else {
+                    setServerError("Internal Server Error");
+                    setLoader(false);
+                }
               });
         }
     };

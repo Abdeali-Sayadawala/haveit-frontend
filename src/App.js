@@ -18,6 +18,10 @@ import OrderPage from './Components/Admin/Orders/OrderPage';
 import AdminProducts from './Components/Admin/Products/Products';
 import AdminLogin from './Components/Admin/AdminLogin/AdminLogin';
 import ResetPassword from './Components/Admin/ResetPassword/ResetPassword';
+import RegisterRestaurant from './Components/Restaurant/RegisterRestaurant';
+import RestaurantInfo from './Components/Restaurant/RestaurantInfo';
+import RestaurantDocs from './Components/Restaurant/RestaurantDocs';
+import Review from './Components/Restaurant/Review';
 
 function Mainwrapper(){
   return(
@@ -127,10 +131,15 @@ function AdminPages() {
 function App() {
   return (
     <Routes>
-        <Route path='/*' element={<UserPages />} />
         <Route path='/admin/' element={<AdminLogin />} />
         <Route path='/admin/reset-password' element={<ResetPassword />} />
         <Route path='/admin/*' element={<AdminPages />} />
+        <Route path='/register-restaurant' element={<RegisterRestaurant />}>
+          <Route path="res-info" element={<RestaurantInfo />}/>
+          <Route path="res-docs" element={<RestaurantDocs />}/>
+          <Route path="review" element={<Review />}/>
+        </Route>
+        <Route path='/*' element={<UserPages />} />
     </Routes>
   );
 }

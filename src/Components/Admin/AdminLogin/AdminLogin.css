@@ -109,16 +109,16 @@
         /* top: 60%; */
         bottom: 0%;
     }
-    .modal .modal_header {
+    .forgot_password_modal .modal_header {
         height: 25%;
     }
 
-    .modal .modal_body {
+    .forgot_password_modal .modal_body {
         justify-content: center;
         height: 50%;
     }
 
-    .modal .modal_footer {
+    .forgot_password_modal .modal_footer {
         height: 25%;
     }
 }
