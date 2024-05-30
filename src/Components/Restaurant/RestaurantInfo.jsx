@@ -3,11 +3,32 @@ import { ThemeProvider } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { usePlacesWidget } from "react-google-autocomplete";
-import {APIProvider, ControlPosition, MapControl, Map} from '@vis.gl/react-google-maps';
 
 import { ColorButton, textFieldTheme } from '../Admin/helpers/CommonVars';
 
 const RestaurantInfo = () => {
+
+    React.useEffect(() => {
+        var map_div = document.getElementById("location_map");
+        let map = new window.google.maps.Map(map_div, {
+            center: { lat: -33.86, lng: 151.209 },
+            zoom: 16,
+            mapTypeControl: false,
+          });
+        
+        map.setOptions({
+            styles: [
+                {
+                    featureType: "poi.business",
+                    stylers: [{ visibility: "off" }],
+                },
+                {
+                    featureType: "transit",
+                    elementType: "labels.icon",
+                    stylers: [{ visibility: "off" }],
+                },
+            ] });        
+    }, []);
 
     var initialErrorState = {
         res_name: {
@@ -111,20 +132,7 @@ const RestaurantInfo = () => {
                 <div className="section_title">
                     Restaurant location
                 </div>
-                <div className='full_section'>
-                    <APIProvider apiKey='AIzaSyDBZ5McJg3zy4wBdN8aMaJjTmamX10XviM'>
-                        <Map
-                        style={{width: '100%', height: '300px'}}
-                        defaultCenter={{lat: 22.323554, lng: 73.190627}}
-                        defaultZoom={15}
-                        gestureHandling={'greedy'}
-                        disableDefaultUI={true}
-                        onDragend={(e) => {console.log("change", e);}}
-                        >
-                            <MapControl position={ControlPosition.TOP_LEFT}></MapControl>
-                            </Map>
-                    </APIProvider>
-                </div>
+                <div id='location_map' className='full_section'></div>
             </div>
         </div>
     )
