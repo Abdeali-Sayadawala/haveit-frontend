@@ -12,7 +12,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormHelperText from '@mui/material/FormHelperText';
 
-import { ForgotPasswordModal, LinkSentModal } from './ForgotPasswordModal';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 import './auth.css';
@@ -55,6 +54,112 @@ const PartnerRegister = () => {
     const [showCnfPassword, setShowCnfPassword] = useState(false);
     const [errorState, setErrorState] = useState(initialErrorState);
 
+    const registerValidate = () => {
+        var validate = true;
+        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){
+            validate = false;
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, email: { 'error': true, 'message': 'Please enter valid email address.'} }
+            });
+        }
+        if (email.trim() === ''){
+            validate = false;
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, email: { 'error': true, 'message': 'Please enter email.'} }
+            });
+        }
+        if (firstName.trim() === ''){
+            validate = false;
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, first_name: { 'error': true, 'message': 'Please enter First name.'} }
+            });
+        }
+        if (lastName.trim() === ''){
+            validate = false;
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, last_name: { 'error': true, 'message': 'Please enter Last name.'} }
+            });
+        }
+        if (password === cnfPassword) {
+            if (password.trim() === ''){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Please enter password.'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Please enter confirm password.'} }
+                });
+            }
+            else if (!password.match(/[a-z]/g)){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Password should contain one lowercase letter.'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Password should contain one lowercase letter.'} }
+                });
+            }
+            else if (!password.match(/[A-Z]/g)){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Password should contain one uppercase letter'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Password should contain one uppercase letter'} }
+                });
+            }
+            else if (!password.match(/[0-9]/g)){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Password should contain one number'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Password should contain one number'} }
+                });
+            }
+            else if (password.length < 8){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Password length should atleast be 8.'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Password length should atleast be 8.'} }
+                });
+            }
+            else if (!password.match(/[^A-Za-z0-9]/)){
+                validate = false;
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, password: { 'error': true, 'message': 'Password should contain one special character.'} }
+                });
+                setErrorState(prevErrorState => {
+                    return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'Password should contain one special character.'} }
+                });
+            }
+        }else{
+            validate = false;
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, password: { 'error': true, 'message': 'New Password and Confirm Password do not match.'} }
+            });
+            setErrorState(prevErrorState => {
+                return { ...prevErrorState, cnf_password: { 'error': true, 'message': 'New Password and Confirm Password do not match.'} }
+            });
+        }
+
+        return validate;
+    }
+
+    const registerUser = () => {
+        setErrorState(initialErrorState);
+        if (registerValidate() && !loader){
+            console.log("register");
+            setLoader(false);
+        }
+    }
+
+    const navigateLogin = () => {
+        navigate('/partner/login');
+    }
+
     return (
         <div className='login_background'>
             <div className='login_wrapper'>
@@ -83,15 +188,15 @@ const PartnerRegister = () => {
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='txt_input' variant="outlined" >
                                 <TextField 
-                                    id="email" 
-                                    label="Email"  
-                                    placeholder='Email' 
+                                    id="last_name" 
+                                    label="Last Name"  
+                                    placeholder='Last Name' 
                                     color='blue'
-                                    helperText={errorState.email.message} 
-                                    error={errorState.email.error}
-                                    value={email}
+                                    helperText={errorState.last_name.message} 
+                                    error={errorState.last_name.error}
+                                    value={lastName}
                                     onChange={(event) => {
-                                        setEmail(event.target.value);
+                                        setLastName(event.target.value);
                                         }} 
                                 />
                             </FormControl>
@@ -126,7 +231,7 @@ const PartnerRegister = () => {
                                         <InputAdornment position="end">
                                             <IconButton
                                             aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
+                                            onClick={() => {setShowPassword(!showPassword)}}
                                             edge="end"
                                             >
                                             {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -153,24 +258,24 @@ const PartnerRegister = () => {
                                 <InputLabel htmlFor="outlined-adornment-password" error={ errorState.password.error?true:false }>Password</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
-                                    type={showPassword ? 'text' : 'password'}
+                                    type={showCnfPassword ? 'text' : 'password'}
                                     endAdornment={
                                         <InputAdornment position="end">
                                             <IconButton
                                             aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
+                                            onClick={() => {setShowCnfPassword(!showCnfPassword)}}
                                             edge="end"
                                             >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            {showCnfPassword ? <VisibilityOff /> : <Visibility />}
                                             </IconButton>
                                         </InputAdornment>
                                     }
                                     color='blue'
-                                    label="Password"
+                                    label="cnfPassword"
                                     error={errorState.password.error}
-                                    value={password}
+                                    value={cnfPassword}
                                     onChange={(event) => {
-                                        setPassword(event.target.value);
+                                        setCnfPassword(event.target.value);
                                         }} 
                                 />
                                 <FormHelperText error>
@@ -180,10 +285,10 @@ const PartnerRegister = () => {
                         </ThemeProvider>
                     </div>
                     <div className='full_section flex'>
-                        <ColorButton onClick={loginUser} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained"><img style={{ display: loader?'block':'none', width: '35px', height: '35px' }} src={loaderInfinity} alt='Loader' /><span >Register</span></ColorButton>
+                        <ColorButton onClick={registerUser} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained"><img style={{ display: loader?'block':'none', width: '35px', height: '35px' }} src={loaderInfinity} alt='Loader' /><span >Register</span></ColorButton>
                     </div>
                     <div className='full_section flex'>
-                        <button onClick={navigateCreate} className='link_btn'>Already have an account ?</button>
+                        <button onClick={navigateLogin} className='link_btn'>Already have an account ?</button>
                     </div>
                 </div>
             </div>
