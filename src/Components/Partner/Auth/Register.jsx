@@ -16,6 +16,9 @@ import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 import './auth.css';
 
+import ApiManager from '../../../ApiManager/ApiManager';
+import Notification from '../../../Notification/Notification';
+
 
 const PartnerRegister = () => {
 
@@ -148,11 +151,40 @@ const PartnerRegister = () => {
         return validate;
     }
 
-    const registerUser = () => {
+    const registerUser = async () => {
         setErrorState(initialErrorState);
         if (registerValidate() && !loader){
-            console.log("register");
-            setLoader(false);
+            setLoader(true);
+            var params = {
+                email: email,
+                first_name: firstName,
+                last_name: lastName,
+                password: password
+            }
+
+            await ApiManager.register(params)
+            .then((response) => {
+                // 1. check response.ok
+                if (response.ok) {
+                    if (response.status === 204) {
+                        return {}
+                    }
+                    return response.json();
+                }
+                return Promise.reject(response); // 2. reject instead of throw
+              })
+            .then((result) => {
+                setLoader(false);
+                navigate('/partner/login')
+            })
+            .catch((response) => {
+                console.log(response.status, response.statusText);
+                setLoader(false);
+                // 3. get error messages, if any
+                response.json().then((result) => {
+                    setServerError(result.message);
+                })
+            });
         }
     }
 
