@@ -45,7 +45,7 @@
     margin: 10px 0px;
 }
 
-.login_input {
+.txt_input {
     width: 100%;
 }
 
@@ -53,7 +53,7 @@
     float: right;
 }
 
-.forgot_password_span .forgot_password_btn {
+.link_btn {
     background: none;
     border: none;
     cursor: pointer;

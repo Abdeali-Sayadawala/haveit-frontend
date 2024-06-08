@@ -10,14 +10,15 @@ import Checkout from './Components/Checkout/Checkout';
 import Address from './Components/UserPages/Address';
 import upArrow from './Components/Assets/arrow-up-2822.svg';
 import Orders from './Components/UserPages/Orders';
-import AdminHeader from './Components/Admin/Header/Header';
-import AdminNavigation from './Components/Admin/Navigation/Navigation';
-import Dashboard from './Components/Admin/Dashboard/Dashboard';
-import AdminOrders from './Components/Admin/Orders/Orders';
-import OrderPage from './Components/Admin/Orders/OrderPage';
-import AdminProducts from './Components/Admin/Products/Products';
-import AdminLogin from './Components/Admin/AdminLogin/AdminLogin';
-import ResetPassword from './Components/Admin/ResetPassword/ResetPassword';
+import AdminHeader from './Components/Partner/Header/Header';
+import AdminNavigation from './Components/Partner/Navigation/Navigation';
+import Dashboard from './Components/Partner/Dashboard/Dashboard';
+import AdminOrders from './Components/Partner/Orders/Orders';
+import OrderPage from './Components/Partner/Orders/OrderPage';
+import AdminProducts from './Components/Partner/Products/Products';
+import PartnerLogin from './Components/Partner/Auth/Login';
+import PartnerRegister from './Components/Partner/Auth/Register';
+import ResetPassword from './Components/Partner/ResetPassword/ResetPassword';
 import RegisterRestaurant from './Components/Restaurant/RegisterRestaurant';
 import RestaurantInfo from './Components/Restaurant/RestaurantInfo';
 import RestaurantDocs from './Components/Restaurant/RestaurantDocs';
@@ -107,8 +108,8 @@ function AdminPages() {
 
   useEffect(() => {
     // authenticating before each admin page login
-    if (localStorage.getItem("authentication") === 'false') {
-      navigate('/admin');
+    if (localStorage.getItem("authentication") === 'false' || localStorage.getItem("authentication") == undefined) {
+      navigate('/partner/login');
     }
   }, []);
 
@@ -131,10 +132,11 @@ function AdminPages() {
 function App() {
   return (
     <Routes>
-        <Route path='/admin/' element={<AdminLogin />} />
-        <Route path='/admin/reset-password' element={<ResetPassword />} />
-        <Route path='/admin/*' element={<AdminPages />} />
-        <Route path='/register-restaurant' element={<RegisterRestaurant />}>
+        <Route path='/partner/login' element={<PartnerLogin />} />
+        <Route path='/partner/register' element={<PartnerRegister />} />
+        <Route path='/partner/reset-password' element={<ResetPassword />} />
+        <Route path='/partner/*' element={<AdminPages />} />
+        <Route path='/partner/register-restaurant' element={<RegisterRestaurant />}>
           <Route path="res-info" element={<RestaurantInfo />}/>
           <Route path="res-docs" element={<RestaurantDocs />}/>
           <Route path="review" element={<Review />}/>

@@ -37,6 +37,18 @@
     border: 1px solid rgb(0, 0, 0, 0.2);
 }
 
+@media (max-width: 600px) {
+    .regres-wrapper {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .regres-info {
+        width: 96%;
+        margin: 0px auto;
+    }
+}
+
 /* ================================= Restaurant registeration data css - START =============================== */
 
 .regres-data {
@@ -62,23 +74,135 @@
     font-size: 25px;
 }
 
-.regres-data .regres-data-wrapper .section_body .full_section {
+.section_body .full_section {
     width: 100%;
     margin-top: 30px;
 }
 
-.full_section  .txt_input {
+.full_section .txt_input {
     width: 100%;
 }
 
-#location_map {
-    height: 400px;
+.full_section .input_title {
+    font-size: 18px;
+    color: rgb(0, 0, 0, 0.6);
 }
 
-/* ================================= Restaurant registeration info section css - START =============================== */
+.full_section .half_section {
+    display: flex;
+    margin-top: 10px;
+}
 
+.full_section .half_section .txt_input {
+    margin: 10px;
+}
 
+@media (max-width: 600px) {
+    .regres-data {
+        width: 96%;
+        margin: 0px auto;
+    }
 
-/* ================================= Restaurant registeration info section css - END =============================== */
+    .regres-data .regres-data-wrapper {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .full_section .half_section {
+        flex-direction: column;
+    }
+
+    .full_section .half_section .txt_input {
+        margin: 10px auto;
+        width: 90%;
+    }
+}
+
+/* ================================= Restaurant registration docs section css - START =============================== */
+
+.doc_upload_section {
+    margin-top: 20px;
+    padding: 20px 0px;
+    display: flex;
+}
+
+.doc_upload_section .doc_section {
+    width: 100%;
+}
+
+.doc_upload_section .doc_section .doc_title {
+    text-align: center;
+    font-size: 22px;
+    color: rgb(0, 0, 0, 0.6);
+}
+
+.doc_upload_section .doc_section .doc_actions {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.doc_upload_section .doc_section .doc_actions img {
+    width: 155px;
+    height: 90px;
+
+    margin: 0px auto;
+}
+
+#res_logo_preview {
+    width: 150px;
+    height: 150px;
+}
+
+.doc_upload_section .doc_section .doc_actions .doc_upload_btn {
+    margin-top: 20px;
+}
+
+.doc_upload_section .doc_section .doc_actions .suppoprted_types_txt {
+    margin-top: 7px;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .doc_upload_section {
+        flex-direction: column;
+    } 
+}
+
+/* ================================= Restaurant registration docs section css - END =============================== */
+
+.left_btn {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.left_btn .back_btn {
+    width: 120px;
+}
+
+.next_submit_btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.next_submit_btn .next_btn {
+    width: 150px;
+}
+
+@media (max-width: 600px) {
+    .left_btn .back_btn {
+        font-size: 22px;
+    }
+
+    .next_submit_btn .next_btn {
+        font-size: 22px;
+    }
+}
 
 /* ================================= Restaurant registeration data css - END =============================== */
