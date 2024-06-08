@@ -14,7 +14,8 @@ const RegisterRestaurant = () => {
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (location.pathname === '/register-restaurant'){
+        if (location.pathname === '/register-restaurant' || location.pathname === '/register-restaurant/'){
+            console.log("restaurant navigate");
             navigate('/register-restaurant/res-info');
         }
     }, []);
@@ -32,8 +33,9 @@ const RegisterRestaurant = () => {
             label: 'Review data',
             description: 'This is an example description to check the spacing of the elements.'
         },
-      ];
-      const [currentStep, setCurrentStep] = React.useState(0);
+    ];
+
+    const [currentStep, setCurrentStep] = React.useState(0);
 
     return (
         <div className='regres-wrapper'>
@@ -58,7 +60,8 @@ const RegisterRestaurant = () => {
                 </div>
             </div>
             <div className='regres-data'>
-                <Outlet />
+                <Outlet context={setCurrentStep} />
+                <div style={{ height: '70px' }}></div>
             </div>
         </div>
     )

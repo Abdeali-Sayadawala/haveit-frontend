@@ -15,10 +15,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { ForgotPasswordModal, LinkSentModal } from './ForgotPasswordModal';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
-import './AdminLogin.css';
+import './auth.css';
 
 
-const AdminLogin = () => {
+const PartnerLogin = () => {
 
     var initialErrorState = {
         email: {
@@ -96,7 +96,7 @@ const AdminLogin = () => {
             .then((result) => {
                 localStorage.setItem("access-token", JSON.stringify(result.tokens));
                 setAuthentication();
-                navigate('/admin/dashboard');
+                navigate('/partner/dashboard');
             })
             .catch((response) => {
                 if (response.status){
@@ -121,6 +121,10 @@ const AdminLogin = () => {
         document.getElementById('forgot_pass_email_content').classList.add('show');
     };
 
+    const navigateCreate = () => {
+        navigate('/partner/register');
+    }
+
     return(
         <div className='login_background'>
             <div className='login_wrapper'>
@@ -129,7 +133,7 @@ const AdminLogin = () => {
                     <span style={{ color:"red", textAlign:'center' }} >{serverError}</span>
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
-                            <FormControl className='login_input' variant="outlined" >
+                            <FormControl className='txt_input' variant="outlined" >
                                 <TextField 
                                     id="email" 
                                     label="Email"  
@@ -147,7 +151,7 @@ const AdminLogin = () => {
                     </div>
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
-                            <FormControl className='login_input' variant="outlined" color='blue'>
+                            <FormControl className='txt_input' variant="outlined" color='blue'>
                                 <InputLabel htmlFor="outlined-adornment-password" error={ errorState.password.error?true:false }>Password</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
@@ -179,11 +183,14 @@ const AdminLogin = () => {
                     </div>
                     <div className='full_section'>
                         <span className='forgot_password_span'>
-                            <button onClick={openFPModal} className='forgot_password_btn'>Forgot Password ?</button>
+                            <button onClick={openFPModal} className='link_btn'>Forgot Password ?</button>
                         </span>
                     </div>
                     <div className='full_section flex'>
                         <ColorButton onClick={loginUser} className='login_button' sx={{ borderRadius: "5px", fontSize: "20px" }} variant="contained"><img style={{ display: loader?'block':'none', width: '35px', height: '35px' }} src={loaderInfinity} alt='Loader' /><span >Login</span></ColorButton>
+                    </div>
+                    <div className='full_section flex'>
+                        <button onClick={navigateCreate} className='link_btn'>Create Account</button>
                     </div>
                 </div>
             </div>
@@ -193,4 +200,4 @@ const AdminLogin = () => {
     )
 };
 
-export default AdminLogin
+export default PartnerLogin
