@@ -56,6 +56,8 @@ const PartnerRegister = () => {
     const [cnfPassword, setCnfPassword] = useState('');
     const [showCnfPassword, setShowCnfPassword] = useState(false);
     const [errorState, setErrorState] = useState(initialErrorState);
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [showNotification, setShowNotification] = useState(false);
 
     const registerValidate = () => {
         var validate = true;
@@ -153,7 +155,8 @@ const PartnerRegister = () => {
 
     const registerUser = async () => {
         setErrorState(initialErrorState);
-        if (registerValidate() && !loader){
+        // if (registerValidate() && !loader){
+        if (true){
             setLoader(true);
             var params = {
                 email: email,
@@ -162,20 +165,24 @@ const PartnerRegister = () => {
                 password: password
             }
 
-            await ApiManager.register(params)
-            .then((result) => {
-                console.log("result: ", result);
-                setLoader(false);
-                // navigate('/partner/login')
-            })
-            .catch((response) => {
-                console.log(response);
-                setLoader(false);
-                // 3. get error messages, if any
-                response.json().then((result) => {
-                    setServerError(result.message);
-                })
-            });
+            setNotificationMessage("User created succesfully.");
+            setShowNotification(true);
+            // setLoader(false);
+
+            // await ApiManager.register(params)
+            // .then((result) => {
+            //     console.log("result: ", result);
+            //     setLoader(false);
+            //     // navigate('/partner/login')
+            // })
+            // .catch((response) => {
+            //     console.log(response);
+            //     setLoader(false);
+            //     // 3. get error messages, if any
+            //     response.json().then((result) => {
+            //         setServerError(result.message);
+            //     })
+            // });
         }
     }
 
@@ -315,6 +322,7 @@ const PartnerRegister = () => {
                     </div>
                 </div>
             </div>
+            <Notification message={notificationMessage} show={showNotification} />
         </div>
     )
 }

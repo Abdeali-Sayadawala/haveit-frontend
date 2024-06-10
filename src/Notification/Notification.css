@@ -1,3 +1,43 @@
 .notification_wrapper {
     position: absolute;
+    top: 70px;
+    right: -320px;
+
+    display: flex;
+    width: 300px;
+
+    transition: 1s all;
+}
+
+.notification_wrapper.show {
+    right: 20px;
+}
+
+.notification_wrapper .message_section {
+    background-color: #33cc33;
+    color: aliceblue;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    padding: 10px 20px;
+    font-size: 18px;
+
+    width: 100%;
+}
+
+.notification_wrapper .actions_section {
+    background-color: #29a329;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification_wrapper .actions_section button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    height: 34px;
 }
