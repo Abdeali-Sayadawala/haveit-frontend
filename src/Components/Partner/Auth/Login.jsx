@@ -17,6 +17,7 @@ import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 import './auth.css';
 import ApiManager from '../../../ApiManager/ApiManager';
+import Notification from '../../../Notification/Notification';
 
 
 const PartnerLogin = () => {
@@ -39,6 +40,9 @@ const PartnerLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorState, setErrorState] = useState(initialErrorState);
+    const [showNotify, setShowNotify] = useState(false);
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notificationType, setNotificationType] = useState('');
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const loginValidate = () => {
@@ -68,6 +72,16 @@ const PartnerLogin = () => {
         localStorage.setItem("authentication", true);
     };
 
+    const closeNotification = () => { 
+        setShowNotify(false);
+    }
+
+    const sendNotification = (message, type='success') => {
+        setNotificationMessage(message)
+        setNotificationType(type)
+        setShowNotify(true);
+    }
+
     const loginUser = async () => {
         setErrorState(initialErrorState);
         if (loginValidate() && !loader) {
@@ -92,15 +106,14 @@ const PartnerLogin = () => {
             })
             .catch((response) => {
                 if (response.status){
-                    console.log(response, response.statusText);
                     setLoader(false);
                     // 3. get error messages, if any
                     response.json().then((result) => {
-                        setServerError(result.message);
+                        sendNotification(result.message, 'error');
                         setPassword('');
                     })
                 }else {
-                    setServerError("Internal Server Error");
+                    sendNotification("Internal Server Error", 'error');
                     setLoader(false);
                 }
               });
@@ -188,6 +201,7 @@ const PartnerLogin = () => {
             </div>
             <ForgotPasswordModal />
             <LinkSentModal />
+            <Notification show = {showNotify} message = {notificationMessage} type = {notificationType} onClose={closeNotification} />
         </div>
     )
 };

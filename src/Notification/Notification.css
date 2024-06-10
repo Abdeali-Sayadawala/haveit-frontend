@@ -7,7 +7,7 @@
     width: 300px;
 
     transform: translateX(100%);
-    transition: all .3s;
+    transition: all .2s;
 }
 
 .notification_wrapper.show {

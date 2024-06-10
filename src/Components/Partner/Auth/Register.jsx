@@ -164,6 +164,7 @@ const PartnerRegister = () => {
     }
 
     const registerUser = async () => {
+        closeNotification();
         setErrorState(initialErrorState);
         if (registerValidate() && !loader){
             setLoader(true);
