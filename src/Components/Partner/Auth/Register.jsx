@@ -47,7 +47,6 @@ const PartnerRegister = () => {
 
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
-    const [serverError, setServerError] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -56,8 +55,9 @@ const PartnerRegister = () => {
     const [cnfPassword, setCnfPassword] = useState('');
     const [showCnfPassword, setShowCnfPassword] = useState(false);
     const [errorState, setErrorState] = useState(initialErrorState);
+    const [showNotify, setShowNotify] = useState(false);
     const [notificationMessage, setNotificationMessage] = useState('');
-    const [showNotification, setShowNotification] = useState(false);
+    const [notificationType, setNotificationType] = useState('');
 
     const registerValidate = () => {
         var validate = true;
@@ -153,10 +153,19 @@ const PartnerRegister = () => {
         return validate;
     }
 
+    const closeNotification = () => { 
+        setShowNotify(false);
+    }
+
+    const sendNotification = (message, type='success') => {
+        setNotificationMessage(message)
+        setNotificationType(type)
+        setShowNotify(true);
+    }
+
     const registerUser = async () => {
         setErrorState(initialErrorState);
-        // if (registerValidate() && !loader){
-        if (true){
+        if (registerValidate() && !loader){
             setLoader(true);
             var params = {
                 email: email,
@@ -165,24 +174,20 @@ const PartnerRegister = () => {
                 password: password
             }
 
-            setNotificationMessage("User created succesfully.");
-            setShowNotification(true);
-            // setLoader(false);
-
-            // await ApiManager.register(params)
-            // .then((result) => {
-            //     console.log("result: ", result);
-            //     setLoader(false);
-            //     // navigate('/partner/login')
-            // })
-            // .catch((response) => {
-            //     console.log(response);
-            //     setLoader(false);
-            //     // 3. get error messages, if any
-            //     response.json().then((result) => {
-            //         setServerError(result.message);
-            //     })
-            // });
+            await ApiManager.register(params)
+            .then((result) => {
+                sendNotification("User created succesfully.");
+                setLoader(false);
+                // navigate('/partner/login')
+            })
+            .catch((response) => {
+                console.log(response);
+                setLoader(false);
+                // 3. get error messages, if any
+                response.json().then((result) => {
+                    sendNotification(result.message, 'error');
+                })
+            });
         }
     }
 
@@ -195,7 +200,6 @@ const PartnerRegister = () => {
             <div className='login_wrapper'>
                 <div className='login_header'>Register</div>
                 <div className='login_body'>
-                    <span style={{ color:"red", textAlign:'center' }} >{serverError}</span>
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='txt_input' variant="outlined" >
@@ -253,9 +257,9 @@ const PartnerRegister = () => {
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='txt_input' variant="outlined" color='blue'>
-                                <InputLabel htmlFor="outlined-adornment-password" error={ errorState.password.error?true:false }>Password</InputLabel>
+                                <InputLabel htmlFor="password" error={ errorState.password.error?true:false }>Password</InputLabel>
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
+                                    id="password"
                                     type={showPassword ? 'text' : 'password'}
                                     endAdornment={
                                         <InputAdornment position="end">
@@ -285,9 +289,9 @@ const PartnerRegister = () => {
                     <div className='full_section'>
                         <ThemeProvider theme={textFieldTheme}>
                             <FormControl className='txt_input' variant="outlined" color='blue'>
-                                <InputLabel htmlFor="outlined-adornment-password" error={ errorState.password.error?true:false }>Password</InputLabel>
+                                <InputLabel htmlFor="cnf_password" error={ errorState.password.error?true:false }>Password</InputLabel>
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
+                                    id="cnf_password"
                                     type={showCnfPassword ? 'text' : 'password'}
                                     endAdornment={
                                         <InputAdornment position="end">
@@ -322,7 +326,7 @@ const PartnerRegister = () => {
                     </div>
                 </div>
             </div>
-            <Notification message={notificationMessage} show={showNotification} />
+            <Notification show = {showNotify} message = {notificationMessage} type = {notificationType} onClose={closeNotification} />
         </div>
     )
 }

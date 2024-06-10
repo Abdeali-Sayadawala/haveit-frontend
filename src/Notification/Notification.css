@@ -1,21 +1,23 @@
 .notification_wrapper {
-    position: absolute;
+    position: fixed;
     top: 70px;
-    right: -320px;
+    right: 0px;
 
     display: flex;
     width: 300px;
 
-    transition: 1s all;
+    transform: translateX(100%);
+    transition: all .3s;
 }
 
 .notification_wrapper.show {
     right: 20px;
+    transform: translateX(0%);
 }
 
 .notification_wrapper .message_section {
-    background-color: #33cc33;
-    color: aliceblue;
+    background-color: white;
+    color: black;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 
@@ -25,13 +27,31 @@
     width: 100%;
 }
 
+.notification_wrapper .message_section.success {
+    background-color: #33cc33;
+    color: aliceblue;
+}
+
+.notification_wrapper .message_section.error {
+    background-color: #ff0000;
+    color: aliceblue;
+}
+
 .notification_wrapper .actions_section {
-    background-color: #29a329;
+    background-color: #f2f2f2;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.notification_wrapper .actions_section.success {
+    background-color: #29a329;
+}
+
+.notification_wrapper .actions_section.error {
+    background-color: #cc0000;
 }
 
 .notification_wrapper .actions_section button {
