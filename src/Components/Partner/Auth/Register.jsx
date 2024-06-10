@@ -163,22 +163,13 @@ const PartnerRegister = () => {
             }
 
             await ApiManager.register(params)
-            .then((response) => {
-                // 1. check response.ok
-                if (response.ok) {
-                    if (response.status === 204) {
-                        return {}
-                    }
-                    return response.json();
-                }
-                return Promise.reject(response); // 2. reject instead of throw
-              })
             .then((result) => {
+                console.log("result: ", result);
                 setLoader(false);
-                navigate('/partner/login')
+                // navigate('/partner/login')
             })
             .catch((response) => {
-                console.log(response.status, response.statusText);
+                console.log(response);
                 setLoader(false);
                 // 3. get error messages, if any
                 response.json().then((result) => {

@@ -18,6 +18,7 @@ import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 
 import './ResetPassword.css';
+import ApiManager from '../../../ApiManager/ApiManager';
 
 const ResetPassword = () => {
 
@@ -99,27 +100,21 @@ const ResetPassword = () => {
         setErrorState(initialErrorState);
         if (resetValidation() && !loader){
             setLoader(true);
-            const raw = JSON.stringify({
-                "password": newPass
-            });
-            
-            const requestOptions = {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-                body: raw,
-                redirect: "follow"
+            const query = {
+                token: token
+            }
+            const params = {
+                password: newPass
             };
             
-            await fetch(`http://localhost:8000/v1/auth/reset-password?token=${token}`, requestOptions)
+            await ApiManager.reset_password(query, params)
             .then((response) => {
                 // 1. check response.ok
                 if (response.ok) {
                     if (response.status === 204) {
                         return {}
                     }
-                    return response.json();
+                    return response;
                 }
                 return Promise.reject(response); // 2. reject instead of throw
               })

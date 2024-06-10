@@ -8,6 +8,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
+import ApiManager from '../../../ApiManager/ApiManager';
 
 const ForgotPasswordModal = () => {
 
@@ -53,27 +54,18 @@ const ForgotPasswordModal = () => {
         setLoader(true);
         if (FPValidate()) {
             setErrorState(initialErrorState); 
-            const raw = JSON.stringify({
-                "email": email,
-            });
-
-            const requestOptions = {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-                body: raw,
-                redirect: "follow"
+            const params = {
+                email: email,
             };
-            
-            await fetch("http://localhost:8000/v1/auth/forgot-password", requestOptions)
+
+            await ApiManager.forgot_password(params)
             .then((response) => {
                 // 1. check response.ok
                 if (response.ok) {
                     if (response.status === 204) {
                         return {}
                     }
-                    return response.json();
+                    return response;
                 }
                 return Promise.reject(response); // 2. reject instead of throw
               })

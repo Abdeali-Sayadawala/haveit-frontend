@@ -16,6 +16,7 @@ import { ForgotPasswordModal, LinkSentModal } from './ForgotPasswordModal';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 import './auth.css';
+import ApiManager from '../../../ApiManager/ApiManager';
 
 
 const PartnerLogin = () => {
@@ -71,25 +72,16 @@ const PartnerLogin = () => {
         setErrorState(initialErrorState);
         if (loginValidate() && !loader) {
             setLoader(true);
-            const raw = JSON.stringify({
-                "email": email,
-                "password": password
-            });
-            
-            const requestOptions = {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-                body: raw,
-                redirect: "follow"
+            var params = {
+                email: email,
+                password: password
             };
             
-            await fetch("http://localhost:8000/v1/auth/login", requestOptions)
+            await ApiManager.login(params)
             .then((response) => {
                 // 1. check response.ok
                 if (response.ok) {
-                  return response.json();
+                  return response;
                 }
                 return Promise.reject(response); // 2. reject instead of throw
               })

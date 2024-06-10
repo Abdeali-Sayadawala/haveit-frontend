@@ -1,26 +1,25 @@
 import ENDPOINTS from './Endpoints.jsx';
-
-const BASE_URL = process.env.REACT_APP_API_BASEURL;
+import ApiMethods from './ApiMethods.jsx';
 
 class ApiManager {
     static register = (params) => {
-        const url = BASE_URL + ENDPOINTS.REGISTER();
-        const raw = JSON.stringify({
-            "first_name": params.first_name,
-            "last_name": params.last_name,
-            "email": params.email,
-            "password": params.password
-        });
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            body: raw,
-            redirect: "follow"
-        };
+        const url = ENDPOINTS.REGISTER();
+        return ApiMethods.post(url, params, false);
+    }
 
-        return fetch(url, requestOptions)
+    static login = (params) => {
+        const url = ENDPOINTS.LOGIN();
+        return ApiMethods.post(url, params, false);
+    }
+
+    static forgot_password = (params) => {
+        const url = ENDPOINTS.FORGOT_PASS();
+        return ApiMethods.post(url, params, false);
+    }
+
+    static reset_password = (query, params) => {
+        const url = ENDPOINTS.RESET_PASS(query.token);
+        return ApiMethods.post(url, params, false);
     }
 }
 
