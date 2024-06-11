@@ -4,6 +4,7 @@
     right: 0px;
 
     display: flex;
+    visibility: hidden;
     width: 300px;
 
     transform: translateX(100%);
@@ -12,6 +13,7 @@
 
 .notification_wrapper.show {
     right: 20px;
+    visibility: visible;
     transform: translateX(0%);
 }
 
@@ -60,4 +62,26 @@
     cursor: pointer;
     padding: 5px;
     height: 34px;
+}
+
+@media (max-width: 600px) {
+    .notification_wrapper {
+        top: 83%;
+        left: 50%;
+        transform: translate(-50%, 400%);
+    }
+
+    .notification_wrapper.show {
+        transform: translate(-50%, 0%);
+    }
+
+    .notification_wrapper .message_section {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    .notification_wrapper .actions_section {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
 }
