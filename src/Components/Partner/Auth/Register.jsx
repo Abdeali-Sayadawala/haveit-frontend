@@ -182,7 +182,6 @@ const PartnerRegister = () => {
                 // navigate('/partner/login')
             })
             .catch((response) => {
-                console.log(response);
                 setLoader(false);
                 // 3. get error messages, if any
                 response.json().then((result) => {

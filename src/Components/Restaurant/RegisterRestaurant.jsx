@@ -14,9 +14,9 @@ const RegisterRestaurant = () => {
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (location.pathname === '/register-restaurant' || location.pathname === '/register-restaurant/'){
+        if (location.pathname === '/partner/register-restaurant' || location.pathname === '/partner/register-restaurant/'){
             console.log("restaurant navigate");
-            navigate('/register-restaurant/res-info');
+            navigate('/partner/register-restaurant/res-info');
         }
     }, []);
 

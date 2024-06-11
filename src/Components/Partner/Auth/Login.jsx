@@ -92,17 +92,14 @@ const PartnerLogin = () => {
             };
             
             await ApiManager.login(params)
-            .then((response) => {
-                // 1. check response.ok
-                if (response.ok) {
-                  return response;
-                }
-                return Promise.reject(response); // 2. reject instead of throw
-              })
             .then((result) => {
                 localStorage.setItem("access-token", JSON.stringify(result.tokens));
                 setAuthentication();
-                navigate('/partner/dashboard');
+                if (result.restaurant.length === 0){
+                    navigate('/partner/register-restaurant');
+                }else{
+                    navigate('/partner/dashboard');
+                }
             })
             .catch((response) => {
                 if (response.status){
