@@ -1,5 +1,9 @@
 import React from "react";
 import { Outlet, Routes, Route, useNavigate } from 'react-router-dom';
+import PartnerLogin from "./Auth/Login";
+import PartnerRegister from "./Auth/Register";
+import ResetPassword from "./ResetPassword/ResetPassword";
+import RegisterRestaurant from "./RegisterRestaurant";
 
 function PartnerRestaurantPages() { 
     const navigate = useNavigate();
@@ -23,9 +27,7 @@ function PartnerRestaurantPages() {
             <AdminNavigation />
             <div id='admin_main'>
                 <AdminHeader />
-                <Routes>
-                    
-                </Routes>
+                <Outlet />
             </div>
         </div>
     )
