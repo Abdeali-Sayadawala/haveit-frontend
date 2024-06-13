@@ -18,7 +18,7 @@ import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import loaderInfinity from '../../Assets/infinity_white.svg';
 
 import './ResetPassword.css';
-import ApiManager from '../../../ApiManager/ApiManager';
+import ApiManager from '../../../Services/ApiManager/ApiManager';
 
 const ResetPassword = () => {
 

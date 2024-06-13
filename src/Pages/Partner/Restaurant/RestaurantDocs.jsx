@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { useOutletContext } from "react-router-dom";
 
-import { ColorButton, ColorButtonOutline, textFieldTheme } from '../Partner/helpers/CommonVars';
+import { ColorButton, ColorButtonOutline, textFieldTheme } from '../../Pages/Partner/helpers/CommonVars';
 import { useNavigate } from 'react-router-dom';
 
 import cardPreview from '../Assets/card_upload_preview.png';

@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { useOutletContext } from "react-router-dom";
 
-import { ColorButton, textFieldTheme } from '../Partner/helpers/CommonVars';
+import { ColorButton, textFieldTheme } from '../../Pages/Partner/helpers/CommonVars';
 import { useNavigate } from 'react-router-dom';
 
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
