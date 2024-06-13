@@ -15,7 +15,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Tooltip from '@mui/material/Tooltip';
 
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
-import loaderInfinity from '../../Assets/infinity_white.svg';
+import loaderInfinity from '../../../Components/Assets/infinity_white.svg';
 
 import './ResetPassword.css';
 import ApiManager from '../../../Services/ApiManager/ApiManager';

@@ -1,4 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useRoutes } from 'react-router-dom';
+import mainRoutes from './Routes';
 import { useEffect } from "react";
 import Menu from './Components/Menu/Menu';
 import Navigation from './Components/Navigation/Navigation';
@@ -10,20 +11,20 @@ import Checkout from './Components/Checkout/Checkout';
 import Address from './Components/UserPages/Address';
 import upArrow from './Components/Assets/arrow-up-2822.svg';
 import Orders from './Components/UserPages/Orders';
-import AdminHeader from './Pages/Partner/Header/Header';
-import AdminNavigation from './Pages/Partner/Navigation/Navigation';
-import Dashboard from './Pages/Partner/Dashboard/Dashboard';
-import AdminOrders from './Pages/Partner/Orders/Orders';
-import OrderPage from './Pages/Partner/Orders/OrderPage';
-import AdminProducts from './Pages/Partner/Products/Products';
-import  PartnerPages from './Pages/Partner';
-import PartnerLogin from './Pages/Partner/Auth/Login';
-import PartnerRegister from './Pages/Partner/Auth/Register';
-import ResetPassword from './Pages/Partner/ResetPassword/ResetPassword';
-import RegisterRestaurant from './Components/Restaurant/RegisterRestaurant';
-import RestaurantInfo from './Components/Restaurant/RestaurantInfo';
-import RestaurantDocs from './Components/Restaurant/RestaurantDocs';
-import Review from './Components/Restaurant/Review';
+// import AdminHeader from './Pages/Partner/Header/Header';
+// import AdminNavigation from './Pages/Partner/Navigation/Navigation';
+// import Dashboard from './Pages/Partner/Dashboard';
+// import AdminOrders from './Pages/Partner/Orders';
+// import OrderPage from './Pages/Partner/Orders/OrderPage';
+// import AdminProducts from './Pages/Partner/Products';
+// import  PartnerPages from './Pages/Partner';
+// import PartnerLogin from './Pages/Partner/Auth/Login';
+// import PartnerRegister from './Pages/Partner/Auth/Register';
+// import ResetPassword from './Pages/Partner/ResetPassword/ResetPassword';
+// import RegisterRestaurant from './Components/Restaurant/RegisterRestaurant';
+// import RestaurantInfo from './Components/Restaurant/RestaurantInfo';
+// import RestaurantDocs from './Components/Restaurant/RestaurantDocs';
+// import Review from './Components/Restaurant/Review';
 
 function Mainwrapper(){
   return(
@@ -91,11 +92,18 @@ function UserPages() {
 }
 
 function App() {
+
+  const routes = useRoutes(mainRoutes);
+
   return (
-    <Routes>
-        <Route path='/partner' element={<PartnerPages />} />
-        <Route path='/*' element={<UserPages />} />
-    </Routes>
+    // <Routes>
+    //     <Route path='/partner' element={<PartnerPages />} />
+    //     <Route path='/*' element={<UserPages />} />
+    // </Routes>
+    <div>
+      {routes}
+    </div>
+    
   );
 }
 

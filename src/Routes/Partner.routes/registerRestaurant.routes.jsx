@@ -1,17 +1,19 @@
-import PartnerLogin from "../../Pages/Partner/Auth/Login";
+import RestaurantInfo from "../../Pages/Partner/RegisterRestaurant/RestaurantInfo";
+import RestaurantDocs from "../../Pages/Partner/RegisterRestaurant/RestaurantDocs";
+import Review from "../../Pages/Partner/RegisterRestaurant/Review";
 
 const registerRestaurantRoutes = [
     {
         path: "res-info",
-        element: <PartnerLogin />,
+        element: <RestaurantInfo />,
     },
     {
         path: "res-docs",
-        element: <PartnerLogin />,
+        element: <RestaurantDocs />,
     },
     {
         path: "review",
-        element: <PartnerLogin />,
+        element: <Review />,
     }
 ]
 

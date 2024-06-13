@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { useOutletContext } from "react-router-dom";
 
-import { ColorButton, ColorButtonOutline } from '../../Pages/Partner/helpers/CommonVars';
+import { ColorButton, ColorButtonOutline } from '../helpers/CommonVars';
 import { useNavigate } from 'react-router-dom';
 
 const Review = () => {

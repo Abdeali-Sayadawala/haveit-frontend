@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import menuIcon from '../../Assets/list-6246.svg';
+import menuIcon from '../../../Components/Assets/list-6246.svg';
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

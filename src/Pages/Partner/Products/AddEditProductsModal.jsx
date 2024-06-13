@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { useState, forwardRef, useImperativeHandle  } from "react";
-import foodIcon from '../../Assets/prod_img_back.png';
+import foodIcon from '../../../Components/Assets/prod_img_back.png';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';

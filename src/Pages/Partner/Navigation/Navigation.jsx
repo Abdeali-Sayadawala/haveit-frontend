@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import hvit_logo from '../../Assets/logo-png.png'
+import hvit_logo from '../../../Components/Assets/logo-png.png'
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {

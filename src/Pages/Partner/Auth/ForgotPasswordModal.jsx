@@ -5,10 +5,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import loaderInfinity from '../../Assets/infinity_white.svg';
+import loaderInfinity from '../../../Components/Assets/infinity_white.svg';
 
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
-import ApiManager from '../../../ApiManager/ApiManager';
+import ApiManager from '../../../Services/ApiManager/ApiManager';
 
 const ForgotPasswordModal = () => {
 

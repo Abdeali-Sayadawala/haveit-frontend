@@ -1,26 +1,28 @@
-import PartnerLogin from "../../Pages/Partner/Auth/Login";
+import Dashboard from "../../Pages/Partner/Dashboard";
+import Orders from "../../Components/UserPages/Orders";
+import Products from "../../Pages/Partner/Products";
 
 const restaurantPanelRoutes = [
     {
         path: "dashboard",
-        element: <PartnerLogin />,
+        element: <Dashboard />,
     },
     {
         path: "orders",
         children: [
             {
               index: true,
-              element: <Products />,
+              element: <Orders />,
             },
             {
               path: ":orderId",
-              element: <Product />,
+              element: <Orders />,
             },
           ],
     },
     {
         path: "products",
-        element: <PartnerLogin />,
+        element: <Products />,
     }
 ]
 

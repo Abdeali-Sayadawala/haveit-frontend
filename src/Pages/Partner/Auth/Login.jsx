@@ -14,10 +14,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import { ForgotPasswordModal, LinkSentModal } from './ForgotPasswordModal';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
-import loaderInfinity from '../../Assets/infinity_white.svg';
+import loaderInfinity from '../../../Components/Assets/infinity_white.svg';
 import './auth.css';
-import ApiManager from '../../../ApiManager/ApiManager';
-import Notification from '../../../Notification/Notification';
+import ApiManager from '../../../Services/ApiManager/ApiManager';
+import Notification from '../../../Components/Notification/Notification';
 
 
 const PartnerLogin = () => {

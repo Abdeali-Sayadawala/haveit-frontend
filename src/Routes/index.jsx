@@ -1,9 +1,14 @@
 import partnerRoutes from "./Partner.routes";
+import restaurantRoutes from "./Restaurant.routes";
 
 const mainRoutes = [
     {
         path: "partner",
-        children: {partnerRoutes},
+        children: partnerRoutes,
+    },
+    {
+        path: "restaurant",
+        children: restaurantRoutes,
     }
 ]
 
