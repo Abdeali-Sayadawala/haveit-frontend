@@ -52,13 +52,14 @@ function RestaurantPages() {
         <div id='user_pages'>
             <div id='modal_screen_blur' className="modal_screen_blur"></div>
             <Navigation />
-                <Routes>
+            <Outlet />
+                {/* <Routes>
                     <Route path="" element={<HomeWrapper />} />
                     <Route path='/menu' element={<Mainwrapper />} />
                     <Route path='/checkout' element={<CheckoutWrapper/>} />
                     <Route path='/manage-address' element={<Address/>} />
                     <Route path='/orders' element={<Orders/>} />
-                </Routes>
+                </Routes> */}
             <div className="scroll-top" onClick={scrollToTop}>
             <img src={upArrow} alt="" />
             </div>

@@ -7,7 +7,7 @@ import infinity from '../Assets/Infinity-1s-200px.svg';
 import addIcon from '../Assets/plus-11969.svg';
 import { useState, useEffect } from "react";
 
-const Checkout = () => {
+const CheckoutPage = () => {
 
     const navigate = useNavigate();
 
@@ -296,4 +296,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default CheckoutPage;

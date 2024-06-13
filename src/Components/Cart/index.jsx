@@ -2,7 +2,7 @@ import * as React from 'react';
 import './CartDetailing.css';
 import { useNavigate } from "react-router-dom";
 
-export default function BasicTabs() {
+export default function Cart() {
   const navigate = useNavigate();
   function otpModalOpen(event) {
     if (localStorage.getItem("authentication") === 'true'){

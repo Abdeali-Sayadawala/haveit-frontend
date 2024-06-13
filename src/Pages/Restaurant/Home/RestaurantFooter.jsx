@@ -5,7 +5,7 @@ import halal_icon from  '../Assets/Halal.png';
 import fbIcon from '../Assets/facebook-5221.svg';
 import igIcon from '../Assets/instagram-logo-8869.svg';
 
-export default function Footerpage() {
+export default function RestaurantFooter() {
     return (
         <div className='footer'>
             <div className='top'>
