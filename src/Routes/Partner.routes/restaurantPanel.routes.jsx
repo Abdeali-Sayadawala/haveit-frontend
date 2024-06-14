@@ -1,5 +1,5 @@
 import Dashboard from "../../Pages/Partner/Dashboard";
-import Orders from "../../Components/UserPages/Orders";
+import Orders from "../../Pages/Partner/Orders";
 import Products from "../../Pages/Partner/Products";
 
 const restaurantPanelRoutes = [

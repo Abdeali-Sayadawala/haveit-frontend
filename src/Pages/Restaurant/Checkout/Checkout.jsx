@@ -1,10 +1,10 @@
 import React from 'react';
 import './Checkout.css';
-import back_arrow from '../Assets/left-arrow.svg';
+import back_arrow from '../../../Components/Assets/left-arrow.svg';
 import { useNavigate } from 'react-router-dom';
-import ddArrow from '../Assets/arrow-232.svg';
-import infinity from '../Assets/Infinity-1s-200px.svg';
-import addIcon from '../Assets/plus-11969.svg';
+import ddArrow from '../../../Components/Assets/arrow-232.svg';
+import infinity from '../../../Components/Assets/Infinity-1s-200px.svg';
+import addIcon from '../../../Components/Assets/plus-11969.svg';
 import { useState, useEffect } from "react";
 
 const CheckoutPage = () => {

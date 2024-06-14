@@ -1,5 +1,5 @@
 import React from 'react';
-import './userPages.css';
+import '../style/userPages.css';
 import back_arrow from '../Assets/left-arrow.svg';
 import reset from '../Assets/reset-14414.svg';
 import upArrow from '../Assets/arrow-up-2822.svg';

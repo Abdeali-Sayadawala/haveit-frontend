@@ -1,12 +1,12 @@
 import React from 'react';
-import './userPages.css';
+import '../style/userPages.css';
 import { useState, useEffect } from "react";
-import back_arrow from '../Assets/left-arrow.svg';
-import upArrow from '../Assets/arrow-up-2822.svg';
-import addIcon from '../Assets/plus-white.svg';
+import back_arrow from '../../../Components/Assets/left-arrow.svg';
+import upArrow from '../../../Components/Assets/arrow-up-2822.svg';
+import addIcon from '../../../Components/Assets/plus-white.svg';
 import { useNavigate } from "react-router-dom";
-import ConfirmationModal from './ConfirmationModal';
-import AddressModal from './AddressModal';
+import ConfirmationModal from '../../../Components/ConfirmationModal/ConfirmationModal';
+import AddressModal from '../../../Components/AddressModal/AddressModal';
 
 const Address = () => {
     const navigate = useNavigate();
