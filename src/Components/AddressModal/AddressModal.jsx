@@ -1,6 +1,6 @@
 import React from 'react';
-import './userPages.css';
-import PopupModalNotification from '../miniComponents/popupModal/PopupModalNotification';
+import './AddressModal.css';
+import PopupModalNotification from '../popupModal/PopupModalNotification';
 import xBlue from '../Assets/x-10332-blue.svg';
 
 const AddressModal = ({modal_ty}) => {

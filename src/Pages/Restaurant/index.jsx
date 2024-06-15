@@ -1,31 +1,33 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Navigation from "../../Components/Navigation";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-function Mainwrapper(){
-    return(
-      <div className='main_wrapper'>
-          <Menu />
-          <CartDetails />
-      </div>
-    )
-  }
+// function Mainwrapper(){
+//     return(
+//       <div className='main_wrapper'>
+//           <Menu />
+//           <CartDetails />
+//       </div>
+//     )
+//   }
   
-  function CheckoutWrapper(){
-    return(
-      <div className='main_wrapper'>
-          <Checkout/>
-      </div>
-    )
-  }
+//   function CheckoutWrapper(){
+//     return(
+//       <div className='main_wrapper'>
+//           <Checkout/>
+//       </div>
+//     )
+//   }
   
-  function HomeWrapper(){
-    return(
-      <div className='footer_wrapper'>
-          <HomePage/>
-          <FooterPage />
-      </div>
-    )
-  }
+//   function HomeWrapper(){
+//     return(
+//       <div className='footer_wrapper'>
+//           <HomePage/>
+//           <FooterPage />
+//       </div>
+//     )
+//   }
   
 function RestaurantPages() {
     const scrollToTop = (event) => {
@@ -61,7 +63,7 @@ function RestaurantPages() {
                     <Route path='/orders' element={<Orders/>} />
                 </Routes> */}
             <div className="scroll-top" onClick={scrollToTop}>
-            <img src={upArrow} alt="" />
+            <ArrowUpwardIcon sx={{ color: "white", fontSize: "40px" }} />
             </div>
         </div>
     )

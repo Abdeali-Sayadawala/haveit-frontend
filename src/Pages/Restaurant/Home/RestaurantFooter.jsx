@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './Homepage.css';
-import logopng from '../Assets/logo-png.png';
-import halal_icon from  '../Assets/Halal.png';
-import fbIcon from '../Assets/facebook-5221.svg';
-import igIcon from '../Assets/instagram-logo-8869.svg';
+import logopng from '../../../Components/Assets/logo-png.png';
+import halal_icon from  '../../../Components/Assets/Halal.png';
+import fbIcon from '../../../Components/Assets/facebook-5221.svg';
+import igIcon from '../../../Components/Assets/instagram-logo-8869.svg';
 
 export default function RestaurantFooter() {
     return (

@@ -8,7 +8,7 @@ import Orders from "../../Pages/Restaurant/Orders";
 
 const restaurantRoutes = [
     {
-        index: true,
+        path: "",
         element:<RestaurantPages />,
         children: [
             {

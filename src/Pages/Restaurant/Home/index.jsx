@@ -1,11 +1,11 @@
 import React from "react";
-import Homepage from "./Homepage";
+import HomePage from "./HomePage";
 import RestaurantFooter from "./RestaurantFooter";
 
 const Home = () => {
     return(
         <div className='footer_wrapper'>
-            <Homepage/>
+            <HomePage/>
             <RestaurantFooter />
         </div>
       )

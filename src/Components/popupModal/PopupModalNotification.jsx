@@ -1,7 +1,7 @@
 import React from 'react';
 import './PopupModal.css';
-import checkMark from '../../Assets/check-mark-3281.svg';
-import exclamation from '../../Assets/exclamation-mark-9767.svg';
+import checkMark from '../Assets/check-mark-3281.svg';
+import exclamation from '../Assets/exclamation-mark-9767.svg';
 
 const PopupModalNotification = ({notification_type, parent}) => {
     var label = "";

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../style/userPages.css';
-import back_arrow from '../Assets/left-arrow.svg';
-import reset from '../Assets/reset-14414.svg';
-import upArrow from '../Assets/arrow-up-2822.svg';
+import back_arrow from '../../../Components/Assets/left-arrow.svg';
+import reset from '../../../Components/Assets/reset-14414.svg';
+import upArrow from '../../../Components/Assets/arrow-up-2822.svg';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 

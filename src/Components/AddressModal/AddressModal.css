@@ -1,0 +1,162 @@
+/* Address Modal css - START */
+
+.addr_modal {
+    display: block;
+    visibility: hidden;
+    max-height: calc(100vh - 170px);
+    top: 30%;
+    opacity: 0;
+    margin: 0 auto;
+    position: fixed;
+    z-index: 40011;
+    background: var(--bg-superdarkgrey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    width: 700px;
+    margin-top: 10%;
+    margin-left: 50px;
+    padding: 22px;
+
+    transition: all .2s ease-in;
+}
+
+.addr_modal.fade_in {
+    top: 0%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.addr_modal .addr_modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addr_modal .addr_modal_header span {
+    font-size: 19px;
+    color: white;
+}
+
+.addr_modal .addr_modal_header .close_btn {
+    border: none;
+    background: var(--bg-superdarkgrey);
+    cursor: pointer;
+}
+
+.addr_modal .addr_modal_header .close_btn img {
+    width: 15px;
+    height: 15px;
+}
+
+.addr_modal .addr_modal_body {
+    overflow-y: auto;
+    max-height: calc(100vh - 330px);
+}
+
+.addr_modal .addr_modal_body .body_element_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+}
+
+.addr_modal .addr_modal_body .body_element {
+    padding: 0px 10px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.addr_modal .addr_modal_body .body_element.half {
+    width: 50%;
+}
+
+.addr_modal .addr_modal_body .body_element span {
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+
+.addr_modal .addr_modal_body .body_element input.addr_modal_input {
+    width: 100%;
+    height: 40px;
+    font-size: 19px;
+    margin-top: 5px;
+    padding-left: 10px;
+
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    background: var(--bg-darkgrey);
+    color: var(--blue);
+
+    text-align: left;
+}
+
+.addr_modal .addr_modal_body .body_element input.addr_modal_input.phone {
+    margin-left: 10px;
+    width: 88%;
+}
+
+.addr_modal .addr_modal_body .body_element .phone_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addr_modal .addr_modal_body .body_element .phone_section span {
+    width: fit-content;
+    font-size: 19px;
+}
+
+.addr_modal .addr_modal_body .body_element input:focus {
+    outline: none;
+}
+
+.addr_modal .add_modal_submit {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addr_modal .add_modal_submit button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    .addr_modal {
+        width: 100%;
+        margin: 0;
+        max-height: none;
+    }
+
+    .addr_modal.fade_in {
+        top: 7%;
+        bottom: 0%;
+    }
+
+    .addr_modal .addr_modal_body {
+        height: 85%;
+        overflow-y: scroll;
+    }
+
+    .addr_modal .addr_modal_body .body_element.half {
+        width: 100%;
+    }
+
+    .addr_modal .add_modal_submit button{
+        width: 100%;
+    }
+}
+
+/* Address Modal css - END */

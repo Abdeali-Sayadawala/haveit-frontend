@@ -1,11 +1,11 @@
 import React from "react";
-import Menu from "./Menu";
+import MenuPage from "./MenuPage";
 import Cart from "../../../Components/Cart";
 
 const Menu = () => {
     return(
         <div className='main_wrapper'>
-            <Menu />
+            <MenuPage />
             <Cart />
         </div>
       )

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './Homepage.css';
 import {Link, useNavigate} from "react-router-dom";
-import pizza from '../Assets/pizza.jpg';
-import wArrow from '../Assets/arrow-white.svg';
-import location_pointer from '../Assets/location-pointer-2961.svg';
+import pizza from '../../../Components/Assets/pizza.jpg';
+import wArrow from '../../../Components/Assets/arrow-white.svg';
+import location_pointer from '../../../Components/Assets/location-pointer-2961.svg';
 
 export default function Homepage() {
     const rec_nav = React.useRef();

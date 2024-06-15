@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupModal.css';
 import PopupModalNotification from './PopupModalNotification';
 import { useState } from "react";
-import xBlue from '../../Assets/x-10332-blue.svg';
+import xBlue from '../Assets/x-10332-blue.svg';
 
 const PopupModal = () => {
 

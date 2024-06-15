@@ -1,17 +1,17 @@
 import React from 'react';
 import './Menu.css';
-import pizza from '../Assets/pizza.jpg';
-import rollups from '../Assets/rollups.png';
-import wArrow from '../Assets/arrow-white.svg';
+import pizza from '../../../Components/Assets/pizza.jpg';
+import rollups from '../../../Components/Assets/rollups.png';
+import wArrow from '../../../Components/Assets/arrow-white.svg';
 import FoodCard from '../../../Components/FoodCard/FoodCard';
 import PopupModal from '../../../Components/popupModal/PopupModal';
 import OtpPopModal from '../../../Components/popupModal/OtpPopModal';
 import SimpleBottomNavigation from '../../../Components/bottomNavigation/SimpleBottomNavigation';
-import searchIcon from '../Assets/search-2907.svg';
+import searchIcon from '../../../Components/Assets/search-2907.svg';
 import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
-const Menu = () => {
+const MenuPage = () => {
     const location = useLocation();
     const rec_nav = React.useRef();
 
@@ -316,4 +316,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default MenuPage;

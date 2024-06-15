@@ -1,6 +1,6 @@
 import React from 'react';
-import './userPages.css';
-import PopupModalNotification from '../miniComponents/popupModal/PopupModalNotification';
+import './ConfirmationModal.css';
+import PopupModalNotification from '../popupModal/PopupModalNotification';
 
 const ConfirmationModal = ({cnfm_type}) => {
 
