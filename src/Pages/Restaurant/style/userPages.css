@@ -1,0 +1,256 @@
+/* Title with menu button - START */
+.user_wrapper {
+    margin-top:8rem;
+    padding-top: 20px;
+    width: 800px;
+    min-height: calc(100vh - 8rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+.user_title {
+    margin-top: 5px;
+    margin-left: 0;
+    padding: 7px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.user_title .summary_label{
+    margin-left: 200px;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bolder;
+    color: var(--blue);
+}
+
+@media (max-width: 800px) {
+
+    .user_title .summary_label{
+        margin-left: 70px;
+        font-size: 30px;
+    }
+
+    .user_wrapper {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+/* Title with menu button - END */
+
+.data_section {
+    background: var(--bg-superdarkgrey);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    margin: 20px 0px;
+}
+
+.sec_row {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    background: var(--bg-darkgrey);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Orders page css - START */
+
+.order_items{
+    margin-left: 20px;
+}
+
+.order_items .item_data {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.order_items .item_data .orders_qnt{
+    color: var(--blue);
+}
+
+.order_items .item_data .orders_item_name {
+    color: white;
+}
+
+.order_summary_section {
+    width: 93%;
+    display: flex;
+
+    font-size: 17px;
+
+    margin: auto;
+    margin-top: 10px;
+    padding: 7px;
+    border-top: 1px dashed var(--blue);
+}
+
+.order_summary_section .order_time{
+    width: 50%;
+    color: #ababab;
+}
+
+.order_summary_section .order_total{
+    width: 50%;
+    text-align: right;
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reorder_but {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reorder_but button {
+    color: white;
+    font-size: 20px;
+    background: var(--blue);
+    border: none;
+    border-radius: 25px;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.reorder_but button img {
+    height: 13px;
+    width: 13px;
+}
+
+@media (max-width: 800px) {
+    .order_items .item_data {
+        font-size: 15px;
+    }
+
+    .order_summary_section {
+        font-size: 12px;
+    }
+
+    .order_summary_section .order_total{
+        font-size: 15px;
+    }
+
+    .reorder_but button {
+        font-size: 15px;
+    }
+
+    .reorder_but button img {
+        height: 10px;
+        width: 10px;
+    }
+
+}
+
+/* Orders page css - END */
+
+
+/* Address page css - START */
+
+/* Add new button css - START */
+
+.add_btn_sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_btn_sec button {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+
+    font-size: 15px;
+    background: var(--blue);
+    color: white;
+
+    cursor: pointer;
+}
+
+.add_btn_sec button img {
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+}
+
+/* Add new button css - END */
+
+.addr_section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.addr_row {
+    width: 370px;
+    margin: 10px;
+}
+
+.addr_data_section {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.addr_data_section .addr_title {
+    width: 100%;
+
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.addr_data_section .addr_data{
+    width: 100%;
+    height: 38px;
+    color: white;
+}
+
+.addr_data_section .addr_phone{
+    color: white;
+    font-size: 14px;
+}
+
+.add_action_section {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add_action_section button {
+    padding: 7px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 25px;
+    background: var(--blue);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Address page css - END */
+
+.exrta_space {
+    height: 80px;
+}
+
+/* Animations */
+
+@keyframes fadeIn_Modal {
+    from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+}
+
+@keyframes fadeOut_Modal {
+    from{
+        opacity: 1;
+      }
+      to{
+        opacity: 0;
+      }
+}
