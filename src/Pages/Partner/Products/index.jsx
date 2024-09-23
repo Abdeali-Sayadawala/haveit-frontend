@@ -1,5 +1,4 @@
 import React from 'react';
-import './Products.css';
 import {
     DataGrid,
     GridActionsCellItem,

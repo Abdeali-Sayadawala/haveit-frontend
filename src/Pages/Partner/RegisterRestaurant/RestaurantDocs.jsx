@@ -42,11 +42,13 @@ const RestaurantDocs = () => {
     const [gstNum, setGstNum] = React.useState('');
 
     const navReview = () => {
-        navigate('/register-restaurant/review');
+        window.scrollTo(0, 0);
+        navigate('/partner/register-restaurant/review');
     }
 
     const back = () => {
-        navigate('/register-restaurant/res-info');
+        window.scrollTo(0, 0);
+        navigate('/partner/register-restaurant/res-info');
     }
 
     return (

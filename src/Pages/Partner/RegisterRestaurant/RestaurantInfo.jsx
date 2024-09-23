@@ -81,7 +81,8 @@ const RestaurantInfo = () => {
     const [resOwnPhone, setResOwnPhone] = React.useState('');
 
     const navDocs = () => {
-        navigate('/register-restaurant/res-docs');
+        window.scrollTo(0, 0);
+        navigate('/partner/register-restaurant/res-docs');
     }
 
     return (

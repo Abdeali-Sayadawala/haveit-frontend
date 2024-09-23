@@ -86,34 +86,36 @@ const PartnerLogin = () => {
         setErrorState(initialErrorState);
         if (loginValidate() && !loader) {
             setLoader(true);
-            var params = {
-                email: email,
-                password: password
-            };
+            setAuthentication();
+            navigate('/partner/dashboard');
+            // var params = {
+            //     email: email,
+            //     password: password
+            // };
             
-            await ApiManager.login(params)
-            .then((result) => {
-                localStorage.setItem("access-token", JSON.stringify(result.tokens));
-                setAuthentication();
-                if (result.restaurant.length === 0){
-                    navigate('/partner/register-restaurant');
-                }else{
-                    navigate('/partner/dashboard');
-                }
-            })
-            .catch((response) => {
-                if (response.status){
-                    setLoader(false);
-                    // 3. get error messages, if any
-                    response.json().then((result) => {
-                        sendNotification(result.message, 'error');
-                        setPassword('');
-                    })
-                }else {
-                    sendNotification("Internal Server Error", 'error');
-                    setLoader(false);
-                }
-              });
+            // await ApiManager.login(params)
+            // .then((result) => {
+            //     localStorage.setItem("access-token", JSON.stringify(result.tokens));
+            //     setAuthentication();
+            //     if (result.restaurant.length === 0){
+            //         navigate('/partner/register-restaurant');
+            //     }else{
+            //         navigate('/partner/dashboard');
+            //     }
+            // })
+            // .catch((response) => {
+            //     if (response.status){
+            //         setLoader(false);
+            //         // 3. get error messages, if any
+            //         response.json().then((result) => {
+            //             sendNotification(result.message, 'error');
+            //             setPassword('');
+            //         })
+            //     }else {
+            //         sendNotification("Internal Server Error", 'error');
+            //         setLoader(false);
+            //     }
+            //   });
         }
     };
 

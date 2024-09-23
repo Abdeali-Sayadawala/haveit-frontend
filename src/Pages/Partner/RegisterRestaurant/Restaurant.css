@@ -205,4 +205,36 @@
     }
 }
 
+/* ================================= Restaurant registration docs section css - START =============================== */
+
+.section_body .review_full_section {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.section_body .review_full_section .section_value {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%;
+    color: black;
+    font-size:20px;
+    overflow-wrap: break-word;
+}
+
+.section_body .review_full_section .half_section {
+    margin-top: 10px;
+    display: flex;
+    width: 96%;
+}
+
+@media (max-width: 600px) {
+    .section_body .review_full_section .half_section {
+        flex-direction: column;
+    } 
+}
+
+/* ================================= Restaurant registration docs section css - END =============================== */
+
 /* ================================= Restaurant registeration data css - END =============================== */

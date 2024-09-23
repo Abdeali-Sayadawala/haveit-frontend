@@ -1,5 +1,4 @@
 import React from 'react';
-import './Products.css';
 import { ColorButton, textFieldTheme } from '../helpers/CommonVars';
 import { ThemeProvider } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';

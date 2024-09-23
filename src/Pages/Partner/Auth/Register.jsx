@@ -167,27 +167,27 @@ const PartnerRegister = () => {
         closeNotification();
         setErrorState(initialErrorState);
         if (registerValidate() && !loader){
-            setLoader(true);
-            var params = {
-                email: email,
-                first_name: firstName,
-                last_name: lastName,
-                password: password
-            }
+            // setLoader(true);
+            // var params = {
+            //     email: email,
+            //     first_name: firstName,
+            //     last_name: lastName,
+            //     password: password
+            // }
 
-            await ApiManager.register(params)
-            .then((result) => {
-                sendNotification("User created succesfully.");
-                setLoader(false);
-                // navigate('/partner/login')
-            })
-            .catch((response) => {
-                setLoader(false);
-                // 3. get error messages, if any
-                response.json().then((result) => {
-                    sendNotification(result.message, 'error');
-                })
-            });
+            // await ApiManager.register(params)
+            // .then((result) => {
+            //     sendNotification("User created succesfully.");
+            //     setLoader(false);
+            //     // navigate('/partner/login')
+            // })
+            // .catch((response) => {
+            //     setLoader(false);
+            //     // 3. get error messages, if any
+            //     response.json().then((result) => {
+            //         sendNotification(result.message, 'error');
+            //     })
+            // });
         }
     }
 
